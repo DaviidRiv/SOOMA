@@ -1,11 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import SoomaAccordion from "../components/Accordion.jsx";
+import ContactForm from "../components/ContactForm.jsx";
 ---
+<Layout title="SOOMA Consultores">
+  <section class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="mb-4 text-3xl font-bold">SOOMA Consultores</h1>
+    <p class="mb-8 text-neutral-700">
+      Misión, visión y servicios de consultoría y capacitación.
+    </p>
 
-<Layout>
-	<Welcome />
+    <!-- Isla React -->
+    <SoomaAccordion client:visible />
+  </section>
+
+	<section class="mx-auto max-w-3xl px-4 py-12">
+		<h2 class="mb-4 text-2xl font-semibold">Contacto</h2>
+		<ContactForm client:load />
+	</section>
 </Layout>
