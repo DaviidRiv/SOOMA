@@ -2,123 +2,69 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
+    // === INICIO (antes: Homes) ===
     {
-      text: 'Homes',
+      text: 'Inicio',
       links: [
-        {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
-        },
-        {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
-        },
-        {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
-        },
-        {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
-        },
+        { text: 'Misión y Visión', href: getPermalink('/homes/saas') },         // antes: SaaS
+        { text: '¿Quiénes somos?', href: getPermalink('/homes/startup') },      // antes: Startup
+        { text: 'Contacto', href: getPermalink('/homes/mobile-app') },          // antes: Mobile App
+        { text: 'Ubicación', href: getPermalink('/homes/personal') },           // antes: Personal
       ],
     },
+
+    // === SEGURIDAD (antes: Pages) ===
     {
-      text: 'Pages',
+      text: 'Seguridad',
       links: [
-        {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
-        },
-        {
-          text: 'Services',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
-        },
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
+        { text: 'Escolar', href: getPermalink('/#features') },                  // antes: Features (Anchor Link)
+        { text: 'Intramuros', href: getPermalink('/services') },                // antes: Services
+        { text: 'Laboral', href: getPermalink('/pricing') },                    // antes: Pricing
+        { text: 'Ciberseguridad', href: getPermalink('/about') },               // antes: About us
+        { text: 'De datos personales', href: getPermalink('/contact') },        // antes: Contact
+        { text: 'Gestión de permisos', href: getPermalink('/terms') },          // antes: Terms
+        { text: 'Vulnerabilidad', href: getPermalink('/privacy') },             // antes: Privacy policy
       ],
     },
+
+    // === CAPACITACIÓN (antes: Landing) ===
     {
-      text: 'Landing',
+      text: 'Capacitación',
       links: [
-        {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
-        },
-        {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
-        },
-        {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
-        },
+        { text: 'Técnica', href: getPermalink('/landing/lead-generation') },    // antes: Lead Generation
+        { text: 'Profesional', href: getPermalink('/landing/sales') },          // antes: Long-form Sales
+        { text: 'General', href: getPermalink('/landing/click-through') },      // antes: Click-Through
+        { text: 'Específica', href: getPermalink('/landing/product') },         // antes: Product Details
+        { text: 'Desarrollo Humano', href: getPermalink('/landing/pre-launch') },// antes: Coming Soon or Pre-Launch
+        { text: 'Alta dirección', href: getPermalink('/landing/subscription') }, // antes: Subscription
       ],
     },
+
+    // === METODOLOGÍA (antes: Blog) ===
     {
-      text: 'Blog',
+      text: 'Metodología',
       links: [
-        {
-          text: 'Blog List',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-        },
-        {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
-        },
+        { text: 'Diagnóstico', href: getBlogPermalink() },                      // antes: Blog List
+        { text: 'Planificación', href: getPermalink('get-started-website-with-astro-tailwind-css', 'post') }, // antes: Article
+        { text: 'Implementación', href: getPermalink('markdown-elements-demo-post', 'post') },                // antes: Article (with MDX)
+        { text: 'Evaluación', href: getPermalink('tutorials', 'category') },    // antes: Category Page
+        { text: 'Recursos', href: getPermalink('astro', 'tag') },               // antes: Tag Page (nombre genérico)
       ],
     },
+
+    // === CORTESÍAS (antes: Widgets) ===
     {
-      text: 'Widgets',
-      href: '#',
+      text: 'Cortesías',
+      href: '#', // se mantiene igual
     },
   ],
+
+  // Botón derecho: lo dejo como estaba para que siga enviando al mismo lugar
   actions: [{ text: 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
+  // sin cambios (conserva los mismos href)
   links: [
     {
       title: 'Product',

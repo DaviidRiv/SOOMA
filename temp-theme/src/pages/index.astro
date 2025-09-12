@@ -2,20 +2,14 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'SOOMA Consultores — Inicio',
   description:
-    'Capacitación y consultoría en seguridad y desarrollo humano. Programas a la medida para instituciones educativas, empresas y sector público.',
+    'Consultoría y capacitación en seguridad y desarrollo humano para instituciones educativas, empresas y sector público.',
 };
 ---
 
@@ -32,7 +26,7 @@ const metadata = {
       },
       { text: 'Conócenos', href: '/nosotros' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'Equipo de SOOMA Consultores' }}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Equipo SOOMA durante una sesión de trabajo' }}
   >
     <Fragment slot="title">
       Capacitación y <span class="hidden xl:inline">consultoría en</span>
@@ -41,8 +35,8 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">SOOMA Consultores</span> fortalece procesos de prevención y mejora la calidad del
-        servicio desde el primer contacto.
+        <span class="font-semibold">SOOMA Consultores</span> estandariza procesos, reduce riesgos
+        y mejora la calidad del servicio desde el primer contacto.
       </span>
       <span class="block mb-1 sm:hidden font-bold text-brand">Seguridad y capacitación profesional.</span>
       Programas a la medida para instituciones educativas, empresas y organizaciones públicas.
@@ -59,19 +53,19 @@ const metadata = {
       {
         title: 'Misión',
         description:
-          'Impulsar entornos seguros y eficientes mediante diagnóstico, capacitación y protocolos claros que eleven el servicio desde el primer contacto.',
+          'Impulsar entornos seguros y eficientes mediante diagnóstico, capacitación y protocolos claros.',
         icon: 'tabler:target',
       },
       {
         title: 'Visión',
         description:
-          'Ser aliados estratégicos en seguridad y desarrollo humano para organizaciones en México y LATAM, con resultados medibles y sostenibles.',
+          'Ser aliados estratégicos en seguridad y desarrollo humano en México y LATAM con resultados medibles.',
         icon: 'tabler:eye',
       },
       {
         title: 'Valores',
         description:
-          'Integridad, profesionalismo, enfoque humano, mejora continua y confidencialidad. Trabajamos con respeto y claridad.',
+          'Integridad, profesionalismo, enfoque humano, mejora continua y confidencialidad.',
         icon: 'tabler:heart',
       },
     ]}
@@ -82,15 +76,15 @@ const metadata = {
     id="nosotros"
     isReversed
     tagline="¿Quiénes somos?"
-    title="Acompañamos a tu organización con metodología y experiencia"
+    title="Metodología y experiencia para resultados medibles"
     items={[
       {
         title: 'Equipo multidisciplinario',
-        description: 'Especialistas en seguridad escolar, intramuros y laboral; ciberseguridad y gestión de datos.',
+        description: 'Especialistas en seguridad escolar, intramuros, laboral; ciberseguridad y protección de datos.',
       },
       {
         title: 'Metodología',
-        description: 'Diagnóstico → Planificación → Implementación → Evaluación, con indicadores claros.',
+        description: 'Diagnóstico → Planificación → Implementación → Evaluación, con indicadores y seguimiento.',
       },
       {
         title: 'Capacitación a medida',
@@ -98,15 +92,14 @@ const metadata = {
       },
     ]}
     image={{
-      /* usamos una imagen ya presente en tu ejemplo para no perder estilos */
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Equipo de trabajo',
+      alt: 'Equipo de trabajo en sesión',
     }}
   >
     <Fragment slot="content">
       <p>
         Combinamos práctica operativa y administración para estandarizar procesos, reducir errores y fortalecer la
-        prevención. Nuestro objetivo es que los cambios se noten en servicio, seguridad y satisfacción.
+        prevención. Los cambios se notan en servicio, seguridad y satisfacción.
       </p>
     </Fragment>
 
@@ -117,13 +110,13 @@ const metadata = {
 
   <!-- Contacto ******************************** -->
   <section id="contacto" class="py-16">
-    <div class="mx-auto max-w-7xl px-6">  <!-- contenedor centrado -->
+    <div class="mx-auto max-w-7xl px-6">
       <div class="grid items-stretch gap-8 md:grid-cols-2">
         <!-- Columna izquierda: imagen + texto -->
         <div class="relative overflow-hidden rounded-2xl shadow-lg">
           <img
             src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?q=80&w=1600&auto=format&fit=crop"
-            alt="Contacto SOOMA"
+            alt="Línea directa de contacto SOOMA"
             class="h-full w-full object-cover"
             loading="lazy"
           />
@@ -138,7 +131,6 @@ const metadata = {
               <li>• Programas a la medida</li>
             </ul>
 
-            <!-- Tarjeta info -->
             <div class="mt-6 grid gap-3 sm:grid-cols-2">
               <div class="rounded-xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
                 <p class="text-xs uppercase text-white/70">Correo</p>
@@ -212,9 +204,8 @@ const metadata = {
 
   <!-- Mapa ************************************ -->
   <section id="mapa" class="py-16">
-    <div class="mx-auto max-w-7xl px-6">  <!-- contenedor centrado -->
+    <div class="mx-auto max-w-7xl px-6">
       <div class="relative overflow-hidden rounded-2xl bg-slate-100 shadow-lg">
-        <!-- iframe -->
         <div class="h-[420px] w-full">
           <iframe
             class="h-full w-full"
@@ -226,7 +217,6 @@ const metadata = {
           ></iframe>
         </div>
 
-        <!-- Tarjeta flotante -->
         <div class="absolute left-4 top-4 w-[min(360px,92%)] rounded-xl bg-white p-4 shadow-xl ring-1 ring-black/5 md:left-6 md:top-6">
           <p class="text-xs uppercase tracking-wide text-accent">Ubicación</p>
           <h3 class="text-lg font-semibold">SOOMA Consultores</h3>
@@ -255,7 +245,7 @@ const metadata = {
     </div>
   </section>
 
-  <!-- CTA final (opcional) ******************** -->
+  <!-- CTA final ******************************* -->
   <CallToAction
     actions={[
       {
@@ -268,6 +258,32 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">¿Listos para empezar?</Fragment>
-    <Fragment slot="subtitle">Conversemos y trazamos un plan a la medida de tu organización.</Fragment>
+    <Fragment slot="subtitle">Conversemos y definamos un plan a la medida de tu organización.</Fragment>
   </CallToAction>
+
+  <!-- Botón flotante: volver arriba *********** -->
+  <button
+    id="toTop"
+    aria-label="Volver arriba"
+    class="fixed bottom-5 right-5 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-white shadow-xl transition-all duration-200 hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-slate-300 opacity-0 pointer-events-none"
+  >
+    <!-- Flecha -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script is:inline>
+    const btn = document.getElementById('toTop');
+    const toggle = () => {
+      if (window.scrollY > 400) {
+        btn.classList.remove('opacity-0','pointer-events-none');
+      } else {
+        btn.classList.add('opacity-0','pointer-events-none');
+      }
+    };
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    toggle();
+  </script>
 </Layout>
