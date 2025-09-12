@@ -1,21 +1,33 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import SoomaAccordion from "../components/Accordion.jsx";
+import Base from "../layouts/Base.astro";
+import NavbarMega from "../components/NavbarMega.jsx";
+import Hero from "../components/Hero.jsx";
 import ContactForm from "../components/ContactForm.jsx";
 ---
-<Layout title="SOOMA Consultores">
-  <section class="mx-auto max-w-4xl px-4 py-12">
-    <h1 class="mb-4 text-3xl font-bold">SOOMA Consultores</h1>
-    <p class="mb-8 text-neutral-700">
-      Misión, visión y servicios de consultoría y capacitación.
-    </p>
 
-    <!-- Isla React -->
-    <SoomaAccordion client:visible />
+<Base title="Sooma Consultores">
+  <NavbarMega client:load />
+
+  <Hero client:load />
+
+  <!-- Aquí podrías mostrar tarjetas de servicios destacados -->
+  <section class="mx-auto max-w-7xl px-6 py-16">
+    <h2 class="text-2xl font-bold text-[#0f3f66]">Soluciones clave</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-xl border border-gray-100 p-5 shadow-sm">
+        <h3 class="text-lg font-semibold">Diagnóstico integral de seguridad</h3>
+        <p class="mt-2 text-sm text-gray-600">Evaluamos riesgos escolares, intramuros y laborales para priorizar acciones.</p>
+      </article>
+      <article class="rounded-xl border border-gray-100 p-5 shadow-sm">
+        <h3 class="text-lg font-semibold">Capacitaciones a medida</h3>
+        <p class="mt-2 text-sm text-gray-600">Programas técnicos, desarrollo humano y alta dirección.</p>
+      </article>
+      <article class="rounded-xl border border-gray-100 p-5 shadow-sm">
+        <h3 class="text-lg font-semibold">Gestión de datos personales</h3>
+        <p class="mt-2 text-sm text-gray-600">Cumplimiento y protocolos de respuesta ante incidentes.</p>
+      </article>
+    </div>
   </section>
 
-	<section class="mx-auto max-w-3xl px-4 py-12">
-		<h2 class="mb-4 text-2xl font-semibold">Contacto</h2>
-		<ContactForm client:load />
-	</section>
-</Layout>
+  <ContactForm client:load />
+</Base>

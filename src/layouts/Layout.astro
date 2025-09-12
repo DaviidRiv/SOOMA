@@ -1,22 +1,23 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Navbar from "../components/Navbar.jsx";
+import ContactForm from "../components/ContactForm.jsx";
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sooma Consultores</title>
+  </head>
+  <body class="font-sans">
+    <Navbar />
+    <main class="min-h-screen">
+      <!-- Aquí tu contenido principal -->
+      <section class="p-8 text-center">
+        <h1 class="text-3xl font-bold">Bienvenido a Sooma Consultores</h1>
+        <p class="mt-4 text-gray-600">Texto de presentación o slider...</p>
+      </section>
+
+      <ContactForm />
+    </main>
+  </body>
+</html>
