@@ -2,69 +2,76 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    // === INICIO (antes: Homes) ===
+    // === INICIO (queda igual) ===
     {
       text: 'Inicio',
       links: [
-        { text: 'Misión y Visión', href: getPermalink('/homes/saas') },         // antes: SaaS
-        { text: '¿Quiénes somos?', href: getPermalink('/homes/startup') },      // antes: Startup
-        { text: 'Contacto', href: getPermalink('/homes/mobile-app') },          // antes: Mobile App
-        { text: 'Ubicación', href: getPermalink('/homes/personal') },           // antes: Personal
+        { text: 'Misión y Visión', href: getPermalink('/homes/saas') },
+        { text: '¿Quiénes somos?', href: getPermalink('/homes/startup') },
+        { text: 'Contacto',       href: getPermalink('/homes/mobile-app') },
+        { text: 'Ubicación',      href: getPermalink('/homes/personal') },
       ],
     },
 
-    // === SEGURIDAD (antes: Pages) ===
+    // === SEGURIDAD (nuevo menú principal) ===
     {
       text: 'Seguridad',
       links: [
-        { text: 'Escolar', href: getPermalink('/#features') },                  // antes: Features (Anchor Link)
-        { text: 'Intramuros', href: getPermalink('/services') },                // antes: Services
-        { text: 'Laboral', href: getPermalink('/pricing') },                    // antes: Pricing
-        { text: 'Ciberseguridad', href: getPermalink('/about') },               // antes: About us
-        { text: 'De datos personales', href: getPermalink('/contact') },        // antes: Contact
-        { text: 'Gestión de permisos', href: getPermalink('/terms') },          // antes: Terms
-        { text: 'Vulnerabilidad', href: getPermalink('/privacy') },             // antes: Privacy policy
+        { text: 'Escolar',             href: getPermalink('/#features') },
+        { text: 'Intramuros',          href: getPermalink('/services') },
+        { text: 'Laboral',             href: getPermalink('/pricing') },
+        { text: 'Ciberseguridad',      href: getPermalink('/about') },
+        { text: 'De datos personales', href: getPermalink('/contact') },
+        { text: 'Gestión de permisos', href: getPermalink('/terms') },
+        { text: 'Vulnerabilidad',      href: getPermalink('/privacy') },
       ],
     },
 
-    // === CAPACITACIÓN (antes: Landing) ===
+    // === CAPACITACIÓN (nuevo) ===
     {
       text: 'Capacitación',
       links: [
-        { text: 'Técnica', href: getPermalink('/landing/lead-generation') },    // antes: Lead Generation
-        { text: 'Profesional', href: getPermalink('/landing/sales') },          // antes: Long-form Sales
-        { text: 'General', href: getPermalink('/landing/click-through') },      // antes: Click-Through
-        { text: 'Específica', href: getPermalink('/landing/product') },         // antes: Product Details
-        { text: 'Desarrollo Humano', href: getPermalink('/landing/pre-launch') },// antes: Coming Soon or Pre-Launch
-        { text: 'Alta dirección', href: getPermalink('/landing/subscription') }, // antes: Subscription
+        { text: 'Técnica',            href: getPermalink('/landing/lead-generation') },
+        { text: 'Profesional',        href: getPermalink('/landing/sales') },
+        { text: 'General',            href: getPermalink('/landing/click-through') },
+        { text: 'Específica',         href: getPermalink('/landing/product') },
+        { text: 'Desarrollo Humano',  href: getPermalink('/landing/pre-launch') },
+        { text: 'Alta dirección',     href: getPermalink('/landing/subscription') },
+        { text: 'Inducción al puesto',        href: getPermalink('astro','tag') },
       ],
     },
 
-    // === METODOLOGÍA (antes: Blog) ===
+    // === METODOLOGÍA (nuevo) ===
     {
       text: 'Metodología',
       links: [
-        { text: 'Diagnóstico', href: getBlogPermalink() },                      // antes: Blog List
-        { text: 'Planificación', href: getPermalink('get-started-website-with-astro-tailwind-css', 'post') }, // antes: Article
-        { text: 'Implementación', href: getPermalink('markdown-elements-demo-post', 'post') },                // antes: Article (with MDX)
-        { text: 'Evaluación', href: getPermalink('tutorials', 'category') },    // antes: Category Page
-        { text: 'Recursos', href: getPermalink('astro', 'tag') },               // antes: Tag Page (nombre genérico)
+        { text: 'Diagnóstico',     href: getBlogPermalink() },
+        { text: 'Planificación',   href: getPermalink('get-started-website-with-astro-tailwind-css','post') },
+        { text: 'Implementación',  href: getPermalink('markdown-elements-demo-post','post') },
+        { text: 'Evaluación',      href: getPermalink('tutorials','category') },
       ],
     },
 
-    // === CORTESÍAS (antes: Widgets) ===
+    // === CORTESÍAS (nuevo) ===
     {
       text: 'Cortesías',
-      href: '#', // se mantiene igual
+      links: [
+        { text: 'Diagnóstico ejecutivo',        href: getPermalink('/courtesias/diagnostico-ejecutivo') },
+        { text: 'Conferencia "Ciberseguridad"', href: getPermalink('/courtesias/conferencia-ciberseguridad') },
+        { text: 'Conferencia "Violencia"',      href: getPermalink('/courtesias/conferencia-violencia') },
+        { text: 'Conferencia "Liderazgo"',      href: getPermalink('/courtesias/conferencia-liderazgo') },
+      ],
     },
   ],
 
-  // Botón derecho: lo dejo como estaba para que siga enviando al mismo lugar
-  actions: [{ text: 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
+  // Botón derecho actualizado
+  actions: [
+    { text: 'Contáctanos', href: '/#contacto', target: '_self' },
+  ],
 };
 
 export const footerData = {
-  // sin cambios (conserva los mismos href)
+  // sin cambios
   links: [
     {
       title: 'Product',
@@ -123,6 +130,6 @@ export const footerData = {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
   ],
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo"> Arthelokyo</a> · All rights reserved.
+    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo">Arthelokyo</a> · All rights reserved.
   `,
 };

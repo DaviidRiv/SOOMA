@@ -11,19 +11,29 @@ const metadata = {
   description:
     'Consultoría y capacitación en seguridad y desarrollo humano para instituciones educativas, empresas y sector público.',
 };
+
+// ====== Datos centralizados ======
+const address = 'Cañada Real 316, C.P. 78215, Lomas del Tecnológico, San Luis Potosí, S.L.P.';
+const mapsQuery = encodeURIComponent(address);
+const mapsEmbed = `https://www.google.com/maps?q=${mapsQuery}&output=embed`;
+const mapsLink = `https://maps.google.com/?q=${mapsQuery}`;
+
+const emailTo = 'emmaidaliasaldana@gmail.com';
+const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailTo)}&su=${encodeURIComponent('Consulta — SOOMA')}&body=${encodeURIComponent('Hola, me interesa un diagnóstico para mi institución.')}`;
+
+const waE164 = '524441425726'; // sin símbolos, para wa.me
+const waLink = `https://wa.me/${waE164}?text=${encodeURIComponent('Hola, me interesa un diagnóstico para mi institución.')}`;
+const waHuman = '+52 444 142 5726';
+
+// Ruta de tu logo (colócalo en /public de tu proyecto activo)
+const logoSrc = '/logo-sooma.jpg';
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} noFooter>
   <!-- Hero *********************************** -->
   <Hero
     actions={[
-      {
-        variant: 'primary',
-        text: 'Solicitar diagnóstico',
-        href: '#contacto',
-        target: '_self',
-        icon: 'tabler:clipboard-check',
-      },
+      { variant: 'primary', text: 'Solicitar diagnóstico', href: '#contacto', target: '_self', icon: 'tabler:clipboard-check' },
       { text: 'Conócenos', href: '/nosotros' },
     ]}
     image={{ src: '~/assets/images/hero-image.png', alt: 'Equipo SOOMA durante una sesión de trabajo' }}
@@ -32,7 +42,6 @@ const metadata = {
       Capacitación y <span class="hidden xl:inline">consultoría en</span>
       <span class="text-accent dark:text-white"> seguridad y desarrollo humano</span>
     </Fragment>
-
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
         <span class="font-semibold">SOOMA Consultores</span> estandariza procesos, reduce riesgos
@@ -50,24 +59,9 @@ const metadata = {
     title="Misión · Visión · Valores"
     subtitle="Nuestra guía para acompañarte con profesionalismo y enfoque humano."
     items={[
-      {
-        title: 'Misión',
-        description:
-          'Impulsar entornos seguros y eficientes mediante diagnóstico, capacitación y protocolos claros.',
-        icon: 'tabler:target',
-      },
-      {
-        title: 'Visión',
-        description:
-          'Ser aliados estratégicos en seguridad y desarrollo humano en México y LATAM con resultados medibles.',
-        icon: 'tabler:eye',
-      },
-      {
-        title: 'Valores',
-        description:
-          'Integridad, profesionalismo, enfoque humano, mejora continua y confidencialidad.',
-        icon: 'tabler:heart',
-      },
+      { title: 'Misión', description: 'Impulsar entornos seguros y eficientes mediante diagnóstico, capacitación y protocolos claros.', icon: 'tabler:target' },
+      { title: 'Visión', description: 'Ser aliados estratégicos en seguridad y desarrollo humano en México y LATAM con resultados medibles.', icon: 'tabler:eye' },
+      { title: 'Valores', description: 'Integridad, profesionalismo, enfoque humano, mejora continua y confidencialidad.', icon: 'tabler:heart' },
     ]}
   />
 
@@ -78,18 +72,9 @@ const metadata = {
     tagline="¿Quiénes somos?"
     title="Metodología y experiencia para resultados medibles"
     items={[
-      {
-        title: 'Equipo multidisciplinario',
-        description: 'Especialistas en seguridad escolar, intramuros, laboral; ciberseguridad y protección de datos.',
-      },
-      {
-        title: 'Metodología',
-        description: 'Diagnóstico → Planificación → Implementación → Evaluación, con indicadores y seguimiento.',
-      },
-      {
-        title: 'Capacitación a medida',
-        description: 'Técnica, profesional y de desarrollo humano para todos los niveles, incluida alta dirección.',
-      },
+      { title: 'Equipo multidisciplinario', description: 'Especialistas en seguridad escolar, intramuros, laboral; ciberseguridad y protección de datos.' },
+      { title: 'Metodología', description: 'Diagnóstico → Planificación → Implementación → Evaluación, con indicadores y seguimiento.' },
+      { title: 'Capacitación a medida', description: 'Técnica, profesional y de desarrollo humano para todos los niveles, incluida alta dirección.' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2070&q=80',
@@ -102,7 +87,6 @@ const metadata = {
         prevención. Los cambios se notan en servicio, seguridad y satisfacción.
       </p>
     </Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50/60 dark:bg-transparent"></div>
     </Fragment>
@@ -112,7 +96,7 @@ const metadata = {
   <section id="contacto" class="py-16">
     <div class="mx-auto max-w-7xl px-6">
       <div class="grid items-stretch gap-8 md:grid-cols-2">
-        <!-- Columna izquierda: imagen + texto -->
+        <!-- Columna izquierda: imagen + datos -->
         <div class="relative overflow-hidden rounded-2xl shadow-lg">
           <img
             src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?q=80&w=1600&auto=format&fit=crop"
@@ -123,22 +107,21 @@ const metadata = {
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/30 to-transparent"></div>
 
           <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <p class="text-sm uppercase tracking-wider text-white/80">¿Tienes dudas?</p>
-            <h3 class="mt-1 text-2xl font-bold">Hablemos de tu proyecto</h3>
-            <ul class="mt-4 space-y-2 text-white/90">
-              <li>• Respuesta en menos de 24 horas</li>
-              <li>• Diagnóstico inicial sin costo</li>
-              <li>• Programas a la medida</li>
-            </ul>
+            <p class="text-sm uppercase tracking-wider text-white/80">Contáctanos</p>
+            <h3 class="mt-1 text-2xl font-bold">Ponte en contacto</h3>
 
-            <div class="mt-6 grid gap-3 sm:grid-cols-2">
-              <div class="rounded-xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
-                <p class="text-xs uppercase text-white/70">Correo</p>
-                <p class="font-semibold">hola@sooma.consultores</p>
+            <div class="mt-6 space-y-3 text-white/90">
+              <div>
+                <p class="text-xs uppercase text-white/70">Correo electrónico</p>
+                <p class="font-semibold break-all">{emailTo}</p>
               </div>
-              <div class="rounded-xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
-                <p class="text-xs uppercase text-white/70">Teléfono</p>
-                <p class="font-semibold">+52 (229) 000 0000</p>
+              <div>
+                <p class="text-xs uppercase text-white/70">Teléfono / WhatsApp</p>
+                <p class="font-semibold">{waHuman}</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase text-white/70">Dirección</p>
+                <p class="font-semibold">{address}</p>
               </div>
             </div>
           </div>
@@ -147,55 +130,52 @@ const metadata = {
         <!-- Columna derecha: formulario -->
         <div class="rounded-2xl bg-white p-6 shadow-xl dark:bg-slate-900/60">
           <div class="mb-6 text-center">
-            <p class="text-sm uppercase tracking-wide text-accent">Contacto</p>
-            <h2 class="mt-1 text-3xl font-bold">Envíanos un mensaje</h2>
+            <p class="text-sm uppercase tracking-wide text-accent">Contáctanos</p>
+            <h2 class="mt-1 text-3xl font-bold">Enviar un mensaje</h2>
             <p class="mt-2 text-slate-600 dark:text-slate-300">
-              Cuéntanos brevemente tu necesidad y te responderemos a la brevedad.
+              Déjanos tu nombre, correo y tu mensaje. Te respondemos a la brevedad.
             </p>
           </div>
 
           <form
-            class="grid gap-4 md:grid-cols-2"
+            class="grid gap-4"
             onsubmit="event.preventDefault(); alert('¡Gracias! Pronto te contactamos. (Conecta Formspree o tu API)');"
           >
-            <div>
-              <label class="mb-1 block text-sm font-medium">Nombre</label>
-              <div class="relative">
-                <input class="w-full rounded-lg border px-3 py-2 pl-10" placeholder="Tu nombre" required aria-label="Nombre" />
-                <svg class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 0115 0" />
-                </svg>
+            <div class="grid gap-4 md:grid-cols-2">
+              <div>
+                <label class="mb-1 block text-sm font-medium">Nombre</label>
+                <div class="relative">
+                  <input class="w-full rounded-lg border px-3 py-2 pl-10" placeholder="Nombre" required aria-label="Nombre" />
+                  <svg class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 0115 0" />
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <label class="mb-1 block text-sm font-medium">Correo electrónico</label>
+                <div class="relative">
+                  <input type="email" class="w-full rounded-lg border px-3 py-2 pl-10" placeholder="Correo electrónico" required aria-label="Correo electrónico" />
+                  <svg class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 7.5l-9.75 6-9.75-6m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75h15a2.25 2.25 0 002.25-2.25v-9z" />
+                  </svg>
+                </div>
               </div>
             </div>
 
             <div>
-              <label class="mb-1 block text-sm font-medium">Email</label>
-              <div class="relative">
-                <input type="email" class="w-full rounded-lg border px-3 py-2 pl-10" placeholder="tu@correo.com" required aria-label="Email" />
-                <svg class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 7.5l-9.75 6-9.75-6m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75h15a2.25 2.25 0 002.25-2.25v-9z" />
-                </svg>
-              </div>
-            </div>
-
-            <div class="md:col-span-2">
-              <label class="mb-1 block text-sm font-medium">Asunto</label>
-              <input class="w-full rounded-lg border px-3 py-2" placeholder="Tema del mensaje" aria-label="Asunto" />
-            </div>
-
-            <div class="md:col-span-2">
               <label class="mb-1 block text-sm font-medium">Mensaje</label>
-              <textarea rows="4" class="w-full rounded-lg border px-3 py-2" placeholder="¿En qué podemos ayudarte?" required aria-label="Mensaje"></textarea>
+              <textarea rows="6" class="w-full rounded-lg border px-3 py-2" placeholder="Escribe tu mensaje aquí..." required aria-label="Mensaje"></textarea>
             </div>
 
-            <div class="md:col-span-2 flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+            <div class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
               <input id="consent" type="checkbox" required class="mt-1" />
               <label for="consent">Acepto ser contactado con fines informativos y comerciales.</label>
             </div>
 
-            <div class="md:col-span-2">
-              <button class="w-full rounded-lg bg-accent px-4 py-2 font-semibold text-white hover:opacity-90">Enviar</button>
-            </div>
+            <button class="mt-2 w-full rounded-lg bg-accent px-4 py-2 font-semibold text-white hover:opacity-90">
+              Enviar
+            </button>
           </form>
         </div>
       </div>
@@ -212,7 +192,7 @@ const metadata = {
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Veracruz%2C%20M%C3%A9xico&output=embed"
+            src={mapsEmbed}
             title="Ubicación SOOMA"
           ></iframe>
         </div>
@@ -221,22 +201,15 @@ const metadata = {
           <p class="text-xs uppercase tracking-wide text-accent">Ubicación</p>
           <h3 class="text-lg font-semibold">SOOMA Consultores</h3>
           <p class="mt-1 text-sm text-slate-600">
-            Veracruz, México <br />
+            {address} <br />
             Atención: Lun–Vie 9:00–18:00
           </p>
 
           <div class="mt-4 grid grid-cols-2 gap-2">
-            <a
-              class="rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-medium text-white hover:opacity-90"
-              href="https://maps.google.com/?q=Veracruz,+México"
-              target="_blank" rel="noreferrer"
-            >
+            <a class="rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-medium text-white hover:opacity-90" href={mapsLink} target="_blank" rel="noreferrer">
               Abrir en Google Maps
             </a>
-            <a
-              class="rounded-lg bg-white px-3 py-2 text-center text-sm font-medium ring-1 ring-slate-200 hover:bg-slate-50"
-              href="#contacto"
-            >
+            <a class="rounded-lg bg-white px-3 py-2 text-center text-sm font-medium ring-1 ring-slate-200 hover:bg-slate-50" href="#contacto">
               Contacto
             </a>
           </div>
@@ -248,18 +221,113 @@ const metadata = {
   <!-- CTA final ******************************* -->
   <CallToAction
     actions={[
-      {
-        variant: 'primary',
-        text: 'Agendar diagnóstico sin costo',
-        href: '#contacto',
-        target: '_self',
-        icon: 'tabler:calendar',
-      },
+      { variant: 'primary', text: 'Agendar diagnóstico sin costo', href: '#contacto', target: '_self', icon: 'tabler:calendar' },
     ]}
   >
     <Fragment slot="title">¿Listos para empezar?</Fragment>
     <Fragment slot="subtitle">Conversemos y definamos un plan a la medida de tu organización.</Fragment>
   </CallToAction>
+
+<Fragment slot="footer">
+  <!-- Footer ÚNICO (tu diseño) -->
+  <footer id="custom-footer" class="mt-10 bg-[#030409] text-white">
+    <div class="mx-auto max-w-7xl px-6 py-8">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <!-- Logo SOOMA arriba a la izquierda -->
+        <img src={logoSrc} alt="SOOMA Consultores" class="h-16 w-auto rounded-sm object-contain" loading="lazy" />
+
+        <!-- Menú -->
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium">
+          <a href="/" class="hover:underline">Inicio</a>
+          <a href="/#brands" class="hover:underline">Marcas</a>
+          <a href="/#services" class="hover:underline">Servicios</a>
+          <a href="/#faq" class="hover:underline">Preguntas frecuentes</a>
+          <a href="/#test-drive" class="hover:underline">Demostración</a>
+          <a href="/#clients" class="hover:underline">Clientes</a>
+          <a href="/#why-us" class="hover:underline">Por qué nosotros</a>
+          <a href="/#contacto" class="hover:underline">Contacto</a>
+        </nav>
+
+        <!-- Redes + Gmail / WhatsApp (pastillas) -->
+        <div class="flex items-center gap-3">
+          <!-- Gmail -->
+          <a href={gmailLink} target="_blank" rel="noreferrer" aria-label="Enviar correo desde Gmail"
+             class="rounded-md bg-white/10 p-2 hover:bg-white/20 ring-1 ring-white/10">
+            <!-- Ícono sobre (monocromo) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2 7.75A3.75 3.75 0 0 1 5.75 4h12.5A3.75 3.75 0 0 1 22 7.75v8.5A3.75 3.75 0 0 1 18.25 20H5.75A3.75 3.75 0 0 1 2 16.25v-8.5Zm3.75-.25a.75.75 0 0 0-.53 1.28l6.06 5.63a.75.75 0 0 0 1.02 0l6.03-5.6a.75.75 0 1 0-1.02-1.1L12 12.66 6.3 7.53A.75.75 0 0 0 5.75 7.5Z"/>
+            </svg>
+          </a>
+
+          <!-- WhatsApp (monocromo) -->
+          <a href={waLink} target="_blank" rel="noreferrer" aria-label="Abrir chat de WhatsApp"
+             class="rounded-md bg-white/10 p-2 hover:bg-white/20 ring-1 ring-white/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.521-.075-.149-.67-1.611-.916-2.206-.242-.579-.487-.5-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.004 2C6.763 2 2.5 6.264 2.5 11.504c0 2.009.523 3.89 1.437 5.54L2 22l5.09-1.33a10.45 10.45 0 0 0 4.914 1.25h.003c5.24 0 9.504-4.263 9.504-9.504C21.51 6.264 17.246 2 12.004 2z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://facebook.com/" aria-label="Facebook" class="rounded-md bg-white/10 p-2 hover:bg-white/20 ring-1 ring-white/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.1 5.66 21.21 10.44 22v-7.01H7.9v-2.92h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.92h-2.34V22C18.34 21.21 22 17.1 22 12.07z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/" aria-label="Instagram" class="rounded-md bg-white/10 p-2 hover:bg-white/20 ring-1 ring-white/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.507 5.507 0 0 0 12 7.5zm6-1.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://youtube.com/" aria-label="YouTube" class="rounded-md bg-white/10 p-2 hover:bg-white/20 ring-1 ring-white/10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 8.001a3.002 3.002 0 0 0-2.116-2.121C17.98 5.5 12 5.5 12 5.5s-5.98 0-7.684.38A3.002 3.002 0 0 0 2.2 8.001 31.61 31.61 0 0 0 1.8 12a31.61 31.61 0 0 0 .4 3.999 3.002 3.002 0 0 0 2.116 2.121C6.02 18.5 12 18.5 12 18.5s5.98 0 7.684-.38A3.002 3.002 0 0 0 21.8 16 31.61 31.61 0 0 0 22.2 12a31.61 31.61 0 0 0-.4-3.999zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Línea de contacto (acciones) -->
+      <div class="mt-6 grid gap-4 text-center text-sm md:grid-cols-3 md:text-left">
+        <!-- Correo -> Gmail compose -->
+        <div>
+          <p class="uppercase tracking-wide text-white/80 text-[11px]">Correo electrónico</p>
+          <a href={gmailLink} target="_blank" rel="noreferrer"
+             class="mt-1 inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-3 py-2 font-medium text-white hover:bg-white/20"
+             aria-label="Enviar correo desde Gmail">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M2 7.75A3.75 3.75 0 0 1 5.75 4h12.5A3.75 3.75 0 0 1 22 7.75v8.5A3.75 3.75 0 0 1 18.25 20H5.75A3.75 3.75 0 0 1 2 16.25v-8.5Zm3.75-.25a.75.75 0 0 0-.53 1.28l6.06 5.63a.75.75 0 0 0 1.02 0l6.03-5.6a.75.75 0 1 0-1.02-1.1L12 12.66 6.3 7.53A.75.75 0 0 0 5.75 7.5Z"/></svg>
+            Enviar correo
+          </a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div>
+          <p class="uppercase tracking-wide text-white/80 text-[11px]">WhatsApp</p>
+          <a href={waLink} target="_blank" rel="noreferrer"
+             class="mt-1 inline-flex items-center justify-center gap-2 rounded-lg bg-green-500/90 px-3 py-2 font-semibold text-white hover:opacity-90"
+             aria-label={`Enviar WhatsApp a ${waHuman}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.521-.075-.149-.67-1.611-.916-2.206-.242-.579-.487-.5-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.004 2C6.763 2 2.5 6.264 2.5 11.504c0 2.009.523 3.89 1.437 5.54L2 22l5.09-1.33a10.45 10.45 0 0 0 4.914 1.25h.003c5.24 0 9.504-4.263 9.504-9.504C21.51 6.264 17.246 2 12.004 2z"/>
+            </svg>
+            {waHuman}
+          </a>
+        </div>
+
+        <!-- Dirección -> Mapa incrustado -->
+        <div>
+          <p class="uppercase tracking-wide text-white/80 text-[11px]">Dirección</p>
+          <div class="mt-2 overflow-hidden rounded-md ring-1 ring-white/15">
+            <iframe src={mapsEmbed} title="Mapa — SOOMA Consultores" loading="lazy"
+              class="h-36 w-full" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+          <a href={mapsLink} target="_blank" rel="noreferrer"
+             class="mt-2 inline-block text-xs text-white/90 underline decoration-white/40 underline-offset-2 hover:decoration-white">
+            Abrir en Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 border-t border-white/15 pt-4 text-center text-xs text-white/80">
+        © {new Date().getFullYear()} SOOMA Consultores. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+</Fragment>
 
   <!-- Botón flotante: volver arriba *********** -->
   <button
@@ -267,7 +335,6 @@ const metadata = {
     aria-label="Volver arriba"
     class="fixed bottom-5 right-5 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-white shadow-xl transition-all duration-200 hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-slate-300 opacity-0 pointer-events-none"
   >
-    <!-- Flecha -->
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 15l7-7 7 7" />
     </svg>
