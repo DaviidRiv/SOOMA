@@ -1,72 +1,80 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    // === INICIO (queda igual) ===
+    // === QUIÉNES SOMOS ===
     {
-      text: 'Inicio',
+      text: 'Quiénes somos',
       links: [
-        { text: 'Misión y Visión', href: getPermalink('/homes/saas') },
-        { text: '¿Quiénes somos?', href: getPermalink('/homes/startup') },
-        { text: 'Contacto',       href: getPermalink('/homes/mobile-app') },
-        { text: 'Ubicación',      href: getPermalink('/homes/personal') },
+        { text: 'Visión', href: '/#' },
+        { text: 'Misión', href: '/#' },
       ],
     },
 
-    // === SEGURIDAD (nuevo menú principal) ===
+    // === CONSULTORÍA ===
     {
-      text: 'Seguridad',
+      text: 'Consultoría',
       links: [
-        { text: 'Escolar',             href: getPermalink('/#features') },
-        { text: 'Intramuros',          href: getPermalink('/services') },
-        { text: 'Laboral',             href: getPermalink('/pricing') },
-        { text: 'Ciberseguridad',      href: getPermalink('/about') },
-        { text: 'De datos personales', href: getPermalink('/contact') },
-        { text: 'Gestión de permisos', href: getPermalink('/terms') },
-        { text: 'Vulnerabilidad',      href: getPermalink('/privacy') },
+        { text: 'Legal en Incidentes Cibernéticos', href: '/#' },
+        { text: 'Ciberseguridad para empresas y usuarios finales', href: '/#' },
+        { text: 'IA para empresas, negocios y emprendedores', href: '/#' },
+        { text: 'Seguridad Perimetral y Control de Accesos (empresas y fraccionamientos)', href: '/#' },
       ],
     },
 
-    // === CAPACITACIÓN (nuevo) ===
+    // === SERVICIOS ===
     {
-      text: 'Capacitación',
+      text: 'Servicios',
       links: [
-        { text: 'Técnica',            href: getPermalink('/landing/lead-generation') },
-        { text: 'Profesional',        href: getPermalink('/landing/sales') },
-        { text: 'General',            href: getPermalink('/landing/click-through') },
-        { text: 'Específica',         href: getPermalink('/landing/product') },
-        { text: 'Desarrollo Humano',  href: getPermalink('/landing/pre-launch') },
-        { text: 'Alta dirección',     href: getPermalink('/landing/subscription') },
-        { text: 'Inducción al puesto',        href: getPermalink('astro','tag') },
+        { text: 'Programa Integral de Ciberseguridad y Prevención del Acoso escolar', href: '/#' },
+        { text: 'Análisis del nivel de maduración en Ciberseguridad', href: '/#' },
+        { text: 'Pruebas de penetración', href: '/#' },
+        { text: 'Automatización de procesos con Power Automate (Microsoft)', href: '/#' },
+        { text: 'Análisis de Contexto', href: '/#' },
+        { text: 'Análisis de riesgo y vulnerabilidades', href: '/#' },
       ],
     },
 
-    // === METODOLOGÍA (nuevo) ===
+    // === CAPACITACIÓN Y CERTIFICACIÓN ===
     {
-      text: 'Metodología',
+      text: 'Acreditaciones',
       links: [
-        { text: 'Diagnóstico',     href: getBlogPermalink() },
-        { text: 'Planificación',   href: getPermalink('get-started-website-with-astro-tailwind-css','post') },
-        { text: 'Implementación',  href: getPermalink('markdown-elements-demo-post','post') },
-        { text: 'Evaluación',      href: getPermalink('tutorials','category') },
+        { text: 'Instructor', href: '/#' },
+        { text: 'Ciberseguridad', href: '/#' },
+        { text: 'Seguridad Corporativa', href: '/#' },
+        { text: 'Prevención de la Violencia', href: '/#' },
+        { text: 'Inteligencia Artificial', href: '/#' },
+        { text: 'Automatización', href: '/#' },
       ],
     },
 
-    // === CORTESÍAS (nuevo) ===
+    // === EC ===
+    {
+      text: 'EC',
+      links: [
+        { text: 'EC 217.01', href: '/#' },
+        { text: 'EC 1544 y 1566', href: '/#' },
+        { text: 'EC 0060, 0061, 0213, 0329', href: '/#' },
+      ],
+    },
+
+    // === CORTESÍAS ===
     {
       text: 'Cortesías',
       links: [
-        { text: 'Diagnóstico ejecutivo',        href: getPermalink('/courtesias/diagnostico-ejecutivo') },
-        { text: 'Conferencia "Ciberseguridad"', href: getPermalink('/courtesias/conferencia-ciberseguridad') },
-        { text: 'Conferencia "Violencia"',      href: getPermalink('/courtesias/conferencia-violencia') },
-        { text: 'Conferencia "Liderazgo"',      href: getPermalink('/courtesias/conferencia-liderazgo') },
+        { text: 'Conferencia de concientización sobre el phishing', href: '/#' },
+        { text: 'Conferencia sobre los riesgos en redes sociales', href: '/#' },
+        { text: 'Conferencia sobre la prevención de la violencia y acoso escolar', href: '/#' },
+        { text: 'Conferencia sobre Seguridad Digital', href: '/#' },
+        { text: 'Conferencia Fundamentos de la Inteligencia Artificial', href: '/#' },
+        { text: 'Análisis de contexto para empresas y fraccionamientos residenciales', href: '/#' },
       ],
     },
   ],
 
-  // Botón derecho actualizado
+  // Botón derecho (sin cambios)
   actions: [
-    { text: 'Contáctanos', href: '/#contacto', target: '_self' },
+    { text: 'Contáctanos', href: '#contacto', target: '_self' },
   ],
 };
 

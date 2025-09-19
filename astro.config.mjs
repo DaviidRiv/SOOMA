@@ -6,27 +6,29 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  // IMPORTANTE: pon aquí tu dominio público (https) para que el sitemap sea válido
-  site: "https://www.tu-dominio.com", // ← cámbialo
+  // Usa el dominio temporal de HostGator mientras apuntas el dominio final:
+  // Ejemplo tomado de tu panel (cámbialo por el tuyo tal cual):
+  site: "https://soomaconsultores1758050097012.2040090.misitiohostgator.com",
 
-  // Atajos de importación (opcional pero práctico)
+  // Salida estática para hosting compartido
+  output: "static",
+
+  // Si publicas en el dominio raíz, deja base en "/".
+  // Si algún día lo montas en subcarpeta (p. ej. /sooma/), cambia a base: "/sooma/"
+  // base: "/",
+
   alias: {
     "@components": "./src/components",
     "@layouts": "./src/layouts",
     "@styles": "./src/styles",
   },
 
-  // Tailwind v4 con Vite
   vite: {
     plugins: [tailwindcss()],
   },
 
-  // Integraciones
-  integrations: [
-    react(),
-    sitemap(), // usa la propiedad `site` de arriba
-  ],
+  integrations: [react(), sitemap()],
 
-  // (Opcional) HTML más compacto en build
+  // HTML más compacto en build
   compressHTML: true,
 });
