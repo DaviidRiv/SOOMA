@@ -1,0 +1,220 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+import consultImage from '~/assets/images/consultoria/define-it-consulting.png';
+const example = '../src/assets/images/consultoria/define-it-consulting.png';
+
+import { headerData } from '~/navigation';
+
+const metadata = {
+  title: 'Consultoría Legal en Incidentes Cibernéticos',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero principal -->
+  <Hero2
+    tagline="Consultoría Especializada"
+    actions={[
+      { variant: 'primary', text: 'Solicitar asesoría', href: '/contacto' },
+      { text: 'Especificaciones', href: '#servicios' },
+    ]}
+    image={{
+      src: consultImage,
+      alt: 'Imagen de consultoría legal en ciberseguridad',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white">Consultoría Legal</span><br />
+      en Incidentes Cibernéticos
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Te asesoramos en el manejo legal y regulatorio ante ciberataques, asegurando la protección de tu organización y el cumplimiento normativo.
+    </Fragment>
+  </Hero2>
+
+  <!-- Beneficios -->
+  <Features
+    id="servicios"
+    title="¿Por qué elegir nuestra consultoría?"
+    subtitle="Brindamos soluciones legales y técnicas ante incidentes cibernéticos."
+    columns={2}
+    items={[
+      {
+        title: 'Asesoría legal inmediata',
+        description: 'Te acompañamos desde la detección del incidente hasta la resolución legal.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Cumplimiento normativo',
+        description: 'Te guiamos en el cumplimiento de leyes, regulaciones y estándares internacionales.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Gestión de riesgos',
+        description: 'Identificamos vulnerabilidades legales y mitigamos riesgos empresariales.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Soporte en auditorías',
+        description: 'Preparamos la documentación y evidencia necesaria para auditorías o litigios.',
+        icon: 'tabler:report-search',
+      },
+    ]}
+  />
+
+  <!-- Casos de uso -->
+  <Content
+    title="Casos de uso"
+    subtitle="Ejemplos reales donde nuestra consultoría legal marca la diferencia."
+    isReversed
+    items={[
+      {
+        title: 'Incidente de ransomware',
+        description:
+          'Asistimos a empresas afectadas por ataques de ransomware, guiándolas en la denuncia, manejo legal y recuperación cumpliendo la normativa vigente.',
+      },
+      {
+        title: 'Fuga de datos personales',
+        description:
+          'Apoyamos en la notificación a la autoridad (INAI), elaboración de reportes y mitigación de responsabilidades legales tras una brecha de datos.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1620558138198-cfb9b4f3c294',
+      alt: 'Casos de uso',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Historias reales: <br /><span class="text-2xl">Soluciones legales ante ciberataques</span>
+      </h3>
+    </Fragment>
+  </Content>
+
+  <!-- Preguntas frecuentes -->
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      {
+        title: '¿Qué debo hacer legalmente tras un ciberataque?',
+        description:
+          'Nuestro equipo te asesora sobre notificación a autoridades, responsabilidades legales y protección de tu empresa frente a demandas.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: '¿La consultoría incluye representación legal?',
+        description: 'Sí, contamos con abogados especializados que pueden representarte en procesos legales y litigios relacionados con incidentes cibernéticos.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: '¿Qué normativas cumplen sus servicios?',
+        description: 'Te guiamos en el cumplimiento de la Ley Federal de Protección de Datos Personales, GDPR y estándares internacionales de ciberseguridad.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: '¿Puedo recibir una asesoría introductoria gratuita?',
+        description: 'Sí, ofrecemos una primera consulta sin costo para evaluar tu situación y proponerte un plan de acción.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- CTA -->
+  <Steps2
+    title="¿Necesitas apoyo inmediato?"
+    subtitle="Nuestro equipo está listo para guiarte en cada paso tras un incidente cibernético."
+    callToAction={{
+      text: 'Contactar ahora',
+      href: '/contacto',
+    }}
+    items={[
+      {
+        title: 'Correo',
+        description: 'legal@tuempresa.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Teléfono',
+        description: '+52 (444) 123-4567',
+        icon: 'tabler:phone',
+      },
+    ]}
+  />
+
+  <section class="my-16">
+  <h2 class="text-center text-4xl font-bold text-primary mb-10 dark:text-white">
+    Otros servicios
+  </h2>
+  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <!-- Servicio 1 -->
+    <a href="/servicios" 
+       class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+      <img src={example}
+           alt="Programa integral de ciberseguridad" 
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+      <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+      <div class="absolute bottom-0 p-6 text-white">
+        <h3 class="text-xl font-semibold">Servicios</h3>
+        <p class="text-sm">Programa integral de ciberseguridad y prevención del acoso escolar</p>
+        <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+      </div>
+    </a>
+
+    <!-- Servicio 2 -->
+    <a href="/acreditaciones" 
+       class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+      <img src={example}
+           alt="Acreditaciones" 
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+      <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+      <div class="absolute bottom-0 p-6 text-white">
+        <h3 class="text-xl font-semibold">Acreditaciones</h3>
+        <p class="text-sm">Instructor</p>
+        <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+      </div>
+    </a>
+
+    <!-- Servicio 3 -->
+    <a href="/ec-217-01" 
+       class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+      <img src={example}
+           alt="EC: 217.01" 
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+      <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+      <div class="absolute bottom-0 p-6 text-white">
+        <h3 class="text-xl font-semibold">EC: 217.01</h3>
+        <p class="text-sm">Certificación</p>
+        <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+      </div>
+    </a>
+
+    <!-- Servicio 4 -->
+    <a href="/cortesias" 
+       class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+      <img src={example}
+           alt="Cortesías" 
+           class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+      <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+      <div class="absolute bottom-0 p-6 text-white">
+        <h3 class="text-xl font-semibold">Cortesías</h3>
+        <p class="text-sm">Conferencia de concientización sobre phishing</p>
+        <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+</Layout>

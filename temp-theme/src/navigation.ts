@@ -6,8 +6,10 @@ export const headerData = {
     {
       text: 'Quiénes somos',
       links: [
-        { text: 'Visión', href: '/#' },
-        { text: 'Misión', href: '/#' },
+        { text: 'Misión y Visión', href: getPermalink('#mvv') },
+        { text: '¿Quiénes somos?', href: getPermalink('#nosotros') },
+        { text: 'Contacto',       href: getPermalink('#contacto') },
+        { text: 'Ubicación',      href: getPermalink('#mapa') },
       ],
     },
 
@@ -15,7 +17,7 @@ export const headerData = {
     {
       text: 'Consultoría',
       links: [
-        { text: 'Legal en Incidentes Cibernéticos', href: '/#' },
+        { text: 'Legal en Incidentes Cibernéticos', href: getPermalink('/consultoria/legal') },
         { text: 'Ciberseguridad para empresas y usuarios finales', href: '/#' },
         { text: 'IA para empresas, negocios y emprendedores', href: '/#' },
         { text: 'Seguridad Perimetral y Control de Accesos (empresas y fraccionamientos)', href: '/#' },
