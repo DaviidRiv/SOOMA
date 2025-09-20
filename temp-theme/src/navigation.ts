@@ -79,67 +79,62 @@ export const headerData = {
     { text: 'Contáctanos', href: '#contacto', target: '_self' },
   ],
 };
-
 export const footerData = {
-  // sin cambios
+  // Logo arriba a la izquierda
+  logo: {
+    src: '/images/logo-sooma.jpg',
+    alt: 'SOOMA Consultores',
+  },
+
+  // Secciones de enlaces
   links: [
     {
-      title: 'Product',
+      title: 'Navegación',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'Inicio', href: '/' },
+        { text: 'Marcas', href: '/#brands' },
+        { text: 'Servicios', href: '/#services' },
+        { text: 'Preguntas frecuentes', href: '/#faq' },
+        { text: 'Demostración', href: '/#test-drive' },
+        { text: 'Clientes', href: '/#clients' },
+        { text: 'Nosotros', href: '#nosotros' },
+        { text: 'Contacto', href: '/#contacto' },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Política de Cookies',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Configuración de cookies', href: '/cookies/configuracion' },
+        { text: 'Más información sobre cookies', href: '/cookies/info' },
+        { text: 'Preferencias de privacidad', href: '/cookies/preferencias' },
       ],
     },
   ],
+
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Términos', href: '/terms' },
+    { text: 'Privacidad', href: '/privacy' },
   ],
-  socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
-  ],
+
+  // Iconos inferiores
+socialLinks: [
+  {
+    ariaLabel: 'Email',
+    icon: 'tabler:mail',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=emmaidaliasaldana@gmail.com',
+  },
+  { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/524441425726' },
+  {
+    ariaLabel: 'Mapa',
+    icon: 'tabler:map-pin',
+    href: 'https://www.google.com/maps/search/?api=1&query=Ca%C3%B1ada%20Real%20316%2C%20C.P.%2078215%2C%20Lomas%20del%20Tecnol%C3%B3gico%2C%20San%20Luis%20Potos%C3%AD%20S.L.P',
+  },
+  { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/' },
+  { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/' },
+  { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://youtube.com/' },
+],
+
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo">Arthelokyo</a> · All rights reserved.
+    © ${new Date().getFullYear()} SOOMA Consultores. Todos los derechos reservados.
   `,
 };

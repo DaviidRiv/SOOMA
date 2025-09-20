@@ -15,15 +15,28 @@ interface Links {
   links: Array<Link>;
 }
 
+interface Logo {
+  src: string;
+  alt?: string;
+}
+
 export interface Props {
   links: Array<Links>;
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
   footNote?: string;
   theme?: string;
+  logo?: Logo; // <— NUEVO (logo opcional)
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const {
+  socialLinks = [],
+  secondaryLinks = [],
+  links = [],
+  footNote = '',
+  theme = 'light',
+  logo
+} = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -34,7 +47,19 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
+          <a class="inline-flex items-center font-bold text-xl" href={getHomePermalink()}>
+            {
+              logo?.src
+                ? <img
+  src={logo.src}
+  alt={logo.alt ?? SITE?.name ?? 'Logo'}
+  class="h-auto max-w-[170px] rounded-sm object-contain"
+  loading="lazy"
+/>
+
+                : SITE?.name
+            }
+          </a>
         </div>
         <div class="text-sm text-muted flex gap-1">
           {
@@ -51,6 +76,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           }
         </div>
       </div>
+
       {
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
@@ -74,6 +100,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         ))
       }
     </div>
+
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       {
         socialLinks?.length ? (
@@ -102,3 +129,4 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     </div>
   </div>
 </footer>
+

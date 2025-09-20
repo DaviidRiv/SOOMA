@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import ToTopButton from '~/components/common/ToTopButton.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
@@ -217,4 +217,6 @@ const metadata = {
   </div>
 </section>
 
+  <!-- Botón flotante: volver arriba (componente reusable) -->
+<ToTopButton threshold={400} bottom="1.25rem" right="1.25rem" label="Volver arriba" />
 </Layout>
