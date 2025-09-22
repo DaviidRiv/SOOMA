@@ -1,0 +1,138 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ToTopButton from '~/components/common/ToTopButton.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+import consultImage from '~/assets/images/consultoria/define-it-consulting.png';
+const example = '../src/assets/images/consultoria/define-it-consulting.png';
+
+import { headerData } from '~/navigation';
+
+const metadata = {
+  title: 'Ciberseguridad para Empresas y Usuarios Finales',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero2
+    tagline="Protección de punta a punta"
+    actions={[
+      { variant: 'primary', text: 'Solicitar evaluación', href: '/contacto' },
+      { text: 'Especificaciones', href: '#servicios' },
+    ]}
+    image={{ src: consultImage, alt: 'Servicios de ciberseguridad' }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white">Ciberseguridad</span><br />
+      para Empresas y Usuarios Finales
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Evaluamos, fortalecemos y monitoreamos tu postura de seguridad: personas, procesos y tecnología trabajando juntos.
+    </Fragment>
+  </Hero2>
+
+  <Features
+    id="servicios"
+    title="Qué incluye nuestro servicio"
+    subtitle="Prevención, detección y respuesta."
+    columns={2}
+    items={[
+      { title: 'Evaluación y hardening', description: 'Diagnóstico de riesgos y buenas prácticas en endpoints y servidores.', icon: 'tabler:shield-check' },
+      { title: 'Concientización y phishing', description: 'Capacitaciones y campañas de phishing simulado.', icon: 'tabler:mail-search' },
+      { title: 'Resiliencia y backups', description: 'Estrategias 3-2-1 y pruebas de restauración.', icon: 'tabler:server' },
+      { title: 'Respuesta a incidentes', description: 'Playbooks, contención técnica y soporte legal.', icon: 'tabler:alert-octagon' },
+    ]}
+  />
+
+  <Content
+    title="Casos de uso"
+    subtitle="Acciones concretas ante amenazas reales."
+    isReversed
+    items={[
+      { title: 'Phishing y robo de cuentas', description: 'MFA, revisión de reglas en correo, capacitación y monitoreo de accesos.' },
+      { title: 'Ransomware', description: 'Segmentación de red, EDR y simulacros de recuperación.' },
+    ]}
+    image={{ src: 'https://images.unsplash.com/photo-1556157382-97eda2d62296', alt: 'Prácticas de ciberseguridad' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Seguridad por capas: <br /><span class="text-2xl">personas, procesos y tecnología</span>
+      </h3>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      { title: '¿Trabajan con marcos como ISO 27001?', description: 'Sí, alineamos controles a ISO 27001 y NIST CSF.', icon: 'tabler:certificate' },
+      { title: '¿Pueden apoyar en auditorías?', description: 'Preparamos evidencia, matrices de riesgos y acompañamos auditorías.', icon: 'tabler:report-search' },
+      { title: '¿Incluye herramientas EDR/antivirus?', description: 'Integramos tus herramientas o recomendamos opciones con licenciamiento flexible.', icon: 'tabler:device-desktop-analytics' },
+      { title: '¿Dan soporte a usuarios finales?', description: 'Guías, configuración segura y soporte remoto para tu equipo.', icon: 'tabler:user-shield' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <Steps2
+    title="Refuerza tu ciberseguridad"
+    subtitle="Empezamos con una evaluación y un plan por prioridades."
+    callToAction={{ text: 'Contactar', href: '/contacto' }}
+    items={[
+      { title: 'Correo', description: 'ciber@tuempresa.com', icon: 'tabler:mail' },
+      { title: 'Teléfono', description: '+52 (444) 123-4567', icon: 'tabler:phone' },
+    ]}
+  />
+
+  <section class="my-16">
+    <h2 class="text-center text-4xl font-bold text-primary mb-10 dark:text-white">Otros servicios</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <a href="/servicios" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Servicios" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Servicios</h3>
+          <p class="text-sm">Programa integral de ciberseguridad y prevención del acoso escolar</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/acreditaciones" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Acreditaciones" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Acreditaciones</h3>
+          <p class="text-sm">Instructor</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/ec-217-01" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="EC: 217.01" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">EC: 217.01</h3>
+          <p class="text-sm">Certificación</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/cortesias" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Cortesías" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Cortesías</h3>
+          <p class="text-sm">Conferencia de concientización sobre phishing</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+<ToTopButton threshold={400} bottom="1.25rem" right="1.25rem" label="Volver arriba" />
+</Layout>

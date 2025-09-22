@@ -1,0 +1,136 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ToTopButton from '~/components/common/ToTopButton.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+import consultImage from '~/assets/images/consultoria/define-it-consulting.png';
+const example = '../src/assets/images/consultoria/define-it-consulting.png';
+
+import { headerData } from '~/navigation';
+
+const metadata = { title: 'Seguridad Perimetral y Control de Accesos' };
+---
+
+<Layout metadata={metadata}>
+  <Hero2
+    tagline="Acceso seguro, entorno controlado"
+    actions={[
+      { variant: 'primary', text: 'Solicitar diagnóstico', href: '/contacto' },
+      { text: 'Especificaciones', href: '#servicios' },
+    ]}
+    image={{ src: consultImage, alt: 'Seguridad perimetral y control de accesos' }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white">Seguridad Perimetral</span><br />
+      y Control de Accesos
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Diseño e implementación de políticas, credenciales, barreras físicas y sistemas de control para empresas y fraccionamientos.
+    </Fragment>
+  </Hero2>
+
+  <Features
+    id="servicios"
+    title="Componentes del programa"
+    subtitle="Personas + procesos + tecnología."
+    columns={2}
+    items={[
+      { title: 'Políticas y credenciales', description: 'Roles, visitantes, contratistas y credenciales temporales.', icon: 'tabler:id' },
+      { title: 'Puntos de acceso y barreras', description: 'Torniquetes, barreras vehiculares, portones y rutas.', icon: 'tabler:door' },
+      { title: 'Sistemas y registros', description: 'Control horario, registro de eventos y video evidencia.', icon: 'tabler:device-cctv' },
+      { title: 'Protocolos de incidentes', description: 'Actuación ante accesos no autorizados y escalamiento.', icon: 'tabler:report' },
+    ]}
+  />
+
+  <Content
+    title="Casos de implementación"
+    subtitle="Diseños adaptados al flujo real de personas y vehículos."
+    isReversed
+    items={[
+      { title: 'Empresas multisede', description: 'Estandarización de políticas y credenciales con un solo padrón.' },
+      { title: 'Fraccionamientos', description: 'Accesos vehiculares, listas de residentes, visitantes y proveedores.' },
+    ]}
+    image={{ src: 'https://images.unsplash.com/photo-1521790797524-b2497295b8a0', alt: 'Control de accesos' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Control sin fricción: <br /><span class="text-2xl">seguridad y experiencia del usuario</span>
+      </h3>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      { title: '¿Pueden integrar CCTV y control de accesos?', description: 'Sí, diseñamos integraciones y tableros de eventos.', icon: 'tabler:plug-connected' },
+      { title: '¿Cómo gestionan visitantes?', description: 'Políticas de pre-registro, QR temporal y verificación de identidad.', icon: 'tabler:qrcode' },
+      { title: '¿Qué entregables recibo?', description: 'Planos de puntos de control, políticas y manual de operación.', icon: 'tabler:clipboard-text' },
+      { title: '¿Dan capacitación al personal?', description: 'Sí, sesiones para controladores de acceso y supervisores.', icon: 'tabler:school' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-amber-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <Steps2
+    title="Construyamos tu plan de acceso"
+    subtitle="Diagnóstico, diseño y adopción con tu equipo."
+    callToAction={{ text: 'Contactar', href: '/contacto' }}
+    items={[
+      { title: 'Correo', description: 'seguridad@tuempresa.com', icon: 'tabler:mail' },
+      { title: 'Teléfono', description: '+52 (444) 123-4567', icon: 'tabler:phone' },
+    ]}
+  />
+
+  <section class="my-16">
+    <h2 class="text-center text-4xl font-bold text-primary mb-10 dark:text-white">Otros servicios</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <a href="/servicios" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Servicios" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Servicios</h3>
+          <p class="text-sm">Programa integral de ciberseguridad y prevención del acoso escolar</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/acreditaciones" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Acreditaciones" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Acreditaciones</h3>
+          <p class="text-sm">Instructor</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/ec-217-01" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="EC: 217.01" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">EC: 217.01</h3>
+          <p class="text-sm">Certificación</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/cortesias" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Cortesías" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Cortesías</h3>
+          <p class="text-sm">Conferencia de concientización sobre phishing</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+<ToTopButton threshold={400} bottom="1.25rem" right="1.25rem" label="Volver arriba" />
+</Layout>

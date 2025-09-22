@@ -18,9 +18,9 @@ export const headerData = {
       text: 'Consultoría',
       links: [
         { text: 'Legal en Incidentes Cibernéticos', href: getPermalink('/consultoria/legal') },
-        { text: 'Ciberseguridad para empresas y usuarios finales', href: '/#' },
-        { text: 'IA para empresas, negocios y emprendedores', href: '/#' },
-        { text: 'Seguridad Perimetral y Control de Accesos (empresas y fraccionamientos)', href: '/#' },
+        { text: 'Ciberseguridad para empresas y usuarios finales', href: getPermalink('/consultoria/ciberseguridad') },
+        { text: 'IA para empresas, negocios y emprendedores', href: getPermalink('/consultoria/IA') },
+        { text: 'Seguridad Perimetral y Control de Accesos (empresas y fraccionamientos)', href: getPermalink('/consultoria/seguridad') },
       ],
     },
 

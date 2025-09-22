@@ -1,0 +1,133 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ToTopButton from '~/components/common/ToTopButton.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+import consultImage from '~/assets/images/consultoria/define-it-consulting.png';
+const example = '../src/assets/images/consultoria/define-it-consulting.png';
+
+import { headerData } from '~/navigation';
+
+const metadata = { title: 'IA para Empresas, Negocios y Emprendedores' };
+---
+
+<Layout metadata={metadata}>
+  <Hero2
+    tagline="IA aplicada a resultados"
+    actions={[
+      { variant: 'primary', text: 'Solicitar diagnóstico', href: '/contacto' },
+      { text: 'Especificaciones', href: '#servicios' },
+    ]}
+    image={{ src: consultImage, alt: 'Implementación de IA en empresas' }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white">Inteligencia Artificial</span><br />
+      para Empresas y Emprendedores
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Automatización, chatbots y analítica predictiva para reducir costos, acelerar procesos y mejorar CX.
+    </Fragment>
+  </Hero2>
+
+  <Features
+    id="servicios"
+    title="¿Qué podemos implementar con IA?"
+    subtitle="Casos reales, impacto medible y despliegues en semanas."
+    columns={2}
+    items={[
+      { title: 'Automatización de procesos', description: 'RPA + IA en ventas, finanzas y soporte.', icon: 'tabler:robot' },
+      { title: 'Chatbots y asistentes', description: 'Atención 24/7 en web/WhatsApp con handoff a agentes.', icon: 'tabler:message-chatbot' },
+      { title: 'Analítica y predicción', description: 'Pronósticos de demanda, churn y riesgos.', icon: 'tabler:chart-line' },
+      { title: 'Entrenamiento y adopción', description: 'Capacitación en prompts, buenas prácticas y gobierno de IA.', icon: 'tabler:school' },
+    ]}
+  />
+
+  <Content
+    title="Casos de uso"
+    subtitle="Iniciativas de alto retorno con despliegue ágil."
+    isReversed
+    items={[
+      { title: 'Soporte al cliente con IA', description: 'Chatbot con base de conocimiento y ticketing.' },
+      { title: 'Forecast de ventas', description: 'Proyección de demanda por producto/sucursal.' },
+    ]}
+    image={{ src: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f', alt: 'IA aplicada en operaciones' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        De pilotos a producción: <br /><span class="text-2xl">IA con impacto en el negocio</span>
+      </h3>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      { title: '¿Qué datos necesito para iniciar?', description: 'Podemos empezar con lo disponible y evolucionar datasets.', icon: 'tabler:database' },
+      { title: '¿Cómo protegen mi información?', description: 'Privacidad, aislamiento de entornos y control de accesos.', icon: 'tabler:lock' },
+      { title: '¿Cuánto tarda un proyecto?', description: 'Piloto funcional en 2–6 semanas (según integraciones).', icon: 'tabler:clock' },
+      { title: '¿Se integra con mis sistemas?', description: 'Sí, via API/webhooks con CRM/ERP/Helpdesk.', icon: 'tabler:plug-connected' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-indigo-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <Steps2
+    title="¿Listo para empezar con IA?"
+    subtitle="Definimos un caso de uso, medimos impacto y escalamos."
+    callToAction={{ text: 'Hablar con un consultor', href: '/contacto' }}
+    items={[
+      { title: 'Correo', description: 'ia@tuempresa.com', icon: 'tabler:mail' },
+      { title: 'Teléfono', description: '+52 (444) 123-4567', icon: 'tabler:phone' },
+    ]}
+  />
+
+  <section class="my-16">
+    <h2 class="text-center text-4xl font-bold text-primary mb-10 dark:text-white">Otros servicios</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <a href="/servicios" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Servicios" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Servicios</h3>
+          <p class="text-sm">Programa integral de ciberseguridad y prevención del acoso escolar</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/acreditaciones" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Acreditaciones" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Acreditaciones</h3>
+          <p class="text-sm">Instructor</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/ec-217-01" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="EC: 217.01" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">EC: 217.01</h3>
+          <p class="text-sm">Certificación</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+      </a>
+
+      <a href="/cortesias" class="relative group h-64 rounded-xl overflow-hidden shadow-lg">
+        <img src={example} alt="Cortesías" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
+        <div class="absolute bottom-0 p-6 text-white">
+          <h3 class="text-xl font-semibold">Cortesías</h3>
+          <p class="text-sm">Conferencia de concientización sobre phishing</p>
+          <span class="inline-block mt-3 text-sm font-medium underline">Más información</span>
+        </div>
+
+        <ToTopButton threshold={400} bottom="1.25rem" right="1.25rem" label="Volver arriba" />
+      </a>
