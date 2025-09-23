@@ -1,0 +1,160 @@
+---
+import Button from '~/components/ui/Button.astro';
+
+export interface BgImage { src: string; alt?: string }
+export interface Action { text?: string; href?: string; icon?: string; variant?: string; target?: string }
+
+export interface Props {
+  images: BgImage[];
+  interval?: number;      // ms entre cambios
+  tagline?: string;
+  title?: string | any;
+  subtitle?: string | any;
+  actions?: Action[] | any;
+  id?: string;
+  overlayClass?: string;  // ej: "bg-slate-900/50"
+}
+
+const {
+  images = [],
+  interval = 3000, // default 3 s
+  tagline,
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  actions = await Astro.slots.render('actions'),
+  id,
+  overlayClass = 'bg-slate-900/45',
+} = Astro.props;
+
+const uid = `hero-bg-${Math.random().toString(36).slice(2,9)}`;
+---
+
+<!-- NOTA: data-hero-root nos permite localizar la sección para hover/teclado -->
+<section class="relative md:-mt-[76px] not-prose"
+  {...(id ? { id } : {})}
+  data-hero-root={uid}
+  data-interval={interval}
+  >
+  <!-- Fondo (carrusel) -->
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- OJO: el -z-10 va aquí para mantener el fondo detrás del contenido -->
+    <div id={uid} class="absolute inset-0 -z-10">
+      {images.map((img, i) => (
+        <div
+          class={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
+          data-idx={i}
+          style={`background-image:url('${img.src}'); background-size:cover; background-position:center;`}
+          aria-hidden={i === 0 ? 'false' : 'true'}
+          role="img"
+          aria-label={img.alt ?? ''}
+        />
+      ))}
+      <div class={`absolute inset-0 ${overlayClass} dark:bg-black/40`}></div>
+    </div>
+  </div>
+
+  <!-- Controles (separados del -z-10 para que SÍ sean clicables) -->
+  <div class="absolute inset-0 z-10 flex items-center justify-between px-3 sm:px-4 pointer-events-none">
+    <button
+      type="button"
+      class="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 focus:outline-none focus:ring-4 focus:ring-black/30"
+      aria-label="Imagen anterior"
+      data-prev
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button
+      type="button"
+      class="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 focus:outline-none focus:ring-4 focus:ring-black/30"
+      aria-label="Imagen siguiente"
+      data-next
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+    <div class="py-12 md:py-20 text-center text-white dark:text-gray-100">
+      {tagline && (
+        <p class="text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+           set:html={tagline} />
+      )}
+      {title && (
+        <h1 class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading drop-shadow"
+            set:html={title} />
+      )}
+      <div class="max-w-3xl mx-auto">
+        {subtitle && (
+          <p class="text-xl mb-6 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+             set:html={subtitle} />
+        )}
+        {actions && (
+          <div class="max-w-xs sm:max-w-md m-auto flex flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            {Array.isArray(actions)
+              ? actions.map((action) => (
+                  <div class="flex w-full sm:w-auto">
+                    <Button {...(action || {})} class="w-full sm:mb-0" />
+                  </div>
+                ))
+              : <Fragment set:html={actions} />}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <!-- Script del carrusel -->
+  <script is:inline>
+    (function(){
+      const section = document.querySelector('[data-hero-root="${uid}"]');
+      const root = document.getElementById('${uid}');
+      if (!root || !section) return;
+
+      const slides = Array.from(root.querySelectorAll('[data-idx]'));
+      if (slides.length <= 1) return;
+
+      let i = 0;
+      const delay = parseInt(section.dataset.interval || '3000', 10); // 🔧 número inyectado por Astro (p.ej. 2000)
+      let tId = null;
+
+      const prevBtn = section.querySelector('[data-prev]');
+      const nextBtn = section.querySelector('[data-next]');
+
+      const show = (next) => {
+        slides.forEach((el, idx) => {
+          el.style.opacity = (idx === next) ? '1' : '0';
+          el.setAttribute('aria-hidden', idx === next ? 'false' : 'true');
+        });
+        i = next;
+      };
+
+      const goNext = () => show((i + 1) % slides.length);
+      const goPrev = () => show((i - 1 + slides.length) % slides.length);
+
+      const start = () => { stop(); tId = setInterval(goNext, delay); };
+      const stop  = () => { if (tId) { clearInterval(tId); tId = null; } };
+
+      nextBtn?.addEventListener('click', () => { goNext(); start(); });
+      prevBtn?.addEventListener('click', () => { goPrev(); start(); });
+
+      // Pausa en hover sobre toda la sección
+      section.addEventListener('mouseenter', stop);
+      section.addEventListener('mouseleave', start);
+
+      // Teclado (← / →)
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { goNext(); start(); }
+        if (e.key === 'ArrowLeft')  { goPrev(); start(); }
+      });
+
+      // Iniciar
+      start();
+    })();
+  </script>
+</section>

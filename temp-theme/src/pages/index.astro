@@ -1,10 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import ToTopButton from '~/components/common/ToTopButton.astro';
-import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import HeroBgCarouselReact from '~/components/widgets/HeroBgCarouselRact.tsx';
+import MvvCards from '~/components/widgets/MvvCards.astro';
 
 const metadata = {
   title: 'SOOMA Consultores — Inicio',
@@ -31,37 +32,57 @@ const logoSrc = '/logo-sooma.jpg';
 
 <Layout metadata={metadata}>
   <!-- Hero *********************************** -->
-  <Hero
-    actions={[
-      { variant: 'primary', text: 'Solicitar diagnóstico', href: '#contacto', target: '_self', icon: 'tabler:clipboard-check' },
-      { text: 'Conócenos', href: '/nosotros' },
+  <HeroBgCarouselReact
+    client:idle
+    heightClass="min-h-[90svh] md:min-h-[105svh]"
+
+    images={[
+      { src: '/images/sooma-hero/1.jpg', alt: 'Consultoría IT' },
+      { src: '/images/sooma-hero/2.jpg', alt: 'Consultoría Legal' },
+      { src: '/images/sooma-hero/3.jpg', alt: 'Ciberseguridad' },
+      { src: '/images/sooma-hero/4.jpg', alt: 'Sistema de Gestión de Seguridad' },
+      { src: '/images/sooma-hero/5.jpg', alt: 'AI para empresas' },
+      { src: '/images/sooma-hero/6.jpg', alt: 'Prevención de la Violencia' }
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'Equipo SOOMA durante una sesión de trabajo' }}
-  >
-    <Fragment slot="title">
-      Capacitación y <span class="hidden xl:inline">consultoría en</span>
-      <span class="text-accent dark:text-white"> seguridad y desarrollo humano</span>
-    </Fragment>
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">SOOMA Consultores</span> estandariza procesos, reduce riesgos
-        y mejora la calidad del servicio desde el primer contacto.
-      </span>
-      <span class="block mb-1 sm:hidden font-bold text-brand">Seguridad y capacitación profesional.</span>
-      Programas a la medida para instituciones educativas, empresas y organizaciones públicas.
-    </Fragment>
-  </Hero>
+    interval={6000}
+    actions={[
+      { variant: 'primary', text: 'Solicitar diagnóstico', href: '#contacto', target: '_self' },
+      { variant: 'ghost',   text: 'Conócenos', href: '/#nosotros' },
+    ]}
+  />
 
   <!-- Misión · Visión · Valores **************** -->
-  <Features
+  <MvvCards
     id="mvv"
     tagline="Identidad"
     title="Misión · Visión · Valores"
-    subtitle="Nuestra guía para acompañarte con profesionalismo y enfoque humano."
+    subtitle="Nuestra guía para acompañarte con profesionalismo, precisión operativa y enfoque humano."
     items={[
-      { title: 'Misión', description: 'Impulsar entornos seguros y eficientes mediante diagnóstico, capacitación y protocolos claros.', icon: 'tabler:target' },
-      { title: 'Visión', description: 'Ser aliados estratégicos en seguridad y desarrollo humano en México y LATAM con resultados medibles.', icon: 'tabler:eye' },
-      { title: 'Valores', description: 'Integridad, profesionalismo, enfoque humano, mejora continua y confidencialidad.', icon: 'tabler:heart' },
+      {
+        title: 'Misión',
+        img: { src: '/images/mvv/mision.jpg', alt: 'Misión SOOMA' },
+        description:
+          'Proteger a personas, activos e información mediante soluciones integrales de seguridad física y ciberseguridad. Suministramos equipamiento operativo (uniformes, accesorios y drones), realizamos análisis de riesgos para evaluar la seguridad física y patrimonial, y formamos y certificamos equipos humanos, con enfoque legal, ético y basado en datos para reducir incidentes y elevar la resiliencia de cada cliente.',
+      },
+      {
+        title: 'Visión',
+        img: { src: '/images/mvv/vision.jpg', alt: 'Visión SOOMA' },
+        description:
+          'Ser la firma mexicana de referencia en seguridad convergente (física-digital), reconocida por su innovación, precisión operativa y formación certificable. Construimos alianzas duraderas con instituciones públicas y empresas privadas en México y LATAM, transformando la gestión del riesgo en ventaja competitiva y cultura de seguridad sostenible.',
+      },
+      {
+        title: 'Valores',
+        img: { src: '/images/mvv/valores.jpg', alt: 'Valores SOOMA' },
+        bullets: [
+          'Integridad',
+          'Profesionalismo',
+          'Enfoque humano',
+          'Innovación',
+          'Precisión operativa',
+          'Mejora continua',
+          'Confidencialidad',
+        ],
+      },
     ]}
   />
 

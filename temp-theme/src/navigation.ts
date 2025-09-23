@@ -4,8 +4,9 @@ export const headerData = {
   links: [
     // === QUIÉNES SOMOS ===
     {
-      text: 'Quiénes somos',
+      text: 'Nosotros',
       links: [
+        { text: 'Inicio', href: getPermalink('/') },
         { text: 'Misión y Visión', href: getPermalink('/#mvv') },
         { text: '¿Quiénes somos?', href: getPermalink('/#nosotros') },
         { text: 'Contacto',       href: getPermalink('/#contacto') },
@@ -39,11 +40,36 @@ export const headerData = {
 
     // === CAPACITACIÓN Y CERTIFICACIÓN ===
     {
-      text: 'Acreditaciones',
+      text: 'Cursos',
       links: [
-        { text: 'Instructor', href: '/#' },
-        { text: 'Ciberseguridad', href: '/#' },
-        { text: 'Seguridad Corporativa', href: '/#' },
+        {
+          text: 'Instructor',
+          href: getPermalink('/'),
+          // Submenú con el EC específico
+          links: [
+            { text: 'EC 217.01', href: getPermalink('/cursos/instructor/ec-217-01') },
+          ],
+        },
+        {
+          text: 'Ciberseguridad',
+          href: getPermalink('/'),
+          // Submenú con los EC específicos
+          links: [
+            { text: 'EC 0154', href: getPermalink('/cursos/ciberseguridad/ec-0154') },
+            { text: 'EC 1566', href: getPermalink('/cursos/ciberseguridad/ec-1566') },
+          ],
+        },
+        {
+          text: 'Seguridad Corporativa',
+          href: getPermalink('/'),
+          //
+          links: [
+            { text: 'EC 0060', href: getPermalink('/cursos/seguridad-corporativa/ec-0060') },
+            { text: 'EC 0061', href: getPermalink('/cursos/seguridad-corporativa/ec-0061') },
+            { text: 'EC 0213', href: getPermalink('/cursos/seguridad-corporativa/ec-0213') },
+            { text: 'EC 0329', href: getPermalink('/cursos/seguridad-corporativa/ec-0329') },
+          ],
+        },
         { text: 'Prevención de la Violencia', href: '/#' },
         { text: 'Inteligencia Artificial', href: '/#' },
         { text: 'Automatización', href: '/#' },
@@ -51,14 +77,14 @@ export const headerData = {
     },
 
     // === EC ===
-    {
-      text: 'EC',
-      links: [
-        { text: 'EC 217.01', href: '/#' },
-        { text: 'EC 1544 y 1566', href: '/#' },
-        { text: 'EC 0060, 0061, 0213, 0329', href: '/#' },
-      ],
-    },
+    //{
+      //text: 'EC',
+      //links: [
+        //{ text: 'EC 217.01', href: '/#' },
+        //{ text: 'EC 1544 y 1566', href: '/#' },
+        //{ text: 'EC 0060, 0061, 0213, 0329', href: '/#' },
+      //],
+    //},
 
     // === CORTESÍAS ===
     {
@@ -76,7 +102,7 @@ export const headerData = {
 
   // Botón derecho (sin cambios)
   actions: [
-    { text: 'Contáctanos', href: '#contacto', target: '_self' },
+    { text: 'Contáctanos', href: '/#contacto', target: '_self' },
   ],
 };
 export const footerData = {

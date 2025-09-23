@@ -1,0 +1,73 @@
+---
+interface MvvItem {
+  title: string;
+  description?: string;
+  bullets?: string[];      // para “Valores”
+  img?: { src: string; alt?: string };
+  icon?: string;           // opcional (tabler:… si no tienes imagen)
+}
+
+export interface Props {
+  id?: string;
+  tagline?: string;
+  title?: string;
+  subtitle?: string;
+  items: MvvItem[];
+}
+
+const { id, tagline, title, subtitle, items = [] } = Astro.props;
+---
+
+<section id={id} class="relative not-prose">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Headline -->
+    <div class="mx-auto max-w-3xl text-center mb-10 md:mb-14">
+      {tagline && <p class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">{tagline}</p>}
+      {title && <h2 class="mt-2 text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{title}</h2>}
+      {subtitle && <p class="mt-3 text-gray-600 dark:text-gray-300">{subtitle}</p>}
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {items.map((it) => (
+        <article class="group rounded-2xl overflow-hidden border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-slate-900/50 backdrop-blur supports-[backdrop-filter]:backdrop-blur-md shadow-sm hover:shadow-lg transition">
+          <div class="relative aspect-[16/9] overflow-hidden">
+            {it.img?.src ? (
+              <img
+                src={it.img.src}
+                alt={it.img.alt ?? it.title}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            ) : (
+              <div class="w-full h-full bg-gradient-to-br from-primary-500/30 to-fuchsia-500/30 dark:from-primary-400/20 dark:to-fuchsia-400/20" />
+            )}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0" />
+            <span class="absolute left-3 top-3 inline-flex items-center rounded-full bg-white/90 dark:bg-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 ring-1 ring-black/5 dark:ring-white/10">
+              {it.title}
+            </span>
+          </div>
+
+          <div class="p-5 md:p-6">
+            {it.description && (
+              <p class="text-gray-700 dark:text-gray-200">
+                {it.description}
+              </p>
+            )}
+
+            {it.bullets && it.bullets.length > 0 && (
+              <ul class="mt-3 flex flex-wrap gap-2">
+                {it.bullets.map((b) => (
+                  <li class="text-xs md:text-sm px-3 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-white/10 dark:text-white/90 border border-gray-200/60 dark:border-white/10">
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
