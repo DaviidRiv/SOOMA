@@ -33,23 +33,31 @@ const logoSrc = '/logo-sooma.jpg';
 <Layout metadata={metadata}>
   <!-- Hero *********************************** -->
   <HeroBgCarouselReact
-    client:idle
-    heightClass="min-h-[90svh] md:min-h-[105svh]"
+  client:idle
+  heightClass="min-h-[70svh] md:min-h-[105svh]"
+  mobileHeightClass="min-h-[78svh]"
+  desktopHeightClass="md:min-h-[105svh]"
 
-    images={[
-      { src: '/images/sooma-hero/1.jpg', alt: 'Consultoría IT' },
-      { src: '/images/sooma-hero/2.jpg', alt: 'Consultoría Legal' },
-      { src: '/images/sooma-hero/3.jpg', alt: 'Ciberseguridad' },
-      { src: '/images/sooma-hero/4.jpg', alt: 'Sistema de Gestión de Seguridad' },
-      { src: '/images/sooma-hero/5.jpg', alt: 'AI para empresas' },
-      { src: '/images/sooma-hero/6.jpg', alt: 'Prevención de la Violencia' }
-    ]}
-    interval={6000}
-    actions={[
-      { variant: 'primary', text: 'Solicitar diagnóstico', href: '#contacto', target: '_self' },
-      { variant: 'ghost',   text: 'Conócenos', href: '/#nosotros' },
-    ]}
-  />
+  mobileDisplayMode="contain-blur"
+  desktopDisplayMode="cover"
+  mobileForegroundScale={0.95}
+
+  images={[
+    { src: '/images/sooma-hero/1.gif', alt: 'Consultoría IT' },
+    { src: '/images/sooma-hero/2.gif', alt: 'Consultoría Legal' },
+    { src: '/images/sooma-hero/3.gif', alt: 'Ciberseguridad' },
+    { src: '/images/sooma-hero/4.gif', alt: 'Sistema de Gestión de Seguridad' },
+    { src: '/images/sooma-hero/5.gif', alt: 'AI para empresas' },
+    { src: '/images/sooma-hero/6.gif', alt: 'Prevención de la Violencia' },
+    { src: '/images/sooma-hero/7.gif', alt: 'Seguridad Física' },
+  ]}
+  interval={6000}
+  actions={[
+    { variant: 'primary', text: 'Solicitar diagnóstico', href: '#contacto', target: '_self' },
+    { variant: 'ghost',   text: 'Conócenos', href: '/#nosotros' },
+  ]}
+/>
+
 
   <!-- Misión · Visión · Valores **************** -->
   <MvvCards

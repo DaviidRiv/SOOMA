@@ -26,9 +26,16 @@ export interface Props {
   overlayClass?: string;
   imageFit?: 'cover' | 'contain';          // default para fondo "cover mode"
   imagePosition?: string;                  // foco por defecto
-  heightClass?: string;                    // altura del hero
-  displayMode?: 'cover' | 'contain' | 'contain-blur'; // 👈 NUEVO
-  foregroundScale?: number;                // 0.7–1.0 (escala de la imagen principal en contain-blur)
+  heightClass?: string;                    // altura base del hero
+  displayMode?: 'cover' | 'contain' | 'contain-blur'; // modo “global” (fallback)
+  foregroundScale?: number;                // 0.7–1.0 (escala imagen principal en contain-blur)
+
+  // 👇 NUEVO: controles por breakpoint
+  mobileDisplayMode?: 'cover' | 'contain' | 'contain-blur';
+  desktopDisplayMode?: 'cover' | 'contain' | 'contain-blur';
+  mobileHeightClass?: string;              // altura para móviles
+  desktopHeightClass?: string;             // altura para desktop
+  mobileForegroundScale?: number;          // escala en móviles para contain-blur
 }
 
 const btnClass = (v: Action["variant"]) => {
@@ -44,6 +51,28 @@ const btnClass = (v: Action["variant"]) => {
   }
 };
 
+// Hook: detecta si es “móvil” (<= 767px)
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 767px)").matches;
+  });
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    // Safari antiguo
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else mq.addListener(onChange);
+    setIsMobile(mq.matches);
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener("change", onChange);
+      else mq.removeListener(onChange);
+    };
+  }, []);
+  return isMobile;
+}
+
 export default function HeroBgCarouselReact({
   images = [],
   interval = 3000,
@@ -56,10 +85,18 @@ export default function HeroBgCarouselReact({
   imageFit = "cover",
   imagePosition = "center",
   heightClass = "min-h-[55svh] md:min-h-[75svh]",
-  displayMode = "cover",                 // 👈 NUEVO
-  foregroundScale = 0.92,                // 👈 NUEVO (ajusta cuánto “más pequeña” se ve la imagen)
+  displayMode = "cover",
+  foregroundScale = 0.92,
+
+  // Defaults pensados para tu caso:
+  mobileDisplayMode = "contain-blur",
+  desktopDisplayMode = "cover",
+  mobileHeightClass = "min-h-[78svh]",
+  desktopHeightClass = "md:min-h-[105svh]",
+  mobileForegroundScale = 0.9,
 }: Props) {
   const uid = useId().replace(/:/g, "");
+  const isMobile = useIsMobile();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<number | null>(null);
@@ -95,30 +132,46 @@ export default function HeroBgCarouselReact({
 
   if (images.length === 0) return null;
 
+  // === Selección responsiva de modo/altura ===
+  const effectiveMode =
+    (isMobile ? mobileDisplayMode : desktopDisplayMode) || displayMode;
+
+  const effectiveHeightClass = [
+    // base por si quieres mantener algo global
+    heightClass,
+    // override específicas
+    isMobile ? mobileHeightClass : desktopHeightClass,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const effectiveForegroundScale =
+    isMobile ? mobileForegroundScale : foregroundScale;
+
   return (
     <section
       id={id}
       data-hero-root={uid}
-      className={`relative not-prose ${heightClass}`}
+      className={`relative not-prose ${effectiveHeightClass}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       {/* Slides */}
       <div className="absolute inset-0 overflow-hidden -z-10" aria-hidden="true">
         {images.map((img, i) => {
-          const fit = img.fit ?? imageFit;
+          const fit = img.fit ?? imageFit; // 'cover' por defecto en desktop
           const pos = img.position ?? imagePosition;
           const active = i === index;
 
-          // === Modo "contain-blur": fondo borroso + imagen principal reducible (contain + scale) ===
-          if (displayMode === "contain-blur") {
+          // === Modo "contain-blur": fondo borroso + imagen principal sin recortes ===
+          if (effectiveMode === "contain-blur") {
             return (
               <div
                 key={`${uid}-bg-${i}`}
                 className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${active ? "opacity-100" : "opacity-0"}`}
                 style={{ willChange: "opacity" }}
               >
-                {/* Capa borrosa que llena todo (cover) */}
+                {/* Capa borrosa que llena todo */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -127,18 +180,18 @@ export default function HeroBgCarouselReact({
                     backgroundPosition: pos,
                     backgroundRepeat: "no-repeat",
                     filter: "blur(18px)",
-                    transform: "scale(1.08)", // para ocultar bordes del blur
+                    transform: "scale(1.08)",
                     willChange: "transform",
                   }}
                 />
-                {/* Imagen principal centrada sin recortes (contain) + escala ajustable */}
+                {/* Imagen principal centrada sin recortes */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img
                     src={img.src}
                     alt={img.alt || ""}
                     className="max-w-full max-h-full object-contain"
                     style={{
-                      transform: `scale(${Math.max(0.7, Math.min(1.0, foregroundScale))})`,
+                      transform: `scale(${Math.max(0.7, Math.min(1.0, effectiveForegroundScale))})`,
                       transition: "transform 300ms ease",
                       willChange: "transform",
                     }}
@@ -148,8 +201,8 @@ export default function HeroBgCarouselReact({
             );
           }
 
-          // === Modo "contain" simple (pueden quedar barras; el overlay las disimula) ===
-          if (displayMode === "contain") {
+          // === Modo "contain" simple ===
+          if (effectiveMode === "contain") {
             return (
               <div
                 key={`${uid}-bg-${i}`}
@@ -167,7 +220,7 @@ export default function HeroBgCarouselReact({
             );
           }
 
-          // === Modo "cover" (original) ===
+          // === Modo "cover" (web original) ===
           return (
             <div
               key={`${uid}-bg-${i}`}
@@ -229,28 +282,27 @@ export default function HeroBgCarouselReact({
                 {typeof subtitle === "string" ? <span dangerouslySetInnerHTML={{ __html: subtitle }} /> : subtitle}
               </p>
             )}
-            
           </div>
         </div>
       </div>
 
-      {/* Acciones: abajo y centradas del HERO (no del contenido) */}
-            {actions && actions.length > 0 && (
-            <div className="absolute z-20 bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 pointer-events-none">
-                <div className="pointer-events-auto flex flex-col sm:flex-row gap-4">
-                {actions.map((a, idx) => (
-                    <a
-                    key={`${uid}-action-bottom-${idx}`}
-                    href={a.href || "#"}
-                    target={a.target || "_self"}
-                    className={btnClass(a.variant)}
-                    >
-                    {a.text || "Acción"}
-                    </a>
-                ))}
-                </div>
-            </div>
-            )}
+      {/* Acciones: abajo y centradas del HERO */}
+      {actions && actions.length > 0 && (
+        <div className="absolute z-20 bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 pointer-events-none">
+          <div className="pointer-events-auto flex flex-col sm:flex-row gap-4">
+            {actions.map((a, idx) => (
+              <a
+                key={`${uid}-action-bottom-${idx}`}
+                href={a.href || "#"}
+                target={a.target || "_self"}
+                className={btnClass(a.variant)}
+              >
+                {a.text || "Acción"}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
