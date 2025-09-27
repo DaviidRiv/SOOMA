@@ -7,6 +7,8 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import HeroBgCarouselReact from '~/components/widgets/HeroBgCarouselRact.tsx';
 import MvvCards from '~/components/widgets/MvvCards.astro';
 
+import equipoImg from '~/assets/images/nosotros.jpg';
+
 const metadata = {
   title: 'SOOMA Consultores — Inicio',
   description:
@@ -26,14 +28,12 @@ const waE164 = '524441425726'; // sin símbolos, para wa.me
 const waLink = `https://wa.me/${waE164}?text=${encodeURIComponent('Hola, me interesa un diagnóstico para mi institución.')}`;
 const waHuman = '+52 444 142 5726';
 
-// Ruta de tu logo (colócalo en /public de tu proyecto activo)
-const logoSrc = '/logo-sooma.jpg';
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero *********************************** -->
   <HeroBgCarouselReact
-  client:idle
+  client:only="react"
   heightClass="min-h-[70svh] md:min-h-[105svh]"
   mobileHeightClass="min-h-[78svh]"
   desktopHeightClass="md:min-h-[105svh]"
@@ -105,10 +105,10 @@ const logoSrc = '/logo-sooma.jpg';
       { title: 'Metodología', description: 'Diagnóstico → Planificación → Implementación → Evaluación, con indicadores y seguimiento.' },
       { title: 'Capacitación a medida', description: 'Técnica, profesional y de desarrollo humano para todos los niveles, incluida alta dirección.' },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Equipo de trabajo en sesión',
-    }}
+    image={
+      { src: equipoImg, alt: 'Equipo multidisciplinario SOOMA'}
+    }
+
   >
     <Fragment slot="content">
       <p>
@@ -130,30 +130,12 @@ const logoSrc = '/logo-sooma.jpg';
           <img
             src="/images/Contacto/Contact.jpg"
             alt="Línea directa de contacto SOOMA"
-            class="h-full w-full object-cover"
+            class=""
             loading="lazy"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/30 to-transparent"></div>
 
-          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <p class="text-sm uppercase tracking-wider text-white/80">Contáctanos</p>
-            <h3 class="mt-1 text-2xl font-bold">Ponte en contacto</h3>
-
-            <div class="mt-6 space-y-3 text-white/90">
-              <div>
-                <p class="text-xs uppercase text-white/70">Correo electrónico</p>
-                <p class="font-semibold break-all">{emailTo}</p>
-              </div>
-              <div>
-                <p class="text-xs uppercase text-white/70">Teléfono / WhatsApp</p>
-                <p class="font-semibold">{waHuman}</p>
-              </div>
-              <div>
-                <p class="text-xs uppercase text-white/70">Dirección</p>
-                <p class="font-semibold">{address}</p>
-              </div>
-            </div>
-          </div>
+          
         </div>
 
         <!-- Columna derecha: formulario -->
