@@ -29,9 +29,9 @@ export const headerData = {
       text: 'Servicios',
       links: [
         { text: 'Programa integral de ciberseguridad y prevención del acoso escolar', href: '/servicios/ciberseguridad' },
-        { text: 'Automatización de procesos', href: '/#' },
-        { text: 'Análisis de contexto', href: '/#' },
-        { text: 'Análisis de riesgo y vulnerabilidades', href: '/#' },
+        { text: 'Automatización de procesos', href: '/servicios/automatizacion-procesos' },
+        { text: 'Análisis de contexto', href: '/servicios/analisis-contexto' },
+        { text: 'Análisis de riesgo y vulnerabilidades', href: '/servicios/analisis-riesgo-vulnerabilidades' },
       ],
     },
 

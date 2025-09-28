@@ -1,0 +1,138 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+import Hero from '~/components/widgets/Hero.astro'
+import CallToAction from '~/components/widgets/CallToAction.astro'
+import Features2 from '~/components/widgets/Features2.astro'
+import Features from '~/components/widgets/Features.astro'
+import Stats from '~/components/widgets/Stats.astro'
+import Features3 from '~/components/widgets/Features3.astro'
+import FAQs from '~/components/widgets/FAQs.astro'
+import Brands from '~/components/widgets/Brands.astro'
+import { YouTube } from 'astro-embed'
+
+const metadata = {
+  title: 'Análisis de contexto',
+  description:
+    'Estudio integral de factores sociales, económicos, normativos y digitales que influyen en la operación de tu organización o proyecto.',
+}
+---
+<Layout metadata={metadata}>
+  <!-- Hero ******************************************* -->
+  <Hero
+    tagline="Conocimiento · Evidencia · Estrategia"
+    actions={[
+      { variant: 'primary', text: 'Solicitar diagnóstico', href: '/contacto', icon: 'tabler:search' },
+      { text: 'Ver ejes', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Servicio de <span class="text-accent dark:text-white">análisis de contexto</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Implementa un estudio <strong>360°</strong> que cruza datos sociales, legales, económicos y digitales para
+      entender variables que afectan tu proyecto: cultura organizacional, percepción ciudadana, regulaciones
+      y tendencias tecnológicas.
+    </Fragment>
+
+    <Fragment slot="image">
+      <YouTube id="gxBkghlglTg" title="Presentación del programa (demo)" />
+      <style is:inline>
+        lite-youtube { margin: 0 auto; max-width: 100%; }
+      </style>
+    </Fragment>
+  </Hero>
+
+  <!-- Ejes (Features3) ****************************** -->
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    title="Ejes del análisis"
+    subtitle="Tres perspectivas complementarias para una visión 360°."
+    image={{
+      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Ciberseguridad educativa',
+    }}
+    items={[
+      { title: 'Entorno social y cultural', description: 'Actores, redes de influencia y dinámicas comunitarias.', icon: 'tabler:users' },
+      { title: 'Marco normativo y político', description: 'Leyes, reglamentos y políticas públicas aplicables.', icon: 'tabler:scale' },
+      { title: 'Ecosistema digital', description: 'Presencia, reputación online y exposición a riesgos.', icon: 'tabler:device-desktop' },
+    ]}
+  />
+
+  <!-- Stats ****************************************** -->
+  <Stats
+    title="Indicadores frecuentes"
+    subtitle="Datos que levantamos en la mayoría de los proyectos."
+    stats={[
+      { title: 'Actores clave identificados', amount: '50+' },
+      { title: 'Normativas revisadas', amount: '100% del marco local' },
+      { title: 'Entrevistas realizadas', amount: '30–80' },
+      { title: 'Tiempo medio de entrega', amount: '8 semanas' },
+    ]}
+  />
+
+  <!-- Fuentes / Herramientas ************************ -->
+  <Brands
+    title="Alianzas y herramientas"
+    subtitle="Trabajamos con metodologías y plataformas reconocidas en seguridad digital y convivencia escolar."
+    icons={[]}
+    images={[
+      { src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png', alt: 'YouTube' },
+      { src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png', alt: 'Plataformas' },
+      { src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png', alt: 'Microsoft' },
+      { src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png', alt: 'Google' },
+    ]}
+  />
+
+  <!-- Fases / Etapas (Features2) ******************** -->
+  <Features2
+    title="Etapas del servicio"
+    subtitle="Puedes contratar el paquete completo o por fase."
+    items={[
+      { title: 'Recolección de información', description: 'Desk research, hemerografía y bases de datos.', icon: 'tabler:database' },
+      { title: 'Trabajo de campo', description: 'Entrevistas, encuestas y grupos focales.', icon: 'tabler:users' },
+      { title: 'Análisis mixto', description: 'Estadística, mapeo de actores y análisis de discurso.', icon: 'tabler:chart-bar' },
+      { title: 'Informe estratégico', description: 'Hallazgos, riesgos, oportunidades y plan de acción.', icon: 'tabler:file-report' },
+      { title: 'Presentación ejecutiva', description: 'Resumen visual para decisión directiva.', icon: 'tabler:presentation' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Features2>
+
+  <!-- Beneficios (Features) ************************* -->
+  <Features
+    id="features"
+    title="Beneficios clave"
+    subtitle="Información sólida para decisiones estratégicas."
+    columns={3}
+    items={[
+      { title: 'Reducción de incertidumbre', description: 'Planea con datos reales, no supuestos.', icon: 'tabler:shield-check' },
+      { title: 'Prevención de riesgos', description: 'Anticipa conflictos sociales, políticos o digitales.', icon: 'tabler:alert-triangle' },
+      { title: 'Mejor comunicación', description: 'Mensajes con lenguaje y percepciones locales.', icon: 'tabler:message' },
+      { title: 'Cumplimiento legal', description: 'Identifica regulaciones que podrían afectarte.', icon: 'tabler:scale' },
+      { title: 'Alineación estratégica', description: 'Conecta objetivos con la realidad del entorno.', icon: 'tabler:target' },
+      { title: 'Base para cabildeo', description: 'Insumos para políticas públicas y advocacy.', icon: 'tabler:building' },
+    ]}
+  />
+
+  <!-- FAQs ****************************************** -->
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      { title: '¿Quiénes pueden solicitarlo?', description: 'Gobiernos, ONGs, empresas y proyectos educativos.' },
+      { title: '¿Duración?', description: 'De 6 a 10 semanas según alcance y universo de análisis.' },
+      { title: '¿Confidencialidad?', description: 'Sí. NDA y datos anonimizados.' },
+      { title: '¿Incluye recomendaciones?', description: 'Cierra con plan estratégico y acciones priorizadas.' },
+      { title: '¿Se puede actualizar?', description: 'Seguimiento semestral o anual para mantener vigencia.' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <!-- CTA ******************************************* -->
+  <CallToAction actions={[{ variant: 'primary', text: 'Solicitar estudio', href: '/contacto', icon: 'tabler:file-description' }]}>
+    <Fragment slot="title">Decide con información real</Fragment>
+    <Fragment slot="subtitle">Obtén una visión clara de tu entorno antes de invertir o ejecutar.</Fragment>
+  </CallToAction>
+</Layout>

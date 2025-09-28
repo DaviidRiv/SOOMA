@@ -1,0 +1,138 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+import Hero from '~/components/widgets/Hero.astro'
+import CallToAction from '~/components/widgets/CallToAction.astro'
+import Features2 from '~/components/widgets/Features2.astro'
+import Features from '~/components/widgets/Features.astro'
+import Stats from '~/components/widgets/Stats.astro'
+import Features3 from '~/components/widgets/Features3.astro'
+import FAQs from '~/components/widgets/FAQs.astro'
+import Brands from '~/components/widgets/Brands.astro'
+import { YouTube } from 'astro-embed'
+
+const metadata = {
+  title: 'Análisis de riesgo y vulnerabilidades',
+  description:
+    'Evaluación completa de amenazas físicas, operativas y cibernéticas para proteger tus activos y asegurar la continuidad de negocio.',
+}
+---
+<Layout metadata={metadata}>
+  <!-- Hero ******************************************* -->
+  <Hero
+    tagline="Prevención · Seguridad · Resiliencia"
+    actions={[
+      { variant: 'primary', text: 'Solicitar evaluación', href: '/contacto', icon: 'tabler:shield-lock' },
+      { text: 'Ver áreas', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Servicio de <span class="text-accent dark:text-white">análisis de riesgo y vulnerabilidades</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Identificamos activos críticos, evaluamos amenazas y diseñamos un plan de mitigación alineado a
+      <strong>ISO 31000</strong> e <strong>ISO 27001</strong> para fortalecer la continuidad operativa.
+    </Fragment>
+
+    <Fragment slot="image">
+      <YouTube id="gxBkghlglTg" title="Presentación del programa (demo)" />
+      <style is:inline>
+        lite-youtube { margin: 0 auto; max-width: 100%; }
+      </style>
+    </Fragment>
+  </Hero>
+
+  <!-- Áreas de evaluación *************************** -->
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    title="Áreas de evaluación"
+    subtitle="Cubrimos riesgos en varias capas."
+    image={{
+      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Ciberseguridad educativa',
+    }}
+    items={[
+      { title: 'Seguridad física', description: 'Instalaciones, accesos y perímetros.', icon: 'tabler:building' },
+      { title: 'Continuidad operativa', description: 'Procesos, proveedores y logística.', icon: 'tabler:settings' },
+      { title: 'Ciberseguridad', description: 'Redes, aplicaciones, datos y usuarios.', icon: 'tabler:lock' },
+    ]}
+  />
+
+  <!-- Stats ****************************************** -->
+  <Stats
+    title="Beneficios medibles"
+    subtitle="Resultados promedio tras implementar el plan."
+    stats={[
+      { title: 'Disminución de incidentes', amount: '30–60%' },
+      { title: 'Ahorro en pérdidas', amount: '25%+' },
+      { title: 'Mejora del tiempo de respuesta', amount: '40%' },
+      { title: 'Cumplimiento', amount: 'ISO 27001 / 31000' },
+    ]}
+  />
+
+  <!-- Estándares / Herramientas ********************* -->
+  <Brands
+    title="Alianzas y herramientas"
+    subtitle="Trabajamos con metodologías y plataformas reconocidas en seguridad digital y convivencia escolar."
+    icons={[]}
+    images={[
+      { src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png', alt: 'YouTube' },
+      { src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png', alt: 'Plataformas' },
+      { src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png', alt: 'Microsoft' },
+      { src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png', alt: 'Google' },
+    ]}
+  />
+
+  <!-- Metodología por fases ************************* -->
+  <Features2
+    title="Etapas del servicio"
+    subtitle="Metodología adaptable a tu sector."
+    items={[
+      { title: 'Inventario de activos', description: 'Infraestructura, datos y personal clave.', icon: 'tabler:server' },
+      { title: 'Identificación de amenazas', description: 'Vulnerabilidades internas y externas.', icon: 'tabler:alert-triangle' },
+      { title: 'Matriz de riesgos', description: 'Probabilidad × impacto para priorizar.', icon: 'tabler:grid-dots' },
+      { title: 'Plan de mitigación', description: 'Controles técnicos y administrativos.', icon: 'tabler:shield-check' },
+      { title: 'Pruebas de penetración', description: 'Ataques controlados para validar defensas.', icon: 'tabler:bug' },
+      { title: 'Capacitación', description: 'Conciencia de seguridad y respuesta a incidentes.', icon: 'tabler:school' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Features2>
+
+  <!-- Beneficios ************************************ -->
+  <Features
+    id="features"
+    title="Beneficios clave"
+    subtitle="Fortalece la resiliencia de tu organización."
+    columns={3}
+    items={[
+      { title: 'Protección de activos', description: 'Previene pérdidas de información y bienes.', icon: 'tabler:lock' },
+      { title: 'Continuidad de negocio', description: 'Planes y pruebas de contingencia.', icon: 'tabler:route' },
+      { title: 'Cumplimiento normativo', description: 'Alineación con ISO, NIST y regulación local.', icon: 'tabler:scale' },
+      { title: 'Reputación fortalecida', description: 'Mayor confianza de clientes e inversionistas.', icon: 'tabler:thumb-up' },
+      { title: 'Optimización de seguros', description: 'Mejores primas demostrando control de riesgo.', icon: 'tabler:currency-dollar' },
+      { title: 'Reducción de costos futuros', description: 'Menos incidentes = menos pérdidas.', icon: 'tabler:chart-line' },
+    ]}
+  />
+
+  <!-- FAQs ****************************************** -->
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      { title: '¿Para quién es?', description: 'Empresas, gobierno, educación, salud e industria.' },
+      { title: '¿Duración?', description: '6 a 12 semanas, según tamaño y alcance.' },
+      { title: '¿Incluye pentesting?', description: 'Opcional con alcance definido y ambiente controlado.' },
+      { title: '¿Entregables?', description: 'Matriz de riesgo, plan de acción y reporte ejecutivo.' },
+      { title: '¿Normativas?', description: 'Basado en ISO 31000, ISO 27001 y NIST SP 800-30.' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <!-- CTA ******************************************* -->
+  <CallToAction actions={[{ variant: 'primary', text: 'Solicitar evaluación', href: '/contacto', icon: 'tabler:file-description' }]}>
+    <Fragment slot="title">Reduce tu exposición al riesgo</Fragment>
+    <Fragment slot="subtitle">Protege datos, personas e infraestructura con un plan integral.</Fragment>
+  </CallToAction>
+</Layout>
