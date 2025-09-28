@@ -33,30 +33,44 @@ const waHuman = '+52 444 142 5726';
 <Layout metadata={metadata}>
   <!-- Hero *********************************** -->
   <HeroBgCarouselReact
-  client:only="react"
-  heightClass="min-h-[70svh] md:min-h-[105svh]"
-  mobileHeightClass="min-h-[78svh]"
-  desktopHeightClass="md:min-h-[105svh]"
+    client:only="react"
+    heightClass="min-h-[70svh] md:min-h-[105svh]"
+    mobileHeightClass="min-h-[78svh]"
+    desktopHeightClass="md:min-h-[105svh]"
 
-  mobileDisplayMode="contain-blur"
-  desktopDisplayMode="cover"
-  mobileForegroundScale={0.95}
+    mobileDisplayMode="cover"
+    desktopDisplayMode="cover"
 
-  images={[
-    { src: '/images/sooma-hero/1.gif', alt: 'Consultoría IT' },
-    { src: '/images/sooma-hero/2.gif', alt: 'Consultoría Legal' },
-    { src: '/images/sooma-hero/3.gif', alt: 'Ciberseguridad' },
-    { src: '/images/sooma-hero/4.gif', alt: 'Sistema de Gestión de Seguridad' },
-    { src: '/images/sooma-hero/5.gif', alt: 'AI para empresas' },
-    { src: '/images/sooma-hero/6.gif', alt: 'Prevención de la Violencia' },
-    { src: '/images/sooma-hero/7.gif', alt: 'Seguridad Física' },
-  ]}
-  interval={6000}
-  actions={[
-    { variant: 'primary', text: 'Solicitar diagnóstico', href: '#contacto', target: '_self' },
-    { variant: 'ghost',   text: 'Conócenos', href: '/#nosotros' },
-  ]}
-/>
+    interval={6000}
+    actions={[
+      { variant: 'primary', text: 'Solicitar diagnóstico', href: '#contacto', target: '_self' },
+      { variant: 'ghost',   text: 'Conócenos', href: '/#nosotros' },
+    ]}
+
+    images={[
+      { src: '/images/sooma-hero/1.gif', alt: 'Consultoría IT' },
+      { src: '/images/sooma-hero/2.gif', alt: 'Consultoría Legal' },
+      { src: '/images/sooma-hero/3.gif', alt: 'Ciberseguridad' },
+      { src: '/images/sooma-hero/4.gif', alt: 'Sistema de Gestión de Seguridad' },
+      { src: '/images/sooma-hero/5.gif', alt: 'AI para empresas' },
+      { src: '/images/sooma-hero/6.gif', alt: 'Prevención de la Violencia' },
+      { src: '/images/sooma-hero/7.gif', alt: 'Seguridad Física' },
+    ]}
+
+    mobileImages={[
+      { src: '/images/sooma-hero/Mobile-Hero/1.png', alt: 'Consultoría IT móvil', position: 'center' },
+      { src: '/images/sooma-hero/Mobile-Hero/2.png', alt: 'Consultoría Legal móvil', position: 'center' },
+      { src: '/images/sooma-hero/Mobile-Hero/3.png', alt: 'Ciberseguridad móvil', position: 'center' },
+    ]}
+
+    desktopImages={[
+      { src: '/images/sooma-hero/1.gif', alt: 'Consultoría IT', position: 'center' },
+      { src: '/images/sooma-hero/2.gif', alt: 'Consultoría Legal', position: 'center' },
+      { src: '/images/sooma-hero/3.gif', alt: 'Ciberseguridad', position: 'center' },
+      { src: '/images/sooma-hero/4.gif', alt: 'Sistema de Gestión de Seguridad', position: 'center' },
+    ]}
+  />
+
 
 
   <!-- Misión · Visión · Valores **************** -->

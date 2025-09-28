@@ -3,8 +3,10 @@ import React, { useEffect, useId, useMemo, useRef, useState } from "react";
 export type BgImage = {
   src: string;
   alt?: string;
-  position?: string;               // ej: 'center 30%'
-  fit?: 'cover' | 'contain';       // override por imagen
+  position?: string;
+  fit?: 'cover' | 'contain';
+  // (opcional) foco móvil/desktop si quieres:
+  mobileSrc?: string;   // <-- alternativa 2 (por imagen) si prefieres
 };
 
 export type Action = {
@@ -17,6 +19,8 @@ export type Action = {
 
 export interface Props {
   images: BgImage[];
+  mobileImages?: BgImage[];
+  desktopImages?: BgImage[];
   interval?: number;
   tagline?: string;
   title?: React.ReactNode;
@@ -75,6 +79,8 @@ function useIsMobile() {
 
 export default function HeroBgCarouselReact({
   images = [],
+  mobileImages,
+  desktopImages,
   interval = 3000,
   tagline,
   title,
@@ -100,6 +106,22 @@ export default function HeroBgCarouselReact({
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<number | null>(null);
+
+  // === Selección responsiva de IMÁGENES ===
+  const effectiveImages = useMemo(() => {
+    // Prioridad: lista específica → fallback a 'images'
+    if (isMobile && mobileImages?.length) return mobileImages;
+    if (!isMobile && desktopImages?.length) return desktopImages;
+    // Alternativa: si usas mobileSrc por elemento, remplaza src en móvil
+    if (isMobile) {
+      return images.map(it => ({
+        ...it,
+        src: it.mobileSrc ?? it.src,
+      }));
+    }
+    return images;
+  }, [isMobile, images, mobileImages, desktopImages]);
+
   const hasMultiple = images.length > 1;
 
   const prefersReduced = useMemo(() => {
@@ -107,8 +129,8 @@ export default function HeroBgCarouselReact({
     return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
   }, []);
 
-  const next = () => setIndex((i) => (i + 1) % images.length);
-  const prev = () => setIndex((i) => (i - 1 + images.length) % images.length);
+  const next = () => setIndex((i) => (i + 1) % effectiveImages.length);
+  const prev = () => setIndex((i) => (i - 1 + effectiveImages.length) % effectiveImages.length);
 
   useEffect(() => {
     if (!hasMultiple || paused || prefersReduced) return;
@@ -158,20 +180,15 @@ export default function HeroBgCarouselReact({
     >
       {/* Slides */}
       <div className="absolute inset-0 overflow-hidden -z-10" aria-hidden="true">
-        {images.map((img, i) => {
-          const fit = img.fit ?? imageFit; // 'cover' por defecto en desktop
+        {
+          effectiveImages.map((img, i) => {
+          const fit = img.fit ?? imageFit;
           const pos = img.position ?? imagePosition;
           const active = i === index;
 
-          // === Modo "contain-blur": fondo borroso + imagen principal sin recortes ===
           if (effectiveMode === "contain-blur") {
             return (
-              <div
-                key={`${uid}-bg-${i}`}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${active ? "opacity-100" : "opacity-0"}`}
-                style={{ willChange: "opacity" }}
-              >
-                {/* Capa borrosa que llena todo */}
+              <div key={`${uid}-bg-${i}`} className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${active ? "opacity-100" : "opacity-0"}`}>
                 <div
                   className="absolute inset-0"
                   style={{
@@ -181,25 +198,19 @@ export default function HeroBgCarouselReact({
                     backgroundRepeat: "no-repeat",
                     filter: "blur(18px)",
                     transform: "scale(1.08)",
-                    willChange: "transform",
                   }}
                 />
-                {/* Imagen principal centrada sin recortes */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img
                     src={img.src}
                     alt={img.alt || ""}
                     className="max-w-full max-h-full object-contain"
-                    style={{
-                      transform: `scale(${Math.max(0.7, Math.min(1.0, effectiveForegroundScale))})`,
-                      transition: "transform 300ms ease",
-                      willChange: "transform",
-                    }}
+                    style={{ transform: `scale(${Math.max(0.7, Math.min(1.0, effectiveForegroundScale))})` }}
                   />
                 </div>
               </div>
             );
-          }
+        }
 
           // === Modo "contain" simple ===
           if (effectiveMode === "contain") {
@@ -212,7 +223,6 @@ export default function HeroBgCarouselReact({
                   backgroundSize: "contain",
                   backgroundPosition: pos,
                   backgroundRepeat: "no-repeat",
-                  willChange: "opacity",
                 }}
                 role="img"
                 aria-label={img.alt || ""}
@@ -227,10 +237,9 @@ export default function HeroBgCarouselReact({
               className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${active ? "opacity-100" : "opacity-0"}`}
               style={{
                 backgroundImage: `url('${img.src}')`,
-                backgroundSize: fit,                // 'cover'
+                backgroundSize: fit,
                 backgroundPosition: pos,
                 backgroundRepeat: "no-repeat",
-                willChange: "opacity",
               }}
               role="img"
               aria-label={img.alt || ""}
