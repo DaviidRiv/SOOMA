@@ -1,0 +1,153 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+import Hero from '~/components/widgets/Hero.astro'
+import CallToAction from '~/components/widgets/CallToAction.astro'
+import Features2 from '~/components/widgets/Features2.astro'
+import Features from '~/components/widgets/Features.astro'
+import Stats from '~/components/widgets/Stats.astro'
+import Features3 from '~/components/widgets/Features3.astro'
+import FAQs from '~/components/widgets/FAQs.astro'
+import Brands from '~/components/widgets/Brands.astro'
+import { YouTube } from 'astro-embed'
+
+const metadata = {
+  title: 'Automatización de procesos',
+  description:
+    'Mapeo, rediseño y automatización de flujos con RPA y low-code para reducir tiempos, costos y errores. Integraciones, formularios, bots y tableros listos para operar.',
+}
+---
+<Layout metadata={metadata}>
+  <!-- Hero ******************************************* -->
+  <Hero
+    tagline="Eficiencia · Escalabilidad · Trazabilidad"
+    actions={[
+      { variant: 'primary', text: 'Solicitar propuesta', href: '/contacto', icon: 'tabler:robot' },
+      { text: 'Ver módulos', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white">Automatización de procesos</span> y orquestación operativa
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Eliminamos tareas repetitivas con flujos automatizados, <strong>integraciones seguras</strong> y <strong>dashboards</strong> para decidir con datos.
+      Entregamos procesos documentados, medibles y versionados.
+    </Fragment>
+
+    <Fragment slot="image">
+      <YouTube id="gxBkghlglTg" title="Presentación del programa (demo)" />
+      <style is:inline>
+        lite-youtube { margin: 0 auto; max-width: 100%; }
+      </style>
+    </Fragment>
+  </Hero>
+
+  <!-- KPIs / Stats ********************************** -->
+  <Stats
+    title="Impacto esperado"
+    subtitle="Resultados típicos tras 8–12 semanas de implementación."
+    stats={[
+      { title: 'Reducción de tiempo de ciclo', amount: '35–65%' },
+      { title: 'Errores operativos', amount: '-50%' },
+      { title: 'Ahorro por tarea', amount: '-30%' },
+      { title: 'Procesos automatizados', amount: '5–20' },
+    ]}
+  />
+
+  <!-- Casos de uso (Features3) ********************** -->
+  <Features3
+    id="casos"
+    columns={3}
+    isAfterContent={true}
+    title="Casos de uso frecuentes"
+    subtitle="Ejemplos que adaptamos a tu operación."
+    image={{
+      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Ciberseguridad educativa',
+    }}
+    items={[
+      { title: 'Intake y ruteo automático', description: 'Formularios inteligentes, tickets y notificaciones.', icon: 'tabler:inbox' },
+      { title: 'Conciliación y reportes', description: 'Bots consolidan datos, detectan discrepancias y generan PDFs.', icon: 'tabler:report-analytics' },
+      { title: 'Altas/bajas y permisos', description: 'Flujos RH con aprobaciones y evidencias.', icon: 'tabler:id-badge-2' },
+      { title: 'Recordatorios y SLAs', description: 'Fechas límite, escalaciones y tableros de cumplimiento.', icon: 'tabler:alarm' },
+      { title: 'Integraciones entre sistemas', description: 'Conectores (API/Webhook) sin doble captura.', icon: 'tabler:plug-connected' },
+      { title: 'Documentación viva', description: 'Actas y constancias con plantillas y numeración.', icon: 'tabler:file-certificate' },
+    ]}
+  />
+
+  <!-- Fases del proyecto (Features2) **************** -->
+  <Features2
+    title="Implementación por fases"
+    subtitle="Enfoque incremental para entregar valor desde la semana 2."
+    items={[
+      { title: '1) Descubrimiento y mapeo', description: 'Talleres, línea base y candidatos a automatizar.', icon: 'tabler:map' },
+      { title: '2) Diseño del flujo', description: 'Triggers, validaciones y métricas de éxito.', icon: 'tabler:route' },
+      { title: '3) Desarrollo e integración', description: 'Bots, conectores y formularios. Pruebas.', icon: 'tabler:code' },
+      { title: '4) Piloto y ajuste', description: 'Despliegue controlado, SLAs y correcciones.', icon: 'tabler:adjustments' },
+      { title: '5) Despliegue y capacitación', description: 'Manual de operación y sesiones por rol.', icon: 'tabler:school' },
+      { title: '6) Soporte y evolución', description: 'Backlog, optimización y revisión trimestral.', icon: 'tabler:refresh' },
+    ]}
+  />
+
+  <!-- Beneficios (Features) ************************* -->
+  <Features
+    id="features"
+    title="Beneficios clave"
+    subtitle="Resultados tangibles para el equipo y la dirección."
+    columns={3}
+    items={[
+      { title: 'Menos tareas manuales', description: 'Menos captura duplicada y retrabajo.', icon: 'tabler:hand-click' },
+      { title: 'Trazabilidad total', description: 'Historial, responsables y evidencias en 1 clic.', icon: 'tabler:timeline' },
+      { title: 'Decisiones con datos', description: 'KPIs por proceso, área y usuario.', icon: 'tabler:chart-line' },
+      { title: 'Integración segura', description: 'Autenticación y registro de eventos.', icon: 'tabler:shield-lock' },
+      { title: 'Escalabilidad', description: 'Añade automatizaciones sin romper lo existente.', icon: 'tabler:stack' },
+      { title: 'Mejor UX', description: 'Formularios claros y menores tiempos de respuesta.', icon: 'tabler:star' },
+    ]}
+  />
+
+  <!-- Entregables (Features) ************************ -->
+  <Features
+    title="Entregables"
+    subtitle="Todo lo necesario para operar sin dependencia del equipo técnico."
+    columns={3}
+    items={[
+      { title: 'Mapa AS-IS / TO-BE', description: 'Diagramas, roles y reglas de negocio.', icon: 'tabler:map' },
+      { title: 'Bots y flujos productivos', description: 'Repositorio y control de versiones.', icon: 'tabler:robot' },
+      { title: 'Formularios y plantillas', description: 'Validaciones y documentos automáticos.', icon: 'tabler:file-text' },
+      { title: 'Tablero de KPIs', description: 'SLA, tiempos de ciclo y cuellos de botella.', icon: 'tabler:gauge' },
+      { title: 'Manual y video-guía', description: 'Operación, excepciones y soporte.', icon: 'tabler:notebook' },
+      { title: 'Plan de mejora', description: 'Backlog priorizado con ROI estimado.', icon: 'tabler:list-search' },
+    ]}
+  />
+
+  <!-- Tecnologías (Brands) ************************** -->
+  <Brands
+    title="Alianzas y herramientas"
+    subtitle="Trabajamos con metodologías y plataformas reconocidas en seguridad digital y convivencia escolar."
+    icons={[]}
+    images={[
+      { src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png', alt: 'YouTube' },
+      { src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png', alt: 'Plataformas' },
+      { src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png', alt: 'Microsoft' },
+      { src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png', alt: 'Google' },
+    ]}
+  />
+
+  <!-- FAQs ****************************************** -->
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      { title: '¿Necesito licencias adicionales?', description: 'Podemos usar open-source (n8n) o suites existentes (Microsoft 365).' },
+      { title: '¿Qué pasa si cambia el proceso?', description: 'Diseñamos flujos modulares y mantenibles con plan de evolución.' },
+      { title: '¿Cómo medimos el ROI?', description: 'Línea base vs. post-despliegue: tiempos, errores y horas hombre.' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <!-- CTA ******************************************* -->
+  <CallToAction actions={[{ variant: 'primary', text: 'Agenda una demo', href: '/contacto', icon: 'tabler:calendar' }]}>
+    <Fragment slot="title">Automatiza y gana tiempo desde este mes</Fragment>
+    <Fragment slot="subtitle">Arrancamos con un quick win de alto impacto y bajo riesgo.</Fragment>
+  </CallToAction>
+</Layout>
