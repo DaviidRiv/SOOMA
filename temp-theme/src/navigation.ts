@@ -19,7 +19,6 @@ export const headerData = {
       text: 'Consultoría',
       links: [
         { text: 'Legal en Incidentes Cibernéticos', href: getPermalink('/consultoria/legal') },
-        { text: 'Ciberseguridad para empresas y usuarios finales', href: getPermalink('/consultoria/ciberseguridad') },
         { text: 'IA para empresas, negocios y emprendedores', href: getPermalink('/consultoria/IA') },
         { text: 'Seguridad Perimetral y Control de Accesos (empresas y fraccionamientos)', href: getPermalink('/consultoria/seguridad') },
       ],
@@ -29,11 +28,9 @@ export const headerData = {
     {
       text: 'Servicios',
       links: [
-        { text: 'Programa Integral de Ciberseguridad y Prevención del Acoso escolar', href: '/#' },
-        { text: 'Análisis del nivel de maduración en Ciberseguridad', href: '/#' },
-        { text: 'Pruebas de penetración', href: '/#' },
-        { text: 'Automatización de procesos con Power Automate (Microsoft)', href: '/#' },
-        { text: 'Análisis de Contexto', href: '/#' },
+        { text: 'Programa integral de ciberseguridad y prevención del acoso escolar', href: '/servicios/ciberseguridad' },
+        { text: 'Automatización de procesos', href: '/#' },
+        { text: 'Análisis de contexto', href: '/#' },
         { text: 'Análisis de riesgo y vulnerabilidades', href: '/#' },
       ],
     },
@@ -62,7 +59,7 @@ export const headerData = {
         {
           text: 'Seguridad Corporativa',
           href: getPermalink('/'),
-          //
+          //submenú con los EC específicos
           links: [
             { text: 'EC 0060', href: getPermalink('/cursos/seguridad-corporativa/ec-0060') },
             { text: 'EC 0061', href: getPermalink('/cursos/seguridad-corporativa/ec-0061') },

@@ -1,0 +1,282 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'Programa integral de ciberseguridad y prevención del acoso escolar',
+  description:
+    'Capacitación, protocolos y herramientas para prevenir, detectar y atender incidentes de ciberacoso y violencia digital en escuelas.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************************************* -->
+  <Hero
+    tagline="Escuelas seguras · Entornos digitales sanos"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Solicitar cotización',
+        href: '/contacto',
+        icon: 'tabler:shield-check',
+      },
+      { text: 'Ver módulos', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Programa integral de <span class="text-accent dark:text-white">ciberseguridad</span> y prevención del
+      <span class="hidden sm:inline">acoso escolar</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Implementa un plan práctico y medible para **prevenir, detectar y atender** ciberacoso, grooming, sextorsión y
+      otras formas de violencia digital. Incluye capacitación para docentes, estudiantes y familias; protocolos de
+      actuación; y herramientas de monitoreo y concientización.
+    </Fragment>
+
+    <Fragment slot="image">
+      <!-- Puedes dejar este video de muestra y luego cambiar el ID -->
+      <YouTube id="gxBkghlglTg" title="Presentación del programa (demo)" />
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      </style>
+    </Fragment>
+  </Hero>
+
+  <!-- ¿En qué consiste? ****************************** -->
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    title="Pilares del Programa"
+    subtitle="Tres ejes estratégicos que trabajan en conjunto para crear entornos escolares digitales más seguros."
+    image={{
+        src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+        alt: 'Ciberseguridad educativa',
+    }}
+    items={[
+        {
+        title: 'Prevención y Cultura Digital',
+        description:
+            'Formación en ciudadanía digital, empatía en línea y uso responsable de la tecnología para estudiantes, docentes y familias.',
+        icon: 'tabler:shield-check',
+        },
+        {
+        title: 'Detección y Respuesta',
+        description:
+            'Protocolos claros para identificar casos de acoso escolar y ciberacoso, con rutas de actuación inmediatas y roles definidos.',
+        icon: 'tabler:alert-triangle',
+        },
+        {
+        title: 'Acompañamiento y Seguimiento',
+        description:
+            'Monitoreo continuo, reportes periódicos y sesiones de orientación que aseguran la mejora constante y la sostenibilidad del programa.',
+        icon: 'tabler:heart-handshake',
+        },
+    ]}
+    />
+
+  <!-- Stats ****************************************** -->
+  <Stats
+    title="Impacto del programa"
+    subtitle="Resultados estimados/objetivo al implementar el plan durante un ciclo escolar."
+    stats={[
+      { title: 'Comunidad sensibilizada', amount: '100%' },
+      { title: 'Docentes capacitados', amount: '90%+' },
+      { title: 'Reducción de incidentes', amount: '35–60%' },
+      { title: 'Satisfacción familias', amount: '4.8/5' },
+    ]}
+  />
+
+  <!-- Aliados / Marcas (opcional) ******************* -->
+  <Brands
+    title="Alianzas y herramientas"
+    subtitle="Trabajamos con metodologías y plataformas reconocidas en seguridad digital y convivencia escolar."
+    icons={[]}
+    images={[
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
+        alt: 'YouTube',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
+        alt: 'Plataformas',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
+        alt: 'Microsoft',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
+        alt: 'Google',
+      },
+    ]}
+  />
+
+  <!-- Servicios / Módulos (Features2) *************** -->
+  <Features2
+    title="Componentes del programa"
+    subtitle="Se organiza en módulos que puedes implementar completos o por fase, según la realidad de cada plantel."
+    items={[
+      {
+        title: 'Diagnóstico y línea base',
+        description:
+          'Levantamiento de información (encuestas anónimas y entrevistas) para identificar riesgos, prevalencias y canales de denuncia.',
+        icon: 'tabler:report-search',
+      },
+      {
+        title: 'Capacitación docente',
+        description:
+          'Talleres para identificar señales, registrar evidencias, activar protocolos y educar en ciudadanía digital.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Intervenciones con estudiantes',
+        description:
+          'Sesiones dinámicas por edades: huella digital, privacidad, consentimiento, empatía, bystanders, netiqueta.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Trabajo con familias',
+        description:
+          'Guías y charlas sobre control parental, acuerdos familiares y acompañamiento emocional.',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title: 'Protocolos y ruta de actuación',
+        description:
+          'Documentos claros de prevención, detección, atención y derivación, compatibles con normativa local.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Seguimiento y reportes',
+        description:
+          'Indicadores, tablero de avances y recomendaciones de mejora continua durante el ciclo.',
+        icon: 'tabler:chart-dots-2',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Beneficios (Features) ************************* -->
+  <Features
+    id="features"
+    title="Beneficios clave"
+    subtitle="Resultados tangibles para la comunidad educativa."
+    columns={3}
+    items={[
+      {
+        title: 'Ambientes más seguros',
+        description:
+          'Disminución de incidentes y mejora del clima escolar gracias a la prevención temprana.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Respuesta efectiva',
+        description:
+          'Protocolos claros y roles definidos para actuar sin improvisación ante cualquier caso.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Formación ciudadana digital',
+        description:
+          'Hábitos sanos en redes sociales: respeto, privacidad, consentimiento y pensamiento crítico.',
+        icon: 'tabler:device-desktop',
+      },
+      {
+        title: 'Cumplimiento normativo',
+        description:
+          'Alineado a políticas de convivencia y protección de niñas, niños y adolescentes.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Participación de familias',
+        description:
+          'Materiales y sesiones que suman a madres, padres y tutores en la solución.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Medición y mejora',
+        description:
+          'Indicadores y reportes para tomar decisiones y sostener los logros en el tiempo.',
+        icon: 'tabler:chart-line',
+      },
+    ]}
+  />
+
+  <!-- FAQs ****************************************** -->
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      {
+        title: '¿Para qué niveles aplica?',
+        description:
+          'El programa se adapta a primaria, secundaria y bachillerato, ajustando contenidos, ejemplos y metodologías por edad.',
+      },
+      {
+        title: '¿Cuánto dura la implementación?',
+        description:
+          'Recomendamos ciclo completo (9–10 meses) con fases mensuales. También podemos hacer versiones intensivas de 8–12 semanas.',
+      },
+      {
+        title: '¿Incluye materiales?',
+        description:
+          'Sí: presentaciones, guías de aula, infografías para familias, carteles y formatos de registro/derivación.',
+      },
+      {
+        title: '¿Cómo se mide el impacto?',
+        description:
+          'Con línea base, encuestas de salida y reporte de incidentes atendidos. Se entrega informe con indicadores y recomendaciones.',
+      },
+      {
+        title: '¿Pueden capacitar a todo el personal?',
+        description:
+          'Sí. Docentes, equipo directivo, psicología, trabajo social, prefectura y personal administrativo.',
+      },
+      {
+        title: '¿Ofrecen acompañamiento a casos?',
+        description:
+          'Brindamos orientación técnica para activar la ruta institucional y, de ser necesario, derivar a instancias competentes.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- CTA ******************************************* -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Solicitar propuesta',
+        href: '/contacto',
+        icon: 'tabler:file-description',
+      },
+    ]}
+  >
+    <Fragment slot="title">Construyamos una comunidad escolar segura</Fragment>
+
+    <Fragment slot="subtitle">
+      Te acompañamos con formación, protocolos y seguimiento para que cada estudiante aprenda y conviva en un entorno
+      digital responsable.
+    </Fragment>
+  </CallToAction>
+</Layout>
