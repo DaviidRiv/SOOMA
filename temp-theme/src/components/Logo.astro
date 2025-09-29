@@ -3,9 +3,20 @@
 import { SITE } from 'astrowind:config';
 ---
 
-<img
-  src="/images/LogoTransparente4.png"
-  alt="SOOMA Consultores"
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 h-8 md:h-10 w-auto"
-  loading="lazy"
-/>
+  {/* Logo para modo claro (day) */}
+  <img
+    src="/images/logo-sooma-azul.png"
+    alt="SOOMA Consultores"
+    class="dark:hidden self-center ml-2 rtl:ml-0 rtl:mr-2 h-8 md:h-10 w-auto"
+    loading="eager"
+    decoding="async"
+  />
+
+  {/* Logo para modo oscuro (night) */}
+  <img
+    src="/images/LogoTransparente4.png"
+    alt="SOOMA Consultores"
+    class="hidden dark:inline self-center ml-2 rtl:ml-0 rtl:mr-2 h-8 md:h-10 w-auto"
+    loading="eager"
+    decoding="async"
+  />
