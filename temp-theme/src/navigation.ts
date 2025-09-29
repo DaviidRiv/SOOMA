@@ -105,7 +105,7 @@ export const headerData = {
 export const footerData = {
   // Logo arriba a la izquierda
   logo: {
-    src: '/images/LogoTransparente.png',
+    src: '/images/LogoTransparente4.png',
     alt: 'SOOMA Consultores',
   },
 
