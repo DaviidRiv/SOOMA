@@ -1,0 +1,360 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Curso: Inteligencia Artificial · Consultoría',
+  description:
+    'Formación práctica en IA aplicada: estrategia de datos, LLMs, RAG, NLP, visión por computadora y MLOps. Incluye consultoría de implementación y gobierno.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <Hero
+    id="hero"
+    title="Curso: Inteligencia Artificial aplicada"
+    tagline="De la idea al prototipo y del prototipo a producción, con gobierno y métricas"
+    actions={[{ variant: 'primary', text: 'Quiero implementar IA', href: getPermalink('/contact#form') }]}
+  >
+    <Fragment slot="subtitle">
+      Aprende a diseñar casos de uso de IA, preparar datos, crear prototipos con LLMs (chatbots, RAG), desplegar
+      pipelines de inferencia y medir impacto. <br />
+      Abordamos riesgos, privacidad y gobierno para cumplir con normativas y buenas prácticas.
+    </Fragment>
+  </Hero>
+
+  <!-- Sobre el curso / consultoría **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:brain',
+        callToAction: { target: '_self', text: 'Temario', href: '#temario' },
+      },
+      {
+        icon: 'tabler:settings',
+        callToAction: { target: '_self', text: 'Metodología', href: '#metodologia' },
+      },
+      {
+        icon: 'tabler:report-analytics',
+        callToAction: { target: '_self', text: 'Consultoría', href: '#consultoria' },
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1534759846116-57969e8a8956?auto=format&fit=crop&w=928&q=80',
+      alt: 'IA aplicada en negocio',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">¿Para quién es?</h2>
+      <p>
+        Equipos de producto, operaciones, datos y TI; líderes que buscan ROI real con IA y consultores que requieren
+        metodologías para llevar prototipos a producción.
+      </p>
+      <br />
+      <p>
+        Incluye plantillas (canvas de caso de uso, checklist de datos, guía RAG, matriz de riesgos, KPIs), ejemplos
+        reproducibles y repos compartido.
+      </p>
+      <br />
+      <p>Explora el temario, la metodología y cómo integramos la consultoría de implementación.</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Temario ****************** -->
+
+  <Steps
+    id="temario"
+    title="Temario"
+    items={[
+      {
+        title:
+          'Módulo 1 · Estrategia de IA y datos <br /> <span class="font-normal">Casos de uso, ROI y riesgos</span> <br /> <span class="text-sm font-normal">Duración sugerida: 4–6 h</span>',
+        description: `Identificación de oportunidades y quick-wins. <br /> Canvas de caso de uso. <br /> Métricas de impacto. <br /> Riesgos, privacidad y gobierno.`,
+        icon: 'tabler:chart-line',
+      },
+      {
+        title:
+          'Módulo 2 · LLMs y RAG práctico <br /> <span class="font-normal">Prompts, embeddings y retrieval</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+        description: `Ingeniería de prompts y funciones. <br /> Pipeline RAG (indexación, chunking, embeddings, ranking). <br /> Evaluación de calidad y guardrails.`,
+        icon: 'tabler:robot',
+      },
+      {
+        title:
+          'Módulo 3 · MLOps y despliegue <br /> <span class="font-normal">Versionado, pruebas y monitoreo</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description: `Feature stores y gestión de modelos. <br /> Pruebas de regresión. <br /> Monitoreo de drift y costos. <br /> Observabilidad y alertas.`,
+        icon: 'tabler:database',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Metodología ****************** -->
+
+  <Steps
+    id="metodologia"
+    title="Metodología del curso"
+    items={[
+      {
+        title: `Aprender haciendo <br /> <span class="font-normal">Laboratorios con datos reales</span> <br /> <span class="text-sm font-normal">Repos y notebooks</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Hardening y seguridad <br /> <span class="font-normal">Guardrails, PII y control de costos</span> <br /> <span class="text-sm font-normal">Revisión por pares</span>`,
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: `Medición y mejora continua <br /> <span class="font-normal">KPIs de calidad, uso y valor</span> <br /> <span class="text-sm font-normal">Retro por cohorte</span>`,
+        icon: 'tabler:report-analytics',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Habilidades **************** -->
+
+  <Features3
+    title="Habilidades que desarrollarás"
+    subtitle="IA responsable, útil y sostenible en producción."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      { title: 'Estrategia de IA', description: 'Alinear casos de uso con objetivos de negocio y ROI.' },
+      { title: 'Prompt Engineering', description: 'Diseñar prompts robustos y controlados por contexto.' },
+      { title: 'RAG', description: 'Construir retrieval confiable con embeddings y evaluación.' },
+      { title: 'NLP & Visión', description: 'Resolver tareas de texto e imagen con modelos actuales.' },
+      { title: 'MLOps', description: 'Versionar datos/modelos, pruebas y despliegue continuo.' },
+      { title: 'Observabilidad', description: 'Monitorear calidad, costos, drift y satisfacción.' },
+      { title: 'Gobierno de IA', description: 'Políticas, riesgos, privacidad y cumplimiento.' },
+      { title: 'Documentación', description: 'Evidencias para auditoría, reproducibilidad y soporte.' },
+      { title: 'Cálculo de valor', description: 'Medir adopción, ahorro y generación de ingresos.' },
+    ]}
+  />
+
+  <!-- Caso práctico 1 **************** -->
+
+  <Content
+    id="caso1"
+    title="Asistente interno con RAG"
+    subtitle="Conecta bases de conocimiento y genera respuestas con citas verificables."
+    isReversed
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Levantarás un prototipo RAG con indexación, embeddings, retrieval y respuesta citada; incluye evaluación.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Asistente con contexto empresarial, guardrails básicos, métricas de precisión y panel de uso.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?auto=format&fit=crop&w=928&q=80',
+      alt: 'Asistente con RAG',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Solicitar temario completo',
+      icon: 'tabler:chevron-right',
+      href: '#temario',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 1 <br /><span class="text-2xl">Knowledge assistant</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Caso práctico 2 **************** -->
+
+  <Content
+    id="caso2"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Construirás un pipeline de moderación y clasificación de contenido con evaluación y costos controlados.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Servicio de inferencia con colas, reintentos y logging; tablero de métricas de calidad y costo por request.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=774&q=80',
+      alt: 'Pipeline de inferencia',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Conocer metodología',
+      icon: 'tabler:chevron-right',
+      href: '#metodologia',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 2 <br /><span class="text-2xl">Moderación & clasificación</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Caso práctico 3 **************** -->
+
+  <Content
+    id="caso3"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Definirás KPIs de IA (calidad, adopción, valor), alertas y reporte ejecutivo. Generarás documentación de auditoría.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Panel con métricas de uso, precisión y costos; checklist de gobierno de IA y plan de mejora.',
+      },
+    ]}
+    image={{
+      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?auto=format&fit=crop&w=870&q=80',
+      alt: 'Tablero de métricas de IA',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Ver opciones de consultoría',
+      icon: 'tabler:chevron-right',
+      href: '#consultoria',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 3 <br /><span class="text-2xl">KPIs, valor y cumplimiento</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Bloque de consultoría *********** -->
+
+  <Content
+    id="consultoria"
+    title="Consultoría de IA aplicada"
+    subtitle="Del diagnóstico a la implementación y gobierno."
+    items={[
+      {
+        title: 'Descubrimiento',
+        description:
+          'Workshops con áreas clave, priorización de casos de uso y estimación de ROI y riesgos.',
+      },
+      {
+        title: 'Implementación',
+        description:
+          'Prototipos rápidos, integración con sistemas, seguridad, pruebas y despliegue a producción.',
+      },
+      {
+        title: 'Gobierno y mejora',
+        description:
+          'Políticas de IA responsable, monitoreo, métricas ejecutivas y roadmap de optimización.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=928&q=80',
+      alt: 'Consultoría de IA',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Solicitar diagnóstico',
+      icon: 'tabler:chevron-right',
+      href: getPermalink('/contact#form'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonios *********** -->
+
+  <Testimonials
+    id="testimonios"
+    title="Resultados de clientes"
+    subtitle="Casos de uso aterrizados y en producción, con métricas claras."
+    testimonials={[
+      {
+        testimonial:
+          'Implementamos un asistente interno con RAG para atención a operaciones. Bajamos tiempos de respuesta y mejoramos calidad.',
+        name: 'Silvia Torres',
+        job: 'Gerente de Operaciones',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=774&q=80',
+          alt: 'Silvia Torres',
+        },
+      },
+      {
+        testimonial:
+          'Estandarizamos despliegues con MLOps y creamos tableros de calidad y costo. Ahora iteramos con seguridad.',
+        name: 'Roberto Díaz',
+        job: 'Head of Data',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=772&q=80',
+          alt: 'Roberto Díaz',
+        },
+      },
+      {
+        testimonial:
+          'El enfoque de gobierno de IA nos ayudó a pasar auditorías y escalar casos de uso sin exponer datos sensibles.',
+        name: 'Daniela Romero',
+        job: 'PMO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?auto=format&fit=crop&w=774&q=80',
+          alt: 'Daniela Romero',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction *********** -->
+
+  <CallToAction
+    title="¿Listo para llevar IA a producción?"
+    subtitle="Agenda un diagnóstico para identificar casos de uso viables y su ROI."
+    actions={[
+      { variant: 'primary', text: 'Agendar diagnóstico', href: getPermalink('/contact#form') },
+    ]}
+  />
+</Layout>

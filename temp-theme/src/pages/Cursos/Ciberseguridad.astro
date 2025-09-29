@@ -1,0 +1,266 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Curso: Ciberseguridad · Consultoría',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero
+    id="hero"
+    title="Curso: Ciberseguridad para Organizaciones"
+    tagline="Prevención práctica, respuesta a incidentes y cumplimiento"
+    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/contact#form') }]}
+  >
+    <Fragment slot="subtitle">
+      Programa integral para implementar controles básicos y avanzados de ciberseguridad. <br />
+      Aprende a gestionar riesgos, endurecer configuraciones, responder a incidentes y documentar evidencias para
+      auditorías y marcos como ISO/IEC 27001, NIST CSF y LFPDPPP.
+    </Fragment>
+  </Hero>
+
+  <!-- Sobre el curso -->
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      { icon: 'tabler:book-2', callToAction: { target: '_self', text: 'Ver temario', href: '#temario' } },
+      { icon: 'tabler:users', callToAction: { target: '_self', text: 'Metodología', href: '#metodologia' } },
+      { icon: 'tabler:certificate', callToAction: { target: '_self', text: 'Certificación', href: '#certificacion' } },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?auto=format&fit=crop&w=774&q=80',
+      alt: 'Colorful Image',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">¿A quién va dirigido?</h2>
+      <p>
+        Equipos de TI, responsables de seguridad, compliance y líderes operativos que requieren blindar procesos,
+        activos e información sensible con prácticas probadas y medibles.
+      </p>
+      <br />
+      <p>
+        Incluye plantillas de políticas, matrices de riesgo, playbooks de respuesta y checklists de hardening para
+        Windows, Linux, nube y aplicaciones.
+      </p>
+      <br />
+      <p>Explora el temario, metodología y opciones de certificación interna.</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Temario -->
+  <Steps
+    id="temario"
+    title="Temario"
+    items={[
+      {
+        title:
+          'Módulo 1 · Gestión de riesgos y controles <br /> <span class="font-normal">Inventario, clasificación y controles base</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+        description:
+          'Identificación de activos críticos. Matriz de riesgos. Controles administrativos y técnicos. Políticas mínimas (accesos, contraseñas, BYOD, copias, parches).',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title:
+          'Módulo 2 · Respuesta a incidentes y continuidad <br /> <span class="font-normal">Playbooks y evidencia</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+        description:
+          'Modelos de amenazas. Playbooks (phishing, ransomware, fuga de datos). Contención, erradicación y recuperación. Registro de evidencias y postmortem.',
+        icon: 'tabler:alert-triangle',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Metodología -->
+  <Steps
+    id="metodologia"
+    title="Metodología del curso"
+    items={[
+      {
+        title: `Hands-on con entornos guiados <br /> <span class="font-normal">Laboratorios y simulaciones</span> <br /> <span class="text-sm font-normal">Presencial / en línea</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Evidencias y madurez <br /> <span class="font-normal">Checklists, métricas y auditoría</span> <br /> <span class="text-sm font-normal">Retro individual</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Habilidades -->
+  <Features3
+    title="Habilidades que desarrollarás"
+    subtitle="Capacidades clave para proteger y responder."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      { title: 'Gestión de riesgos', description: 'Inventariar, clasificar y priorizar controles.' },
+      { title: 'Hardening', description: 'Aplicar configuraciones seguras en equipos y nube.' },
+      { title: 'Monitoreo', description: 'Definir alertas, bitácoras y revisión periódica.' },
+      { title: 'Respuesta a incidentes', description: 'Contención, erradicación y recuperación.' },
+      { title: 'Concientización', description: 'Campañas anti-phishing y cultura de seguridad.' },
+      { title: 'Cumplimiento', description: 'Evidencias para auditorías y marcos normativos.' },
+      { title: 'Backups y DRP', description: 'Estrategias 3-2-1 y pruebas de restauración.' },
+      { title: 'Gestión de accesos', description: 'MFA, mínimos privilegios y revisiones.' },
+      { title: 'Mejora continua', description: 'Métricas de madurez y roadmaps trimestrales.' },
+    ]}
+  />
+
+  <!-- Caso 1 -->
+  <Content
+    id="caso1"
+    title="Endurecimiento inicial de 30 días"
+    subtitle="Plan mínimo viable para reducir superficie de ataque."
+    isReversed
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Aplicarás un checklist de hardening y parches, habilitarás MFA y configurarás respaldos verificados.',
+      },
+      {
+        title: 'Producto esperado:',
+        description: 'Bitácora de cambios + reporte de hallazgos y plan de siguientes 60 días.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?auto=format&fit=crop&w=928&q=80',
+      alt: 'Tech Design Image',
+    }}
+    callToAction={{ target: '_self', text: 'Solicitar temario completo', icon: 'tabler:chevron-right', href: '#temario' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Módulo práctico 1 <br /><span class="text-2xl">Controles esenciales</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <!-- Caso 2 -->
+  <Content
+    id="caso2"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Ejecutarás un simulacro de phishing e incidente de ransomware siguiendo un playbook paso a paso.',
+      },
+      {
+        title: 'Producto esperado:',
+        description: 'Registro de evidencias + postmortem con acciones correctivas.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=774&q=80',
+      alt: 'Art and Music Poster Image',
+    }}
+    callToAction={{ target: '_self', text: 'Conocer metodología', icon: 'tabler:chevron-right', href: '#metodologia' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Módulo práctico 2 <br /><span class="text-2xl">Simulacro de incidentes</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <!-- Caso 3 -->
+  <Content
+    id="caso3"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description: `Construirás un paquete de evidencias para auditoría (políticas, listas de asistencia, bitácoras, reportes).`,
+      },
+      {
+        title: 'Producto esperado:',
+        description: `Carpeta de cumplimiento con índices, responsables y periodicidades.`,
+      },
+    ]}
+    image={{
+      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?auto=format&fit=crop&w=870&q=80',
+      alt: 'Fashion e-commerce Image',
+    }}
+    callToAction={{ target: '_self', text: 'Conocer certificación', icon: 'tabler:chevron-right', href: '#certificacion' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Módulo práctico 3 <br /><span class="text-2xl">Evidencias de cumplimiento</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <!-- Testimonios -->
+  <Testimonials
+    id="testimonios"
+    title="Resultados que respaldan"
+    subtitle="Implementaciones reales con reducción de incidentes."
+    testimonials={[
+      {
+        testimonial:
+          'Pasamos de reacciones improvisadas a un proceso claro y medible. El simulacro nos ahorró horas en un incidente real.',
+        name: 'Carlos Pérez',
+        job: 'Líder de TI',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=774&q=80',
+          alt: 'Carlos Pérez',
+        },
+      },
+      {
+        testimonial:
+          'Con los playbooks y evidencias logramos auditorías sin observaciones críticas y mejor actitud del personal ante phishing.',
+        name: 'Ana Torres',
+        job: 'Compliance',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=772&q=80',
+          alt: 'Ana Torres',
+        },
+      },
+      {
+        testimonial:
+          'En 90 días consolidamos controles básicos y un plan anual de madurez. Muy práctico.',
+        name: 'Miguel Gómez',
+        job: 'Gerente Operaciones',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?auto=format&fit=crop&w=774&q=80',
+          alt: 'Miguel Gómez',
+        },
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    title="¿Listo para fortalecer tu ciberseguridad?"
+    subtitle="Cupo limitado por cohorte para garantizar práctica y acompañamiento."
+    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/contact#form') }]}
+  />
+</Layout>

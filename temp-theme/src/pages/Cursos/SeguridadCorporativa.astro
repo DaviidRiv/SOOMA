@@ -1,0 +1,360 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Curso: Seguridad Corporativa · Consultoría',
+  description:
+    'Formación y consultoría para diseñar, implementar y auditar un sistema integral de seguridad corporativa: física, digital y de personal. Incluye protocolos, matrices de riesgos y respuesta a incidentes.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <Hero
+    id="hero"
+    title="Seguridad Corporativa"
+    tagline="Prevención, protección y respuesta con métricas y trazabilidad"
+    actions={[{ variant: 'primary', text: 'Solicitar diagnóstico', href: getPermalink('/contact#form') }]}
+  >
+    <Fragment slot="subtitle">
+      Curso práctico + consultoría para construir un programa integral de seguridad: evaluación de riesgos, planes de
+      prevención, controles físicos y lógicos, continuidad de negocio y respuesta a incidentes. <br />
+      Diseñado para organizaciones que requieren cumplimiento, auditoría y reducción de pérdidas operativas.
+    </Fragment>
+  </Hero>
+
+  <!-- Sobre el curso / consultoría **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:shield-lock',
+        callToAction: { target: '_self', text: 'Temario', href: '#temario' },
+      },
+      {
+        icon: 'tabler:building',
+        callToAction: { target: '_self', text: 'Metodología', href: '#metodologia' },
+      },
+      {
+        icon: 'tabler:report-analytics',
+        callToAction: { target: '_self', text: 'Consultoría', href: '#consultoria' },
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=928&q=80',
+      alt: 'Seguridad corporativa integral',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">¿Para quién es?</h2>
+      <p>
+        Directivos, responsables de seguridad, compliance, TI, RH y operaciones que buscan un marco práctico para
+        prevenir incidentes, proteger activos y responder con protocolos auditables.
+      </p>
+      <br />
+      <p>
+        Incluye plantillas (matriz de riesgos, planes de contingencia, bitácoras, checklists de inspección) y guías de
+        cumplimiento (políticas, roles y reportes).
+      </p>
+      <br />
+      <p>Explora el temario, la metodología y cómo integramos la consultoría de implementación.</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Temario ****************** -->
+
+  <Steps
+    id="temario"
+    title="Temario"
+    items={[
+      {
+        title:
+          'Módulo 1 · Gestión de riesgos y políticas <br /> <span class="font-normal">Identificación, evaluación y tratamiento</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description: `Mapa de activos y amenazas. <br /> Matriz de riesgos (probabilidad/impacto). <br /> Políticas y roles. <br /> Indicadores y reporting ejecutivo.`,
+        icon: 'tabler:alert-octagon',
+      },
+      {
+        title:
+          'Módulo 2 · Seguridad física y de personal <br /> <span class="font-normal">Controles, planes y conciencia</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+        description: `Perímetros, accesos, CCTV, rondines y evidencias. <br /> Protección de ejecutivos y visitantes. <br /> Cultura de seguridad y simulacros.`,
+        icon: 'tabler:camera',
+      },
+      {
+        title:
+          'Módulo 3 · Ciberseguridad y continuidad <br /> <span class="font-normal">Incidentes, DRP y forense básico</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description: `Gestión de incidentes (IR). <br /> Respaldo y recuperación (BCP/DRP). <br /> Preservación de evidencia y lecciones aprendidas.`,
+        icon: 'tabler:device-desktop-analytics',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Metodología ****************** -->
+
+  <Steps
+    id="metodologia"
+    title="Metodología del curso"
+    items={[
+      {
+        title: `Aprender haciendo <br /> <span class="font-normal">Casos, simulacros y bitácoras</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Hardening operativo <br /> <span class="font-normal">Controles, pruebas y auditorías</span>`,
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: `Medición y mejora continua <br /> <span class="font-normal">KPIs, SLA y revisiones post-incident</span>`,
+        icon: 'tabler:chart-line',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Habilidades **************** -->
+
+  <Features3
+    title="Habilidades que desarrollarás"
+    subtitle="Capacidades prácticas para un programa de seguridad integral."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      { title: 'Análisis de riesgos', description: 'Identificar amenazas y priorizar controles.' },
+      { title: 'Planificación de seguridad', description: 'Diseñar políticas, roles y procedimientos.' },
+      { title: 'Seguridad física', description: 'Control de accesos, CCTV y rondines con evidencia.' },
+      { title: 'Respuesta a incidentes', description: 'Activar protocolos, coordinar y documentar.' },
+      { title: 'Continuidad y DRP', description: 'Restaurar operaciones con mínima pérdida.' },
+      { title: 'Investigación básica', description: 'Preservación de evidencia y reportes ejecutivos.' },
+      { title: 'Conciencia y cultura', description: 'Campañas, entrenamientos y simulacros.' },
+      { title: 'Cumplimiento', description: 'Bitácoras, auditoría y trazabilidad.' },
+      { title: 'Métricas y ROI', description: 'KPIs, SLAs y tablero de riesgos.' },
+    ]}
+  />
+
+  <!-- Caso práctico 1 **************** -->
+
+  <Content
+    id="caso1"
+    title="Plan maestro de seguridad"
+    subtitle="Del diagnóstico al plan operativo con responsables y métricas."
+    isReversed
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Construirás un plan maestro con políticas, procedimientos, responsables, métricas y calendario de auditoría.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Documento de programa de seguridad listo para aprobación y despliegue.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?auto=format&fit=crop&w=928&q=80',
+      alt: 'Plan maestro de seguridad',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Ver temario completo',
+      icon: 'tabler:chevron-right',
+      href: '#temario',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 1 <br /><span class="text-2xl">Programa y políticas</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Caso práctico 2 **************** -->
+
+  <Content
+    id="caso2"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Diseñarás controles físicos y de personal: plan de accesos, CCTV, rondines, credenciales e inducciones.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Mapa de controles con bitácoras, formatos y checklist de inspección.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=774&q=80',
+      alt: 'Controles físicos y de personal',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Conocer metodología',
+      icon: 'tabler:chevron-right',
+      href: '#metodologia',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 2 <br /><span class="text-2xl">Controles y evidencias</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Caso práctico 3 **************** -->
+
+  <Content
+    id="caso3"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Definirás el plan de respuesta a incidentes (IR) y continuidad (BCP/DRP) con métricas y simulacros.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Playbooks, árboles de decisión, runbooks y calendario de pruebas de recuperación.',
+      },
+    ]}
+    image={{
+      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?auto=format&fit=crop&w=870&q=80',
+      alt: 'Respuesta a incidentes y continuidad',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Ver opciones de consultoría',
+      icon: 'tabler:chevron-right',
+      href: '#consultoria',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 3 <br /><span class="text-2xl">IR, BCP y DRP</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Bloque de consultoría *********** -->
+
+  <Content
+    id="consultoria"
+    title="Consultoría en seguridad corporativa"
+    subtitle="Implementación end-to-end con auditoría y mejora continua."
+    items={[
+      {
+        title: 'Diagnóstico y roadmap',
+        description:
+          'Evaluación de madurez, brechas y priorización. Roadmap con quick-wins y proyectos estructurales.',
+      },
+      {
+        title: 'Implementación y hardening',
+        description:
+          'Despliegue de controles, capacitación, simulacros y puesta en operación con bitácoras y métricas.',
+      },
+      {
+        title: 'Auditoría y mejora',
+        description:
+          'Revisiones periódicas, KPIs de seguridad, lecciones aprendidas y actualización de políticas.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=928&q=80',
+      alt: 'Consultoría en seguridad',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Solicitar diagnóstico',
+      icon: 'tabler:chevron-right',
+      href: getPermalink('/contact#form'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonios *********** -->
+
+  <Testimonials
+    id="testimonios"
+    title="Resultados de clientes"
+    subtitle="Menos incidentes, mejor control y cumplimiento verificable."
+    testimonials={[
+      {
+        testimonial:
+          'Estandarizamos controles y bitácoras; la tasa de incidentes bajó y pasamos auditorías sin observaciones críticas.',
+        name: 'Ana Rodríguez',
+        job: 'Gerente de Cumplimiento',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=774&q=80',
+          alt: 'Ana Rodríguez',
+        },
+      },
+      {
+        testimonial:
+          'Las simulaciones y el DRP nos permitieron recuperarnos rápido tras un corte eléctrico que afectó operaciones.',
+        name: 'Héctor Salinas',
+        job: 'Director de Operaciones',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=772&q=80',
+          alt: 'Héctor Salinas',
+        },
+      },
+      {
+        testimonial:
+          'Ahora tenemos KPIs, SLAs y un tablero de riesgos que facilita decisiones y presupuestos.',
+        name: 'Beatriz León',
+        job: 'PMO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?auto=format&fit=crop&w=774&q=80',
+          alt: 'Beatriz León',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction *********** -->
+
+  <CallToAction
+    title="¿Listo para fortalecer tu seguridad?"
+    subtitle="Agenda un diagnóstico para priorizar controles y reducir riesgos."
+    actions={[
+      { variant: 'primary', text: 'Agendar diagnóstico', href: getPermalink('/contact#form') },
+    ]}
+  />
+</Layout>

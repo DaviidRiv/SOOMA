@@ -1,0 +1,315 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Programa de Prevención de la Violencia · Consultoría y Capacitación',
+  description:
+    'Capacitación integral para prevenir, detectar y atender situaciones de violencia en entornos educativos, laborales y comunitarios. Incluye consultoría para implementar protocolos y políticas de prevención.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <Hero
+    id="hero"
+    title="Prevención de la Violencia"
+    tagline="Formación y estrategias para entornos seguros y respetuosos"
+    actions={[{ variant: 'primary', text: 'Solicitar información', href: getPermalink('/contact#form') }]}
+  >
+    <Fragment slot="subtitle">
+      Programa práctico que combina capacitación, herramientas de detección temprana y consultoría para implementar
+      políticas de prevención, atención y seguimiento de casos de violencia física, psicológica, digital y laboral. <br />
+      Ideal para instituciones educativas, empresas y organizaciones sociales.
+    </Fragment>
+  </Hero>
+
+  <!-- Sobre el programa **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:shield-check',
+        callToAction: { target: '_self', text: 'Temario', href: '#temario' },
+      },
+      {
+        icon: 'tabler:users',
+        callToAction: { target: '_self', text: 'Metodología', href: '#metodologia' },
+      },
+      {
+        icon: 'tabler:report-analytics',
+        callToAction: { target: '_self', text: 'Consultoría', href: '#consultoria' },
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=928&q=80',
+      alt: 'Prevención y seguridad',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">¿A quién va dirigido?</h2>
+      <p>
+        Directivos, personal docente, responsables de recursos humanos, líderes comunitarios y cualquier equipo que
+        busque prevenir y atender incidentes de violencia o acoso en su entorno.
+      </p>
+      <br />
+      <p>
+        Incluye protocolos descargables, guías de actuación, formatos de denuncia, checklists para auditorías y material
+        para sensibilización de equipos.
+      </p>
+      <br />
+      <p>Consulta el temario, metodología y detalles de nuestra consultoría a continuación.</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Temario ****************** -->
+
+  <Steps
+    id="temario"
+    title="Temario"
+    items={[
+      {
+        title:
+          'Módulo 1 · Sensibilización y marco legal <br /> <span class="font-normal">Tipos de violencia y normativas</span> <br /> <span class="text-sm font-normal">Duración sugerida: 4 h</span>',
+        description: `Conceptos clave de violencia y acoso. <br /> Normatividad nacional e internacional. <br /> Derechos humanos y obligaciones institucionales.`,
+        icon: 'tabler:scale',
+      },
+      {
+        title:
+          'Módulo 2 · Detección temprana y protocolos <br /> <span class="font-normal">Indicadores y rutas de acción</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description: `Identificación de señales de alerta. <br /> Diseño de protocolos de atención y acompañamiento. <br /> Coordinación con autoridades y redes de apoyo.`,
+        icon: 'tabler:alert-triangle',
+      },
+      {
+        title:
+          'Módulo 3 · Cultura de paz y seguimiento <br /> <span class="font-normal">Prevención continua y métricas</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description: `Estrategias de convivencia pacífica. <br /> Talleres de habilidades socioemocionales. <br /> Evaluación de impacto y mejora constante.`,
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Metodología ****************** -->
+
+  <Steps
+    id="metodologia"
+    title="Metodología del programa"
+    items={[
+      {
+        title: `Aprender haciendo <br /> <span class="font-normal">Dinámicas, estudios de caso y role play</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Implementación práctica <br /> <span class="font-normal">Protocolos adaptados a cada institución</span>`,
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: `Evaluación y seguimiento <br /> <span class="font-normal">Indicadores de impacto y retroalimentación</span>`,
+        icon: 'tabler:chart-line',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Habilidades **************** -->
+
+  <Features3
+    title="Habilidades y competencias"
+    subtitle="Formación para crear espacios seguros y libres de violencia."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      { title: 'Identificación de riesgos', description: 'Reconocer señales de violencia y factores de riesgo.' },
+      { title: 'Diseño de protocolos', description: 'Elaborar rutas de acción y atención inmediata.' },
+      { title: 'Comunicación empática', description: 'Brindar apoyo inicial y canalizar casos con respeto.' },
+      { title: 'Mediación de conflictos', description: 'Aplicar técnicas de resolución pacífica.' },
+      { title: 'Capacitación continua', description: 'Diseñar campañas y talleres de sensibilización.' },
+      { title: 'Evaluación de impacto', description: 'Medir resultados y generar reportes de avance.' },
+    ]}
+  />
+
+  <!-- Casos prácticos **************** -->
+
+  <Content
+    id="caso1"
+    title="Protocolos de actuación"
+    subtitle="Diseño e implementación de protocolos claros para atención de incidentes."
+    isReversed
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Crearás un protocolo de atención y seguimiento, con roles, tiempos de respuesta y canales de denuncia.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Documento institucional listo para aprobación y difusión interna.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?auto=format&fit=crop&w=928&q=80',
+      alt: 'Protocolo de actuación',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Ver temario completo',
+      icon: 'tabler:chevron-right',
+      href: '#temario',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 1 <br /><span class="text-2xl">Diseño de protocolos</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    id="caso2"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Simularás un proceso de detección y canalización de un caso real, aplicando las herramientas aprendidas.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Informe de caso con pasos, evidencias y recomendaciones para mejora.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=774&q=80',
+      alt: 'Simulación de casos',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Conocer metodología',
+      icon: 'tabler:chevron-right',
+      href: '#metodologia',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 2 <br /><span class="text-2xl">Simulación de incidentes</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Consultoría **************** -->
+
+  <Content
+    id="consultoria"
+    title="Consultoría en prevención de la violencia"
+    subtitle="Acompañamiento experto para implementar políticas y cultura de paz."
+    items={[
+      {
+        title: 'Diagnóstico',
+        description:
+          'Evaluación de riesgos, clima organizacional y cumplimiento normativo.',
+      },
+      {
+        title: 'Implementación',
+        description:
+          'Creación de protocolos, capacitación al personal y campañas de sensibilización.',
+      },
+      {
+        title: 'Seguimiento',
+        description:
+          'Monitoreo, medición de impacto y mejora continua de las estrategias.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=928&q=80',
+      alt: 'Consultoría especializada',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Solicitar diagnóstico',
+      icon: 'tabler:chevron-right',
+      href: getPermalink('/contact#form'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonios *********** -->
+
+  <Testimonials
+    id="testimonios"
+    title="Impacto en organizaciones"
+    subtitle="Historias de éxito en escuelas, empresas y comunidades."
+    testimonials={[
+      {
+        testimonial:
+          'Con el programa, implementamos protocolos y logramos reducir incidentes en un 60% en el primer año.',
+        name: 'Lucía Hernández',
+        job: 'Directora de Secundaria',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=774&q=80',
+          alt: 'Lucía Hernández',
+        },
+      },
+      {
+        testimonial:
+          'La capacitación a todo el personal generó una cultura de respeto y reacción oportuna ante cualquier situación.',
+        name: 'Miguel Torres',
+        job: 'Gerente de RR.HH.',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=772&q=80',
+          alt: 'Miguel Torres',
+        },
+      },
+      {
+        testimonial:
+          'Ahora contamos con canales de denuncia y seguimiento claros, respaldados por auditorías internas.',
+        name: 'Carla Ruiz',
+        job: 'Coordinadora de Bienestar',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?auto=format&fit=crop&w=774&q=80',
+          alt: 'Carla Ruiz',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction *********** -->
+
+  <CallToAction
+    title="¿Listo para crear espacios libres de violencia?"
+    subtitle="Agenda un diagnóstico para diseñar tu estrategia de prevención."
+    actions={[
+      { variant: 'primary', text: 'Agendar diagnóstico', href: getPermalink('/contact#form') },
+    ]}
+  />
+</Layout>
