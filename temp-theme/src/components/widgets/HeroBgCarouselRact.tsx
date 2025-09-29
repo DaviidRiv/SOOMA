@@ -87,7 +87,7 @@ export default function HeroBgCarouselReact({
   subtitle,
   actions = [],
   id,
-  overlayClass = "bg-slate-900/45",
+  overlayClass="bg-transparent",
   imageFit = "cover",
   imagePosition = "center",
   heightClass = "min-h-[55svh] md:min-h-[75svh]",
@@ -246,7 +246,7 @@ export default function HeroBgCarouselReact({
             />
           );
         })}
-        <div className={`absolute inset-0 ${overlayClass} dark:bg-black/40`} />
+        <div className={`absolute inset-0 ${overlayClass}`} />
       </div>
 
       {/* Controles */}
