@@ -41,7 +41,7 @@ export const headerData = {
       links: [
         {
           text: 'Instructor',
-          href: getPermalink('/'),
+          href: getPermalink('/Cursos/Instructor'),
           // Submenú con el EC específico
           links: [
             { text: 'EC 217.01', href: getPermalink('/cursos/instructor/ec-217-01') },
@@ -49,7 +49,7 @@ export const headerData = {
         },
         {
           text: 'Ciberseguridad',
-          href: getPermalink('/'),
+          href: getPermalink('/Cursos/Ciberseguridad'),
           // Submenú con los EC específicos
           links: [
             { text: 'EC 0154', href: getPermalink('/cursos/ciberseguridad/ec-0154') },
@@ -58,7 +58,7 @@ export const headerData = {
         },
         {
           text: 'Seguridad Corporativa',
-          href: getPermalink('/'),
+          href: getPermalink('/Cursos/SeguridadCorporativa'),
           //submenú con los EC específicos
           links: [
             { text: 'EC 0060', href: getPermalink('/cursos/seguridad-corporativa/ec-0060') },
@@ -67,9 +67,9 @@ export const headerData = {
             { text: 'EC 0329', href: getPermalink('/cursos/seguridad-corporativa/ec-0329') },
           ],
         },
-        { text: 'Prevención de la Violencia', href: '/#' },
-        { text: 'Inteligencia Artificial', href: '/#' },
-        { text: 'Automatización', href: '/#' },
+        { text: 'Prevención de la Violencia', href: '/Cursos/PrevenciónViolencia' },
+        { text: 'Inteligencia Artificial', href: '/Cursos/InteligenciaArtificial' },
+        { text: 'Automatización', href: '/Cursos/Automatización' },
       ],
     },
 

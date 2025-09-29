@@ -1,0 +1,377 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Curso: Automatización de Procesos · Consultoría',
+  description:
+    'Diseña, automatiza y documenta procesos con herramientas no-code/low-code y RPA. Capacitación práctica + consultoría para implementación en tu organización.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************* -->
+
+  <Hero
+    id="hero"
+    title="Curso: Automatización de procesos"
+    tagline="Estandariza, automatiza y escala sin aumentar el equipo"
+    actions={[{ variant: 'primary', text: 'Quiero automatizar', href: getPermalink('/contact#form') }]}
+  >
+    <Fragment slot="subtitle">
+      Programa práctico para mapear, optimizar y automatizar flujos con herramientas no-code/low-code (Zapier, Make,
+      Power Automate), RPA y scripts ligeros. <br />
+      Aprende a detectar cuellos de botella, diseñar flujos robustos, medir KPIs y dejar evidencia para auditorías y
+      cumplimiento (ISO, GDPR, LFPDPPP).
+    </Fragment>
+  </Hero>
+
+  <!-- Sobre el curso / consultoría **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:robot',
+        callToAction: {
+          target: '_self',
+          text: 'Temario',
+          href: '#temario',
+        },
+      },
+      {
+        icon: 'tabler:settings',
+        callToAction: {
+          target: '_self',
+          text: 'Metodología',
+          href: '#metodologia',
+        },
+      },
+      {
+        icon: 'tabler:report-analytics',
+        callToAction: {
+          target: '_self',
+          text: 'Consultoría',
+          href: '#consultoria',
+        },
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Automatización y flujos de trabajo',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">¿Para quién es?</h2>
+      <p>
+        Equipos de operaciones, TI, RR.HH., ventas, finanzas y consultores que necesitan reducir tareas manuales,
+        estandarizar procesos y medirlos con claridad.
+      </p>
+      <br />
+      <p>
+        Incluye plantillas (BPMN ligero, SIPOC, checklist de integraciones), guías de gobernanza y ejemplos listos para
+        producción en herramientas populares.
+      </p>
+      <br />
+      <p>Explora el temario, la metodología y cómo se integra nuestra consultoría de implementación.</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Temario ****************** -->
+
+  <Steps
+    id="temario"
+    title="Temario"
+    items={[
+      {
+        title:
+          'Módulo 1 · Descubrimiento y mapeo <br /> <span class="font-normal">SIPOC, BPMN ligero y priorización</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description: `Inventario de procesos y quick-wins. <br /> Definición de entradas/salidas y dueños. <br /> Mapa de flujo “as-is” y “to-be”. <br /> Matriz esfuerzo-impacto.`,
+        icon: 'tabler:map',
+      },
+      {
+        title:
+          'Módulo 2 · No-code/low-code & RPA <br /> <span class="font-normal">Zapier, Make, Power Automate</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+        description: `Triggers, acciones y webhooks. <br /> Enriquecimiento con API. <br /> Manejo de errores y reintentos. <br /> Logs y versionado.`,
+        icon: 'tabler:cpu',
+      },
+      {
+        title:
+          'Módulo 3 · Datos, seguridad y cumplimiento <br /> <span class="font-normal">KPIs, auditoría y gobernanza</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description: `Definición de métricas (SLA, ciclo, costo). <br /> Evidencias y trazabilidad. <br /> Roles y permisos. <br /> Backup, privacidad y riesgos.`,
+        icon: 'tabler:shield-check',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Metodología ****************** -->
+
+  <Steps
+    id="metodologia"
+    title="Metodología del curso"
+    items={[
+      {
+        title: `Aprender haciendo <br /> <span class="font-normal">Laboratorios con casos reales</span> <br /> <span class="text-sm font-normal">Plantillas y repos compartido</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Hardening del flujo <br /> <span class="font-normal">Manejo de errores & pruebas</span> <br /> <span class="text-sm font-normal">Ambientes y despliegue</span>`,
+        icon: 'tabler:bug',
+      },
+      {
+        title: `Medición y mejora continua <br /> <span class="font-normal">KPIs, alertas y reporting</span> <br /> <span class="text-sm font-normal">Retro por cohorte</span>`,
+        icon: 'tabler:chart-line',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Habilidades **************** -->
+
+  <Features3
+    title="Habilidades que desarrollarás"
+    subtitle="Capacidades clave para automatizar con seguridad y control."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      { title: 'Mapeo de procesos', description: 'Visualizar “as-is” y diseñar “to-be” priorizando quick-wins.' },
+      { title: 'Integraciones', description: 'Conectar apps con triggers, webhooks y APIs.' },
+      { title: 'RPA básico', description: 'Automatizar tareas repetitivas y captura de datos.' },
+      { title: 'Orquestación', description: 'Diseñar flujos con reintentos, colas y logs.' },
+      { title: 'Observabilidad', description: 'Definir KPIs, alertas y tableros ejecutivos.' },
+      { title: 'Gobernanza', description: 'Roles, permisos, gestión de cambios y auditoría.' },
+      { title: 'Seguridad', description: 'Buenas prácticas de datos, secretos y backups.' },
+      { title: 'Documentación', description: 'Evidencias para auditoría y continuidad operativa.' },
+      { title: 'Cálculo de ROI', description: 'Medir tiempo ahorrado y retorno por flujo.' },
+    ]}
+  />
+
+  <!-- Caso práctico 1 **************** -->
+
+  <Content
+    id="caso1"
+    title="Del Excel al flujo automatizado"
+    subtitle="Conecta formularios, hojas de cálculo y correo con aprobaciones automáticas."
+    isReversed
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Convertirás un proceso manual (captura y validación en Excel) en un flujo automatizado con triggers y aprobaciones.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Pipeline con registro automático, validaciones, notificaciones y tablero de seguimiento con KPIs.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
+      alt: 'Flujo de trabajo automatizado',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Solicitar temario completo',
+      icon: 'tabler:chevron-right',
+      href: '#temario',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 1 <br /><span class="text-2xl">Aprobaciones y registros</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Caso práctico 2 **************** -->
+
+  <Content
+    id="caso2"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Construirás un integrador de ventas: CRM → facturación → contabilidad, con control de errores y bitácoras.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Flujo con webhooks, transformaciones, conciliación y alertas de fallo por canal (email/Teams/Slack).',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Integraciones de sistemas',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Conocer metodología',
+      icon: 'tabler:chevron-right',
+      href: '#metodologia',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 2 <br /><span class="text-2xl">Integraciones y orquestación</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Caso práctico 3 **************** -->
+
+  <Content
+    id="caso3"
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Qué harás:',
+        description:
+          'Definirás KPIs, tableros y evidencias para auditoría. Implementarás alertas por desviaciones de SLA.',
+      },
+      {
+        title: 'Producto esperado:',
+        description:
+          'Panel de control con métricas de ciclo, throughput y fallos; documentación y checklist de cumplimiento.',
+      },
+    ]}
+    image={{
+      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Tablero y métricas',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Ver opciones de consultoría',
+      icon: 'tabler:chevron-right',
+      href: '#consultoria',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Caso práctico 3 <br /><span class="text-2xl">KPIs, alertas y cumplimiento</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Bloque de consultoría (página de consultoría dentro del mismo flujo) *********** -->
+
+  <Content
+    id="consultoria"
+    title="Consultoría de automatización"
+    subtitle="Diseño e implementación end-to-end con acompañamiento experto."
+    items={[
+      {
+        title: 'Descubrimiento',
+        description:
+          'Workshops con stakeholders, inventario de procesos, priorización de quick-wins y cálculo de ROI.',
+      },
+      {
+        title: 'Implementación',
+        description:
+          'Diseño técnico, configuración de flujos, pruebas, seguridad y puesta en producción con documentación.',
+      },
+      {
+        title: 'Soporte y mejora',
+        description:
+          'Monitoreo, alertas, acuerdo de niveles de servicio (SLA) y roadmap de mejora continua.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
+      alt: 'Consultoría de automatización',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Solicitar diagnóstico',
+      icon: 'tabler:chevron-right',
+      href: getPermalink('/contact#form'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonios *********** -->
+
+  <Testimonials
+    id="testimonios"
+    title="Resultados de nuestros clientes"
+    subtitle="Ahorro de tiempo, reducción de errores y mejor visibilidad del proceso."
+    testimonials={[
+      {
+        testimonial:
+          'Automatizamos la recepción de pedidos y la conciliación con contabilidad. Reducimos 70% del tiempo y eliminamos errores de captura.',
+        name: 'Karla Jiménez',
+        job: 'Líder de Operaciones',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Karla Jiménez',
+        },
+      },
+      {
+        testimonial:
+          'Integramos CRM, facturación y banco. Hoy tenemos tableros con KPIs y alertas por SLA. Los cierres son mucho más rápidos.',
+        name: 'José Ramírez',
+        job: 'Director Financiero',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
+          alt: 'José Ramírez',
+        },
+      },
+      {
+        testimonial:
+          'La gobernanza y la documentación nos facilitaron auditorías internas. Tenemos trazabilidad y control de cambios.',
+        name: 'Patricia Ortiz',
+        job: 'PMO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Patricia Ortiz',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction *********** -->
+
+  <CallToAction
+    title="¿Listo para automatizar?"
+    subtitle="Agenda un diagnóstico sin costo para identificar quick-wins en tu operación."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Agendar diagnóstico',
+        href: getPermalink('/contact#form'),
+      },
+    ]}
+  />
+</Layout>
