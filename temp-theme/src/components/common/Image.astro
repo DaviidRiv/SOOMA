@@ -17,45 +17,76 @@ type ImageType = {
 
 const props = Astro.props;
 
+// Validaciones/base
 if (props.alt === undefined || props.alt === null) {
   throw new Error();
 }
+if (typeof props.width === 'string') props.width = parseInt(props.width);
+if (typeof props.height === 'string') props.height = parseInt(props.height);
+if (!props.loading) props.loading = 'lazy';
+if (!props.decoding) props.decoding = 'async';
 
-if (typeof props.width === 'string') {
-  props.width = parseInt(props.width);
-}
+// Resolver origen (local o remoto)
+const resolved = await findImage(props.src);
 
-if (typeof props.height === 'string') {
-  props.height = parseInt(props.height);
-}
+// Extraer URL “raw” utilizable
+let rawUrl: string | undefined =
+  typeof resolved === 'string'
+    ? resolved
+    : (resolved as any)?.src ?? (typeof props.src === 'string' ? props.src : undefined);
 
-if (!props.loading) {
-  props.loading = 'lazy';
-}
-
-if (!props.decoding) {
-  props.decoding = 'async';
-}
-
-const _image = await findImage(props.src);
+// Detectar GIF (en src original o resuelto)
+const srcStr = typeof props.src === 'string' ? props.src : String(rawUrl ?? '');
+const isGif =
+  /\.gif(?:[?#].*)?$/i.test(srcStr) ||
+  (typeof rawUrl === 'string' && /\.gif(?:[?#].*)?$/i.test(rawUrl));
 
 let image: ImageType | undefined = undefined;
+let optimizeError: any = null;
 
-if (
-  typeof _image === 'string' &&
-  (_image.startsWith('http://') || _image.startsWith('https://')) &&
-  isUnpicCompatible(_image)
-) {
-  image = await getImagesOptimized(_image, props, unpicOptimizer);
-} else if (_image) {
-  image = await getImagesOptimized(_image, props, astroAssetsOptimizer);
+if (!isGif) {
+  try {
+    if (typeof rawUrl === 'string' && (rawUrl.startsWith('http://') || rawUrl.startsWith('https://')) && isUnpicCompatible(rawUrl)) {
+      image = await getImagesOptimized(rawUrl, props, unpicOptimizer);
+    } else if (resolved) {
+      image = await getImagesOptimized(resolved, props, astroAssetsOptimizer);
+    }
+  } catch (e) {
+    optimizeError = e;
+  }
 }
 ---
 
+{/*
+  Política:
+  - Si es GIF => <img> directo (mantiene animación, evita límites de pixel).
+  - Si el optimizador falló (p.ej. "Input image exceeds pixel limit") => <img> directo.
+  - Si no hay imagen resuelta => no renderiza nada.
+*/}
 {
-  !image ? (
-    <Fragment />
-  ) : (
-    <img src={image.src} crossorigin="anonymous" referrerpolicy="no-referrer" {...image.attributes} />
-  )
+  isGif || optimizeError
+    ? (rawUrl
+        ? (
+          <img
+            src={rawUrl}
+            alt={props.alt}
+            loading={props.loading}
+            decoding={props.decoding}
+            width={props.width}
+            height={props.height}
+            class={props.class}
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+          />
+        )
+        : <Fragment />)
+    : (!image
+        ? <Fragment />
+        : <img
+            src={image.src}
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            {...image.attributes}
+          />
+      )
 }
