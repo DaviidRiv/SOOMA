@@ -137,9 +137,9 @@ export const footerData = {
     {
       ariaLabel: 'Email',
       icon: 'tabler:mail',
-      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=emmaidaliasaldana@gmail.com',
+      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=ventas@soomaconsultores.com.mx',
     },
-    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/524441425726' },
+    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/525549262639' },
     {
       ariaLabel: 'Mapa',
       icon: 'tabler:map-pin',
