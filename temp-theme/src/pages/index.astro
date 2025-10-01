@@ -50,7 +50,6 @@ const waHuman = '+52 444 142 5726';
     images={[
       { src: '/images/sooma-hero/1.gif', alt: 'Consultoría IT' },
       { src: '/images/sooma-hero/2.gif', alt: 'Consultoría Legal' },
-      { src: '/images/sooma-hero/3.gif', alt: 'Ciberseguridad' },
       { src: '/images/sooma-hero/4.gif', alt: 'Sistema de Gestión de Seguridad' },
       { src: '/images/sooma-hero/5.gif', alt: 'AI para empresas' },
       { src: '/images/sooma-hero/6.gif', alt: 'Prevención de la Violencia' },
@@ -147,7 +146,7 @@ const waHuman = '+52 444 142 5726';
         <!-- Columna izquierda: imagen + datos -->
         <div class="relative overflow-hidden rounded-2xl shadow-lg">
           <img
-            src="/images/Contacto/Contactanos.jpg"
+            src="/images/Contacto/Contactac.jpg"
             alt="Línea directa de contacto SOOMA"
             class="h-full"
             loading="lazy"
@@ -213,6 +212,7 @@ const waHuman = '+52 444 142 5726';
   </section>
 
   <!-- Mapa ************************************ -->
+  <!-- Mapa ************************************ -->
   <section id="mapa" class="py-16">
     <div class="mx-auto max-w-7xl px-6">
       <div class="relative overflow-hidden rounded-2xl bg-slate-100 shadow-lg">
@@ -227,26 +227,64 @@ const waHuman = '+52 444 142 5726';
           ></iframe>
         </div>
 
-        <div class="absolute left-4 top-4 w-[min(360px,92%)] rounded-xl bg-white p-4 shadow-xl ring-1 ring-black/5 md:left-6 md:top-6">
-          <p class="text-xs uppercase tracking-wide text-accent">Ubicación</p>
-          <h3 class="text-lg font-semibold">SOOMA Consultores</h3>
-          <p class="mt-1 text-sm text-slate-600">
+        <!-- Panel flotante (derecha) -->
+        <div
+          id="map-info-card"
+          class="absolute right-4 top-4 z-10 w-[min(360px,92%)] rounded-xl bg-white p-4 shadow-xl ring-1 ring-black/5 md:right-6 md:top-6"
+        >
+          <!-- Botón cerrar (X) -->
+          <button
+            id="close-map-card"
+            type="button"
+            class="absolute right-2 top-2 inline-flex h-8 w-8 items-center justify-center rounded-md text-slate-500 hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-accent/40"
+            aria-label="Cerrar panel de información"
+          >
+            <span aria-hidden="true">✕</span>
+          </button>
+
+          <p class="text-xs uppercase tracking-wide text-accent pr-8">Ubicación</p>
+          <h3 class="text-lg font-bold text-slate-900">SOOMA Consultores</h3>
+          <p class="mt-1 text-sm text-slate-700">
             {address} <br />
             Atención: Lun–Vie 9:00–18:00
           </p>
 
           <div class="mt-4 grid grid-cols-2 gap-2">
-            <a class="rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-medium text-white hover:opacity-90" href={mapsLink} target="_blank" rel="noreferrer">
+            <a
+              class="rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-medium text-white hover:opacity-90"
+              href={mapsLink}
+              target="_blank"
+              rel="noreferrer"
+            >
               Abrir en Google Maps
             </a>
-            <a class="rounded-lg bg-white px-3 py-2 text-center text-sm font-medium ring-1 ring-slate-200 hover:bg-slate-50" href="#contacto">
+
+            <!-- Botón de contacto ahora con color de acento, no gris -->
+            <a
+              class="rounded-lg bg-accent px-3 py-2 text-center text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-accent/40"
+              href="#contacto"
+            >
               Contacto
             </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Script para cerrar el panel -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const panel = document.getElementById('map-info-card');
+        const closeBtn = document.getElementById('close-map-card');
+        if (panel && closeBtn) {
+          closeBtn.addEventListener('click', () => {
+            panel.classList.add('hidden');
+          });
+        }
+      });
+    </script>
   </section>
+
 
   <!-- CTA final ******************************* -->
   <CallToAction

@@ -1,0 +1,399 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'CUMPLIMIENTO DE NORMATIVA - SOFTWARE DE GESTIÓN',
+  description:
+    'Sistema Integral para la Gestión de la Seguridad de Datos Personales.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ******************************************* -->
+  <Hero
+    tagline="Escuelas seguras · Entornos digitales sanos"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Solicitar cotización',
+        href: '/contacto',
+        icon: 'tabler:shield-check',
+      },
+      { text: 'Ver módulos', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Programa integral de <span class="text-accent dark:text-white">ciberseguridad</span> y prevención del
+      <span class="hidden sm:inline">acoso escolar</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Conjunto de elementos y actividades interrelacionadas para establecer, implementar, operar, monitorear, revisar, mantener 
+      y mejorar el tratamiento y seguridad de los datos personales, de conformidad con lo previsto en la ley.
+    </Fragment>
+
+    <Fragment slot="image">
+      <!-- Puedes dejar este video de muestra y luego cambiar el ID -->
+      <YouTube id="gxBkghlglTg" title="Presentación del programa (demo)" />
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      </style>
+    </Fragment>
+  </Hero>
+
+  <!-- ¿En qué consiste? ****************************** -->
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    title="Plan de Intervención"
+    subtitle="Ocho fases que permitirán tener el diagnóstico hasta la implementación final."
+    image={{
+      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Ciberseguridad educativa',
+    }}
+    items={[
+      {
+        title: '1) Acciones y Encuestas',
+        description:
+          'Levantamiento de línea base con encuestas/entrevistas para mapear procesos y hábitos.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: '2) Identificación del ciclo de vida de DPs',
+        description:
+          'Trazado de cómo se recaban, usan, comparten, conservan y eliminan los datos personales.',
+        icon: 'tabler:timeline',
+      },
+      {
+        title: '3) Inventario de los DPs',
+        description:
+          'Registro de categorías de datos, sistemas implicados, responsables y bases jurídicas.',
+        icon: 'tabler:list-details',
+      },
+      {
+        title: '4) Implementación del SGSDP',
+        description:
+          'Puesta en marcha del sistema de gestión (políticas, controles, métricas y responsables).',
+        icon: 'tabler:settings',
+      },
+      {
+        title: '5) Análisis de Riesgo y Brecha',
+        description:
+          'Evaluación de amenazas y vulnerabilidades; plan de tratamiento y cierre de brechas.',
+        icon: 'tabler:shield-exclamation',
+      },
+      {
+        title: '6) Plan de Capacitación',
+        description:
+          'Programa formativo por perfiles con materiales, evaluaciones y calendario.',
+        icon: 'tabler:school',
+      },
+      {
+        title: '7) Armonización de Documentos',
+        description:
+          'Actualización de avisos de privacidad, contratos, procedimientos y registros.',
+        icon: 'tabler:file-certificate',
+      },
+      {
+        title: '8) Evaluación organizacional',
+        description:
+          'Revisión de madurez, KPIs y auditoría interna para asegurar mejora continua.',
+        icon: 'tabler:report-analytics',
+      },
+    ]}
+  />
+
+
+  <!-- Stats ****************************************** -->
+  <Stats
+  title="Impacto del Programa"
+  subtitle="Indicadores sugeridos para los primeros 90–180 días."
+  stats={[
+    { title: 'Activos con DPs inventariados y clasificados', amount: '≥95%' },
+    { title: 'Brechas críticas cerradas', amount: '≥80%' },
+    { title: '↓ MTTR de incidentes', amount: '40-60%' },
+    { title: 'Reducción de incidentes (error humano)', amount: '≥30%' },
+    //{ title: 'Áreas clave capacitadas por rol', amount: '100%' },
+  ]}
+/>
+
+
+  <!-- Aliados / Marcas (opcional) ******************* -->
+  <Brands
+    title="Alianzas y herramientas"
+    subtitle="Trabajamos con metodologías y plataformas reconocidas en seguridad digital y convivencia escolar."
+    icons={[]}
+    images={[
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
+        alt: 'YouTube',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
+        alt: 'Plataformas',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
+        alt: 'Microsoft',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
+        alt: 'Google',
+      },
+    ]}
+  />
+
+  <!-- Servicios / Módulos (Features2) *************** -->
+  <Features2
+    title="Componentes del Programa"
+    subtitle="Sistema de Gestión de Seguridad de Datos Personales y sus Componentes Indispensables."
+    items={[
+      {
+        title: 'Gobernanza y roles',
+        description:
+          'Define responsabilidades (DPO/CISO, dueños de proceso) y la estructura de decisión para dirigir y rendir cuentas del programa.',
+        icon: 'tabler:hierarchy-3',
+      },
+      {
+        title: 'Marco normativo y políticas',
+        description:
+          'Consolida políticas alineadas a LFPDPPP/INAI e ISO 27001/27701 para establecer reglas claras y auditables.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Inventario de activos y registro de tratamientos',
+        description:
+          'Mantiene un inventario vivo de sistemas y un registro de tratamientos con fines, bases legales y transferencias.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Gestión del ciclo de vida de datos personales',
+        description:
+          'Controla recolección, uso, almacenamiento, retención y eliminación segura, aplicando minimización y anonimización.',
+        icon: 'tabler:timeline',
+      },
+      {
+        title: 'Análisis de riesgo y brecha (Privacy & Security Risk)',
+        description:
+          'Identifica, evalúa y prioriza riesgos; define planes de tratamiento y niveles de riesgo residual aceptados.',
+        icon: 'tabler:shield-exclamation',
+      },
+      {
+        title: 'Controles técnicos',
+        description:
+          'Implementa IAM/MFA, cifrado, hardening, EDR, DLP, monitoreo (SIEM), segmentación y respaldos para reducir exposición.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Controles organizativos y documentación operativa',
+        description:
+          'Estandariza procesos (SOPs), avisos de privacidad, cláusulas contractuales y gestión de cambios con evidencias.',
+        icon: 'tabler:file-description',
+      },
+      {
+        title: 'Gestión de derechos ARCO',
+        description:
+          'Opera canales y procedimientos para solicitudes de Acceso, Rectificación, Cancelación y Oposición con SLAs definidos.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Gestión de terceros y transferencias',
+        description:
+          'Evalúa y supervisa proveedores; incorpora anexos de privacidad/seguridad y verifica cumplimiento periódico.',
+        icon: 'tabler:link',
+      },
+      {
+        title: 'Respuesta a incidentes y continuidad',
+        description:
+          'Orquesta detección, contención y notificación; prueba BCP/DRP y documenta lecciones aprendidas.',
+        icon: 'tabler:lifebuoy',
+      },
+      {
+        title: 'Capacitación y cultura',
+        description:
+          'Desarrolla formación por roles y campañas de concientización para disminuir errores humanos y fortalecer hábitos.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Monitoreo, métricas y mejora continua',
+        description:
+          'Establece KPIs/KRIs y revisiones por la dirección para medir desempeño y priorizar mejoras.',
+        icon: 'tabler:chart-dots-2',
+      },
+      {
+        title: 'Acompañamiento y PMO del programa',
+        description:
+          'Gestiona el roadmap, seguimiento ejecutivo y la comunicación para sostener el sistema en el tiempo.',
+        icon: 'tabler:briefcase',
+      },
+    ]}
+  >
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Features2>
+
+  <!-- Beneficios (Features) ************************* -->
+  <Features
+    id="features"
+    title="Beneficios clave"
+    subtitle="Resultados tangibles para las empresas."
+    columns={3}
+    items={[
+      {
+        title: 'Gobernanza y roles',
+        description:
+          'Define responsabilidades (DPO/CISO, dueños de proceso) y la estructura de decisión para dirigir y rendir cuentas del programa.',
+        icon: 'tabler:hierarchy-3',
+      },
+      {
+        title: 'Marco normativo y políticas',
+        description:
+          'Consolida políticas alineadas a LFPDPPP/INAI e ISO 27001/27701 para establecer reglas claras y auditables.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Inventario de activos y registro de tratamientos',
+        description:
+          'Mantiene un inventario vivo de sistemas y un registro de tratamientos con fines, bases legales y transferencias.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Gestión del ciclo de vida de datos personales',
+        description:
+          'Controla recolección, uso, almacenamiento, retención y eliminación segura, aplicando minimización y anonimización.',
+        icon: 'tabler:timeline',
+      },
+      {
+        title: 'Análisis de riesgo y brecha (Privacy & Security Risk)',
+        description:
+          'Identifica, evalúa y prioriza riesgos; define planes de tratamiento y niveles de riesgo residual aceptados.',
+        icon: 'tabler:shield-exclamation',
+      },
+      {
+        title: 'Controles técnicos',
+        description:
+          'Implementa IAM/MFA, cifrado, hardening, EDR, DLP, monitoreo (SIEM), segmentación y respaldos para reducir exposición.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Controles organizativos y documentación operativa',
+        description:
+          'Estandariza procesos (SOPs), avisos de privacidad, cláusulas contractuales y gestión de cambios con evidencias.',
+        icon: 'tabler:file-description',
+      },
+      {
+        title: 'Gestión de derechos ARCO',
+        description:
+          'Opera canales y procedimientos para solicitudes de Acceso, Rectificación, Cancelación y Oposición con SLAs definidos.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Gestión de terceros y transferencias',
+        description:
+          'Evalúa y supervisa proveedores; incorpora anexos de privacidad/seguridad y verifica cumplimiento periódico.',
+        icon: 'tabler:link',
+      },
+      {
+        title: 'Respuesta a incidentes y continuidad',
+        description:
+          'Orquesta detección, contención y notificación; prueba BCP/DRP y documenta lecciones aprendidas.',
+        icon: 'tabler:lifebuoy',
+      },
+      {
+        title: 'Capacitación y cultura',
+        description:
+          'Desarrolla formación por roles y campañas de concientización para disminuir errores humanos y fortalecer hábitos.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Monitoreo, métricas y mejora continua',
+        description:
+          'Establece KPIs/KRIs y revisiones por la dirección para medir desempeño y priorizar mejoras.',
+        icon: 'tabler:chart-dots-2',
+      },
+      {
+        title: 'Acompañamiento y PMO del programa',
+        description:
+          'Gestiona el roadmap, seguimiento ejecutivo y la comunicación para sostener el sistema en el tiempo.',
+        icon: 'tabler:briefcase',
+      },
+    ]}
+  />
+
+
+  <!-- FAQs ****************************************** -->
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      {
+        title: '¿Para qué niveles aplica?',
+        description:
+          'El programa se adapta a primaria, secundaria y bachillerato, ajustando contenidos, ejemplos y metodologías por edad.',
+      },
+      {
+        title: '¿Cuánto dura la implementación?',
+        description:
+          'Recomendamos ciclo completo (9–10 meses) con fases mensuales. También podemos hacer versiones intensivas de 8–12 semanas.',
+      },
+      {
+        title: '¿Incluye materiales?',
+        description:
+          'Sí: presentaciones, guías de aula, infografías para familias, carteles y formatos de registro/derivación.',
+      },
+      {
+        title: '¿Cómo se mide el impacto?',
+        description:
+          'Con línea base, encuestas de salida y reporte de incidentes atendidos. Se entrega informe con indicadores y recomendaciones.',
+      },
+      {
+        title: '¿Pueden capacitar a todo el personal?',
+        description:
+          'Sí. Docentes, equipo directivo, psicología, trabajo social, prefectura y personal administrativo.',
+      },
+      {
+        title: '¿Ofrecen acompañamiento a casos?',
+        description:
+          'Brindamos orientación técnica para activar la ruta institucional y, de ser necesario, derivar a instancias competentes.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- CTA ******************************************* -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Solicitar propuesta',
+        href: '/contacto',
+        icon: 'tabler:file-description',
+      },
+    ]}
+  >
+    <Fragment slot="title">Construyamos una comunidad escolar segura</Fragment>
+
+    <Fragment slot="subtitle">
+      Te acompañamos con formación, protocolos y seguimiento para que cada estudiante aprenda y conviva en un entorno
+      digital responsable.
+    </Fragment>
+  </CallToAction>
+</Layout>

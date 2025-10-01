@@ -20,14 +20,14 @@ const metadata = {
   <!-- Hero -->
   <Hero
     id="hero"
-    title="Curso: Ciberseguridad para Organizaciones"
-    tagline="Prevención práctica, respuesta a incidentes y cumplimiento"
-    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/contact#form') }]}
+    title="Curso: Gestión Integral de Riesgos a la Ciberseguridad"
+    tagline="EC1544 Gestión integral de riesgos a la ciberseguridad."
+    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/404') }]}
   >
     <Fragment slot="subtitle">
-      Programa integral para implementar controles básicos y avanzados de ciberseguridad. <br />
-      Aprende a gestionar riesgos, endurecer configuraciones, responder a incidentes y documentar evidencias para
-      auditorías y marcos como ISO/IEC 27001, NIST CSF y LFPDPPP.
+      Servir como referente para la evaluación y certificación de las personas que se desempeñan en la gestión 
+      integral de riesgos a la ciberseguridad y cuyas competencias incluyen plantificar el riesgo de la información 
+      digital, priorizar riesgos de la información digital y mitigar el riesgo de la información digital.
     </Fragment>
   </Hero>
 
@@ -41,7 +41,7 @@ const metadata = {
       { icon: 'tabler:certificate', callToAction: { target: '_self', text: 'Certificación', href: '#certificacion' } },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?auto=format&fit=crop&w=774&q=80',
+      src: '~/assets/images/cursos/CursoCiberseguridad.jpg',
       alt: 'Colorful Image',
       loading: 'eager',
     }}
@@ -51,11 +51,6 @@ const metadata = {
       <p>
         Equipos de TI, responsables de seguridad, compliance y líderes operativos que requieren blindar procesos,
         activos e información sensible con prácticas probadas y medibles.
-      </p>
-      <br />
-      <p>
-        Incluye plantillas de políticas, matrices de riesgo, playbooks de respuesta y checklists de hardening para
-        Windows, Linux, nube y aplicaciones.
       </p>
       <br />
       <p>Explora el temario, metodología y opciones de certificación interna.</p>
@@ -261,6 +256,6 @@ const metadata = {
   <CallToAction
     title="¿Listo para fortalecer tu ciberseguridad?"
     subtitle="Cupo limitado por cohorte para garantizar práctica y acompañamiento."
-    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/contact#form') }]}
+    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/404') }]}
   />
 </Layout>

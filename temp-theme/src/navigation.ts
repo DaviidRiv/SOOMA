@@ -28,10 +28,8 @@ export const headerData = {
     {
       text: 'Servicios',
       links: [
-        { text: 'Programa integral de ciberseguridad y prevención del acoso escolar', href: '/servicios/ciberseguridad' },
-        { text: 'Automatización de procesos', href: '/servicios/automatizacion-procesos' },
-        { text: 'Análisis de contexto', href: '/servicios/analisis-contexto' },
-        { text: 'Análisis de riesgo y vulnerabilidades', href: '/servicios/analisis-riesgo-vulnerabilidades' },
+        { text: 'Programa integral de ciberseguridad y prevención del acoso escolar', href: getPermalink('/servicios/ciberseguridad') },
+        { text: 'Sistema integral para la gestión de la seguridad de datos personales', href: getPermalink('/servicios/datos-personales') },
       ],
     },
 
@@ -44,7 +42,7 @@ export const headerData = {
           href: getPermalink('/Cursos/Instructor'),
           // Submenú con el EC específico
           links: [
-            { text: 'EC 217.01', href: getPermalink('/cursos/instructor/ec-217-01') },
+            { text: 'EC 217.01', href: getPermalink('/Cursos/Instructor/ec-217-01') },
           ],
         },
         {
