@@ -1,0 +1,175 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Curso: Ciberseguridad · Consultoría',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero
+    id="hero"
+    title="Curso: Analista de Inteligencia"
+    tagline="EC 0329 ANALIZAR INFORMACIÓN PARA EL DESARROLLO DE PRODUCTOS DE INTELIGENCIA."
+    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/404') }]}
+  >
+    <Fragment slot="subtitle">
+      Permite a los participantes desarrollar las competencias necesarias para implementar y gestionar procesos sistemáticos de recolección,
+      análisis y diseminación de información estratégica, que permitan generar productos de inteligencia útiles para la toma de decisiones 
+      efectivas en cualquier organización, mediante el dominio de metodologías, herramientas y mejores prácticas del ciclo de inteligencia.
+    </Fragment>
+  </Hero>
+
+  <!-- Sobre el curso -->
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      { icon: 'tabler:book-2', callToAction: { target: '_self', text: 'Ver temario', href: '#temario' } },
+      { icon: 'tabler:users', callToAction: { target: '_self', text: 'Metodología', href: '#metodologia' } },
+      { icon: 'tabler:certificate', callToAction: { target: '_self', text: 'Certificación', href: '#certificacion' } },
+    ]}
+    image={{
+      src: '~/assets/images/cursos/CursoCiberseguridad.jpg',
+      alt: 'Colorful Image',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">¿A quién va dirigido?</h2>
+      <p>
+        Equipos de TI, responsables de seguridad, compliance y líderes operativos que requieren blindar procesos,
+        activos e información sensible con prácticas probadas y medibles.
+      </p>
+      <br />
+      <p>Explora el temario, metodología y opciones de certificación interna.</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Temario -->
+  <Steps
+    id="temario"
+    title="Temario"
+    items={[
+      {
+        title:
+          'Módulo 1 · Ciclo de la inteligencia <br /> <span class="font-normal">Conceptos, modelos y fases</span> <br /> <span class="text-sm font-normal">Duración sugerida: 4 h</span>',
+        description:
+          'Conceptos y antecedentes. <br /> Modelos del ciclo de inteligencia. <br /> Perspectivas de la inteligencia. <br /> Fases del ciclo de inteligencia.',
+        icon: 'tabler:brain',
+      },
+      {
+        title:
+          'Módulo 2 · Metodologías de análisis y aplicación <br /> <span class="font-normal">Matrices, vínculos y tiempos</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+        description:
+          'Matriz de asociación. <br /> Análisis de vínculos. <br /> Análisis de registros telefónicos y marco legal. <br /> Líneas del tiempo. <br /> Estadística descriptiva aplicada al análisis delictivo.',
+        icon: 'tabler:chart-dots-2',
+      },
+      {
+        title:
+          'Módulo 3 · Desarrollo de inferencias <br /> <span class="font-normal">Lógica y validez</span> <br /> <span class="text-sm font-normal">Duración sugerida: 2 h</span>',
+        description:
+          'Lógica proposicional. <br /> Tablas de la verdad. <br /> Premisas y conclusiones.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title:
+          'Módulo 4 · Informes de inteligencia <br /> <span class="font-normal">Estructura, dictamen y herramientas</span> <br /> <span class="text-sm font-normal">Duración sugerida: 4 h</span>',
+        description:
+          'Estructura y dictamen. <br /> Herramientas de diseño para informes.',
+        icon: 'tabler:file-text',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Metodología -->
+  <Steps
+    id="metodologia"
+    title="Metodología del curso"
+    items={[
+      {
+        title: `Aprender haciendo <br /> <span class="font-normal">Micro-talleres y práctica guiada</span> <br /> <span class="text-sm font-normal">Formato presencial / en línea</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Evidencias y evaluación <br /> <span class="font-normal">Rúbricas, listas de cotejo y productos</span> <br /> <span class="text-sm font-normal">Retro individual y en grupo</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Habilidades -->
+  <Features3
+    title="Habilidades que desarrollarás"
+    subtitle="Competencias clave para inteligencia criminal aplicada."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      {
+        title: 'Comprender el Ciclo de Inteligencia',
+        description:
+          'Explicar en profundidad sus fases (planificación, recopilación, análisis, difusión y retroalimentación) y aplicarlas al contexto de inteligencia criminal.',
+      },
+      {
+        title: 'Desarrollar habilidades analíticas',
+        description:
+          'Aplicar metodologías para identificar patrones delictivos, tendencias y factores de riesgo y proponer estrategias de prevención y combate.',
+      },
+      {
+        title: 'Fortalecer la capacidad de toma de decisiones',
+        description:
+          'Evaluar críticamente los datos para que la información procesada respalde decisiones informadas en seguridad pública y privada.',
+      },
+      {
+        title: 'Aplicar técnicas de recolección y procesamiento',
+        description:
+          'Usar fuentes abiertas, bases de datos e investigación digital; validar y depurar información relevante para el análisis criminal.',
+      },
+      {
+        title: 'Preservación y conservación de evidencia digital',
+        description:
+          'Identificar, recolectar, analizar y resguardar evidencia digital garantizando su integridad y validez legal.',
+      },
+      {
+        title: 'Manejar herramientas de análisis de datos e IA',
+        description:
+          'Utilizar software especializado e IA para detectar patrones delictivos y automatizar procesos analíticos.',
+      },
+      {
+        title: 'Utilizar herramientas de investigación OSINT',
+        description:
+          'Emplear técnicas y plataformas OSINT para recopilar y analizar información pública en fuentes digitales.',
+      },
+      {
+        title: 'Conocer el marco legal y ético',
+        description:
+          'Aplicar principios éticos y normativas vigentes al manejo de información de inteligencia.',
+      },
+    ]}
+  />
+
+
+  <!-- CTA -->
+  <CallToAction
+    title="¿Listo para fortalecer tu ciberseguridad?"
+    subtitle="Cupo limitado por cohorte para garantizar práctica y acompañamiento."
+    actions={[{ variant: 'primary', text: 'Inscribirme', href: getPermalink('/404') }]}
+  />
+</Layout>

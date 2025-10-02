@@ -68,21 +68,44 @@ const metadata = {
     items={[
       {
         title:
-          'Módulo 1 · Gestión de riesgos y controles <br /> <span class="font-normal">Inventario, clasificación y controles base</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+          'Módulo 1 · Fundamentos de la Ciberseguridad y Gestión de Riesgos <br /> <span class="font-normal">Conceptos, activos y principios CIA</span> <br /> <span class="text-sm font-normal">Duración sugerida: 4 h</span>',
         description:
-          'Identificación de activos críticos. Matriz de riesgos. Controles administrativos y técnicos. Políticas mínimas (accesos, contraseñas, BYOD, copias, parches).',
-        icon: 'tabler:shield-lock',
+          'Conceptos básicos de ciberseguridad. <br /> Tipos de activos de información. <br /> Amenazas y vulnerabilidades digitales. <br /> Principios de confidencialidad, integridad y disponibilidad (CIA). <br /> Introducción a la gestión de riesgos (ISO 27001 y 31000).',
+        icon: 'tabler:shield',
       },
       {
         title:
-          'Módulo 2 · Respuesta a incidentes y continuidad <br /> <span class="font-normal">Playbooks y evidencia</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
+          'Módulo 2 · Planificación del Riesgo de la Información Digital <br /> <span class="font-normal">Inventario, entrevistas y registro de amenazas</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
         description:
-          'Modelos de amenazas. Playbooks (phishing, ransomware, fuga de datos). Contención, erradicación y recuperación. Registro de evidencias y postmortem.',
-        icon: 'tabler:alert-triangle',
+          'Identificación y clasificación de activos de información. <br /> Cuestionamiento y entrevistas para identificar activos críticos. <br /> Elaboración del inventario de activos. <br /> Registro de amenazas y vulnerabilidades. <br /> Formato de tabla de activos y amenazas.',
+        icon: 'tabler:list-details',
+      },
+      {
+        title:
+          'Módulo 3 · Priorización del Riesgo Digital <br /> <span class="font-normal">Análisis y matriz de riesgos (FSP-EAV)</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description:
+          'Análisis cualitativo y cuantitativo del riesgo. <br /> Aplicación de criterios FSP-EAV. <br /> Desarrollo de la matriz de riesgos. <br /> Cálculo del impacto y la probabilidad del riesgo. <br /> Presentación de resultados al usuario.',
+        icon: 'tabler:chart-dots-2',
+      },
+      {
+        title:
+          'Módulo 4 · Mitigación del Riesgo de la Información Digital <br /> <span class="font-normal">MOR, evaluación y estrategias</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
+        description:
+          'Programa de Manejo Operativo de Riesgos (MOR): nivel operativo, táctico y estratégico. <br /> Elaboración de matriz de evaluación de riesgos. <br /> Uso de códigos de evaluación. <br /> Comunicación de resultados cuantitativos y cualitativos. <br /> Estrategias de mitigación.',
+        icon: 'tabler:tools',
+      },
+      {
+        title:
+          'Módulo 5 · Evaluación del Aprendizaje y Cierre del Curso <br /> <span class="font-normal">Resultados, satisfacción y compromisos</span> <br /> <span class="text-sm font-normal">Duración sugerida: 2 h</span>',
+        description:
+          'Evaluación diagnóstica, formativa y sumativa. <br /> Retroalimentación de resultados. <br /> Evaluación de satisfacción del curso. <br /> Conclusiones y compromisos de aplicación.',
+        icon: 'tabler:clipboard-check',
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
   />
+
+
 
   <!-- Metodología -->
   <Steps
@@ -117,138 +140,6 @@ const metadata = {
       { title: 'Backups y DRP', description: 'Estrategias 3-2-1 y pruebas de restauración.' },
       { title: 'Gestión de accesos', description: 'MFA, mínimos privilegios y revisiones.' },
       { title: 'Mejora continua', description: 'Métricas de madurez y roadmaps trimestrales.' },
-    ]}
-  />
-
-  <!-- Caso 1 -->
-  <Content
-    id="caso1"
-    title="Endurecimiento inicial de 30 días"
-    subtitle="Plan mínimo viable para reducir superficie de ataque."
-    isReversed
-    items={[
-      {
-        title: 'Qué harás:',
-        description:
-          'Aplicarás un checklist de hardening y parches, habilitarás MFA y configurarás respaldos verificados.',
-      },
-      {
-        title: 'Producto esperado:',
-        description: 'Bitácora de cambios + reporte de hallazgos y plan de siguientes 60 días.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?auto=format&fit=crop&w=928&q=80',
-      alt: 'Tech Design Image',
-    }}
-    callToAction={{ target: '_self', text: 'Solicitar temario completo', icon: 'tabler:chevron-right', href: '#temario' }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Módulo práctico 1 <br /><span class="text-2xl">Controles esenciales</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
-
-  <!-- Caso 2 -->
-  <Content
-    id="caso2"
-    isReversed
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Qué harás:',
-        description:
-          'Ejecutarás un simulacro de phishing e incidente de ransomware siguiendo un playbook paso a paso.',
-      },
-      {
-        title: 'Producto esperado:',
-        description: 'Registro de evidencias + postmortem con acciones correctivas.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?auto=format&fit=crop&w=774&q=80',
-      alt: 'Art and Music Poster Image',
-    }}
-    callToAction={{ target: '_self', text: 'Conocer metodología', icon: 'tabler:chevron-right', href: '#metodologia' }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Módulo práctico 2 <br /><span class="text-2xl">Simulacro de incidentes</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
-
-  <!-- Caso 3 -->
-  <Content
-    id="caso3"
-    isReversed
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Qué harás:',
-        description: `Construirás un paquete de evidencias para auditoría (políticas, listas de asistencia, bitácoras, reportes).`,
-      },
-      {
-        title: 'Producto esperado:',
-        description: `Carpeta de cumplimiento con índices, responsables y periodicidades.`,
-      },
-    ]}
-    image={{
-      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?auto=format&fit=crop&w=870&q=80',
-      alt: 'Fashion e-commerce Image',
-    }}
-    callToAction={{ target: '_self', text: 'Conocer certificación', icon: 'tabler:chevron-right', href: '#certificacion' }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Módulo práctico 3 <br /><span class="text-2xl">Evidencias de cumplimiento</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
-
-  <!-- Testimonios -->
-  <Testimonials
-    id="testimonios"
-    title="Resultados que respaldan"
-    subtitle="Implementaciones reales con reducción de incidentes."
-    testimonials={[
-      {
-        testimonial:
-          'Pasamos de reacciones improvisadas a un proceso claro y medible. El simulacro nos ahorró horas en un incidente real.',
-        name: 'Carlos Pérez',
-        job: 'Líder de TI',
-        image: {
-          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=774&q=80',
-          alt: 'Carlos Pérez',
-        },
-      },
-      {
-        testimonial:
-          'Con los playbooks y evidencias logramos auditorías sin observaciones críticas y mejor actitud del personal ante phishing.',
-        name: 'Ana Torres',
-        job: 'Compliance',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=772&q=80',
-          alt: 'Ana Torres',
-        },
-      },
-      {
-        testimonial:
-          'En 90 días consolidamos controles básicos y un plan anual de madurez. Muy práctico.',
-        name: 'Miguel Gómez',
-        job: 'Gerente Operaciones',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?auto=format&fit=crop&w=774&q=80',
-          alt: 'Miguel Gómez',
-        },
-      },
     ]}
   />
 

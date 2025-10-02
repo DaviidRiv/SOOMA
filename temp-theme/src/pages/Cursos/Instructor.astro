@@ -88,30 +88,41 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Temario (antes Steps Work experience) ****************** -->
-
+  <!-- Temario (Steps) *************************************************** -->
   <Steps
     id="temario"
     title="Temario"
     items={[
       {
         title:
-          'Módulo 1 · Diseño instruccional <br /> <span class="font-normal">Análisis de necesidades, objetivos y mallas</span> <br /> <span class="text-sm font-normal">Duración sugerida: 6 h</span>',
-        description: `Diagnóstico de brechas y KPIs. <br /> Objetivos por competencias (desempeño, evidencia, criterio). <br /> Estructura de curso, secuencias didácticas y selección de estrategias. <br /> Diseño de materiales y guiones de sesión.`,
-        icon: 'tabler:briefcase',
+          'Módulo 1 · Preparación inteligente del curso <br /> <span class="text-sm font-normal">Duración sugerida: 5 h</span>',
+        description: `Análisis de Necesidades y Perfil del Participante. <br /> Diseño de Objetivos Asistido por IA. <br /> Carta Descriptiva Automatizada. <br /> Verificación Digital de Recursos.`,
+        icon: 'tabler:bulb',
       },
       {
         title:
-          'Módulo 2 · Facilitación y manejo de grupo <br /> <span class="font-normal">Técnicas activas y comunicación</span> <br /> <span class="text-sm font-normal">Duración sugerida: 8 h</span>',
-        description: `Apertura y encuadre. <br /> Técnicas participativas, dinámicas y role play. <br /> Manejo de preguntas, tiempos y niveles de energía. <br /> Inclusión, retroalimentación efectiva y cierre con anclaje.`,
-        icon: 'tabler:briefcase',
+          'Módulo 2 · Conducción digital de la sesión <br /> <span class="text-sm font-normal">Duración sugerida: 7 h</span>',
+        description: `Encuadre interactivo. <br /> Técnicas Instruccionales Potenciadas. <br /> Dinámicas Grupales Digitalizadas. <br /> Facilitación Aumentada.`,
+        icon: 'tabler:presentation',
+      },
+      {
+        title:
+          'Módulo 3 · Evaluación inteligente <br /> <span class="text-sm font-normal">Duración sugerida: 3 h</span>',
+        description: `Evaluaciones Automatizadas. <br /> Medición de Satisfacción en Tiempo Real. <br /> Informes Automatizados y Seguimiento.`,
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title:
+          'Módulo 4 · Tu Agente de IA en diseño instruccional <br /> <span class="text-sm font-normal">Duración sugerida: 1 h</span>',
+        description: `ChatGPT. <br /> Gemini. <br /> Prompts.`,
+        icon: 'tabler:robot',
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
   />
 
-  <!-- Metodología (antes Steps Education) ****************** -->
 
+  <!-- Metodología ****************** -->
   <Steps
     id="metodologia"
     title="Metodología del curso"
@@ -175,163 +186,7 @@ const metadata = {
     ]}
   />
 
-  <!-- Caso práctico 1 **************** -->
-
-  <Content
-    id="caso1"
-    title="Planeación y apertura de curso"
-    subtitle="Ejemplo de cómo arrancar una sesión con objetivos, expectativas y acuerdos claros."
-    isReversed
-    items={[
-      {
-        title: 'Qué harás:',
-        description:
-          'Construirás una ficha didáctica con objetivos por competencia, secuencia de actividades y criterios de evaluación.',
-      },
-      {
-        title: 'Producto esperado:',
-        description:
-          'Guion de sesión + presentación base para iniciar clases con encuadre, agenda y técnica de activación.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
-      alt: 'Tech Design Image',
-    }}
-    callToAction={{
-      target: '_self',
-      text: 'Solicitar temario completo',
-      icon: 'tabler:chevron-right',
-      href: '#temario',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Módulo práctico 1 <br /><span class="text-2xl">Diseña tu primera sesión</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Caso práctico 2 **************** -->
-
-  <Content
-    id="caso2"
-    isReversed
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Qué harás:',
-        description:
-          'Practicarás técnicas de facilitación (preguntas, dinámicas, role play) y manejo de grupo en escenarios simulados.',
-      },
-      {
-        title: 'Producto esperado:',
-        description: `Checklist personal de facilitación + plan de mejora con acciones concretas para tu próxima sesión.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Art and Music Poster Image',
-    }}
-    callToAction={{
-      target: '_self',
-      text: 'Conocer metodología',
-      icon: 'tabler:chevron-right',
-      href: '#metodologia',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Módulo práctico 2 <br /><span class="text-2xl">Facilitación y manejo de grupo</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Caso práctico 3 **************** -->
-
-  <Content
-    id="caso3"
-    isReversed
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Qué harás:',
-        description: `Diseñarás instrumentos de evaluación (rúbricas, listas de cotejo) y configurarás evidencias para auditoría.`,
-      },
-      {
-        title: 'Producto esperado:',
-        description: `Paquete de evaluación con criterios, niveles de logro y ejemplos de evidencias.`,
-      },
-    ]}
-    image={{
-      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Fashion e-commerce Image',
-    }}
-    callToAction={{
-      target: '_self',
-      text: 'Conocer certificación',
-      icon: 'tabler:chevron-right',
-      href: '#certificacion',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Módulo práctico 3 <br /><span class="text-2xl">Evaluación y evidencias</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Testimonios *********** -->
-
-  <Testimonials
-    id="testimonios"
-    title="Lo que dicen nuestros participantes"
-    subtitle="Resultados reales de quienes ya implementan el modelo en su organización."
-    testimonials={[
-      {
-        testimonial: `El curso me dio estructura y herramientas prácticas. Hoy mis sesiones tienen objetivos claros y evidencias sólidas de aprendizaje.`,
-        name: 'María López',
-        job: 'Coordinadora de Capacitación',
-        image: {
-          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'María López',
-        },
-      },
-      {
-        testimonial: `Las plantillas de evaluación y el acompañamiento fueron clave para certificar a nuestro equipo interno de instructores.`,
-        name: 'Javier Martínez',
-        job: 'Gerente de Recursos Humanos',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
-          alt: 'Javier Martínez',
-        },
-      },
-      {
-        testimonial: `Aprendí a facilitar y evaluar sin improvisar. Mis cursos ahora cumplen con auditorías internas y externas.`,
-        name: 'Laura Sánchez',
-        job: 'Consultora',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Laura Sánchez',
-        },
-      },
-    ]}
-  />
-
   <!-- CallToAction *********** -->
-
   <CallToAction
     title="¿Listo para certificarte como Instructor?"
     subtitle="Reserva tu lugar. Cupo limitado por cohorte para garantizar práctica y retro individual."
