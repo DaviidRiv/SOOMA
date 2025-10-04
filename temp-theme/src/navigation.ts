@@ -137,17 +137,18 @@ export const footerData = {
     {
       ariaLabel: 'Email',
       icon: 'tabler:mail',
-      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=ventas@soomaconsultores.com.mx',
+      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=ventas@soomaconsultores.com.mx', target: '_blank',
     },
-    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/525549262639' },
+    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/525549262639', target: '_blank' },
     {
       ariaLabel: 'Mapa',
       icon: 'tabler:map-pin',
       href: 'https://www.google.com/maps/search/?api=1&query=Ca%C3%B1ada%20Real%20316%2C%20C.P.%2078215%2C%20Lomas%20del%20Tecnol%C3%B3gico%2C%20San%20Luis%20Potos%C3%AD%20S.L.P',
+      target: '_blank'
     },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/profile.php?id=61581034220553' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/' },
-    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://youtube.com/' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/profile.php?id=61581034220553', target: '_blank' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/', target: '_blank' },
+    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://youtube.com/', target: '_blank' },
   ],
 
     footNote: `
