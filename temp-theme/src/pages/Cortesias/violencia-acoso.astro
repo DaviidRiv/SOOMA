@@ -1,0 +1,37 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Conferencia sobre la prevención de la violencia y acoso escolar',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Respeto y convivencia"
+    title="Conferencia sobre la prevención de la violencia y acoso escolar"
+    subtitle="Fomenta entornos escolares seguros y empáticos. Aprende a identificar señales de acoso, promover el respeto y aplicar estrategias de intervención positiva."
+    actions={[
+      { variant: 'primary', text: 'Solicitar conferencia', href: '#' },
+      { text: 'Ver programa', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
+      alt: 'Prevención del acoso escolar',
+    }}
+  />
+
+  <CallToAction
+    title="Construyamos escuelas seguras"
+    subtitle="Capacitaciones y talleres diseñados para docentes, alumnos y padres de familia con enfoque en respeto, empatía y resolución pacífica de conflictos."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Agendar conferencia',
+        href: '#',
+      },
+    ]}
+  />
+</Layout>

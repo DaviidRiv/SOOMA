@@ -1,0 +1,38 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Conferencia sobre los riesgos en redes sociales',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Privacidad y reputación digital"
+    title="Conferencia sobre los riesgos en redes sociales"
+    subtitle="Explora los peligros del mal uso de redes sociales y aprende estrategias para proteger tu privacidad, identidad y bienestar digital. Ideal para jóvenes, padres y docentes."
+    actions={[
+      { variant: 'primary', text: 'Invitar conferencia', href: '#', icon: 'tabler:brand-facebook' },
+      { text: 'Saber más', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
+      alt: 'Riesgos en redes sociales',
+    }}
+  />
+
+  <CallToAction
+    title="Conecta de forma segura"
+    subtitle="Promovemos el uso responsable de las redes y el fortalecimiento de la autoestima digital en entornos educativos y laborales."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Agendar sesión',
+        href: '#',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,38 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Conferencia sobre Seguridad Digital',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Protege tu información"
+    title="Conferencia sobre Seguridad Digital"
+    subtitle="Conoce las mejores prácticas para resguardar tu información personal y profesional. Aprende sobre contraseñas seguras, autenticación multifactor y ciberhigiene."
+    actions={[
+      { variant: 'primary', text: 'Solicitar conferencia', href: '#', icon: 'tabler:lock' },
+      { text: 'Ver contenido', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
+      alt: 'Seguridad digital y datos personales',
+    }}
+  />
+
+  <CallToAction
+    title="Fortalece tu cultura digital"
+    subtitle="Brindamos formación práctica para empresas, instituciones y usuarios sobre la protección ante ciberataques, phishing y robo de identidad."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contactar',
+        href: '#',
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,38 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Conferencia Fundamentos de la Inteligencia Artificial',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Tecnología e innovación"
+    title="Conferencia Fundamentos de la Inteligencia Artificial"
+    subtitle="Descubre qué es la inteligencia artificial, cómo funciona y de qué manera está transformando el mundo laboral, educativo y social. Ideal para público general y estudiantes."
+    actions={[
+      { variant: 'primary', text: 'Registrarme', href: '#', icon: 'tabler:cpu' },
+      { text: 'Más información', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
+      alt: 'Conferencia de inteligencia artificial',
+    }}
+  />
+
+  <CallToAction
+    title="Aprende sobre el futuro de la tecnología"
+    subtitle="Entiende las bases del aprendizaje automático, la automatización y la ética detrás de los sistemas de IA modernos."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Agendar conferencia',
+        href: '#',
+        icon: 'tabler:robot',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,38 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Conferencia de concientización sobre el phishing',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Ciberseguridad y prevención"
+    title="Conferencia de concientización sobre el phishing"
+    subtitle="Aprende a detectar correos, enlaces y sitios web falsos antes de caer en fraudes digitales. Descubre cómo proteger tus datos personales y financieros mediante prácticas simples y efectivas."
+    actions={[
+      { variant: 'primary', text: 'Solicitar conferencia', href: '#', icon: 'tabler:shield-lock' },
+      { text: 'Ver temario', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
+      alt: 'Seguridad digital y prevención de phishing',
+    }}
+  />
+
+  <CallToAction
+    title="Solicita esta conferencia para tu institución o empresa"
+    subtitle="Promueve la cultura de la seguridad digital entre estudiantes, empleados y directivos. ¡Evita pérdidas de información y fraudes cibernéticos!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Agendar ahora',
+        href: '#',
+        icon: 'tabler:calendar-event',
+      },
+    ]}
+  />
+</Layout>
