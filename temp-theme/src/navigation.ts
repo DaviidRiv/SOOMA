@@ -80,22 +80,22 @@ export const headerData = {
         //{ text: 'EC 0060, 0061, 0213, 0329', href: '/#' },
       //],
     //},
-// === CORTESÍAS ===
-{
-  text: 'Cortesías',
-  links: [
-    { text: 'Conferencia de concientización sobre el phishing', href: getPermalink ('/Cortesias/phishing') },
-    { text: 'Conferencia sobre los riesgos en redes sociales', href: getPermalink ('/Cortesias/redes-sociales') },
-    { text: 'Conferencia sobre la prevención de la violencia y acoso escolar', href: getPermalink('/Cortesias/violencia-acoso') },
-    { text: 'Conferencia sobre Seguridad Digital', href: getPermalink ('/Cortesias/seguridad-digital') },
-    { text: 'Conferencia Fundamentos de la Inteligencia Artificial', href: getPermalink ('/Cortesias/inteligencia-artificial') },
-    { text: 'Análisis de contexto para empresas y fraccionamientos residenciales', href: getPermalink ('/Cortesias/analisis-contexto') },
-  ],
-},
 
+    // === CORTESÍAS ===
+    {
+      text: 'Cortesías',
+      links: [
+        { text: 'Conferencia de concientización sobre el phishing', href: getPermalink ('/Cortesias/phishing') },
+        { text: 'Conferencia sobre los riesgos en redes sociales', href: getPermalink ('/Cortesias/redes-sociales') },
+        { text: 'Conferencia sobre la prevención de la violencia y acoso escolar', href: getPermalink('/Cortesias/violencia-acoso') },
+        { text: 'Conferencia sobre Seguridad Digital', href: getPermalink ('/Cortesias/seguridad-digital') },
+        { text: 'Conferencia Fundamentos de la Inteligencia Artificial', href: getPermalink ('/Cortesias/inteligencia-artificial') },
+        { text: 'Análisis de contexto para empresas y fraccionamientos residenciales', href: getPermalink ('/Cortesias/analisis-contexto') },
+      ],
+    },
   ],
 
-  // Botón derecho (sin cambios)
+  // Botón derecho
   actions: [
     { text: 'Contáctanos', href: '/#contacto', target: '_self' },
   ],

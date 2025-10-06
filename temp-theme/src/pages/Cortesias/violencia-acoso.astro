@@ -1,7 +1,10 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Conferencia sobre la prevención de la violencia y acoso escolar',
@@ -14,13 +17,68 @@ const metadata = {
     title="Conferencia sobre la prevención de la violencia y acoso escolar"
     subtitle="Fomenta entornos escolares seguros y empáticos. Aprende a identificar señales de acoso, promover el respeto y aplicar estrategias de intervención positiva."
     actions={[
-      { variant: 'primary', text: 'Solicitar conferencia', href: '#' },
-      { text: 'Ver programa', href: '#' },
+      { variant: 'primary', text: 'Solicitar conferencia', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:shield-lock' },
+      { text: 'Ver programa', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
       alt: 'Prevención del acoso escolar',
     }}
+  />
+
+  <!-- Cortesías — Violencia y acoso escolar ******************* -->
+  <Prices
+    title="Cortesías — Violencia y Acoso Escolar"
+    subtitle="Recursos gratuitos para iniciar la prevención en tu plantel."
+    prices={[
+      {
+        title: 'Diagnóstico de convivencia',
+        subtitle: 'Cortesía para 1 grupo o turno',
+        items: [
+          { description: 'Encuesta breve anónima a estudiantes/docentes' },
+          { description: 'Mapa inicial de riesgos y conductas' },
+          { description: 'Reporte ejecutivo con 3 acciones inmediatas' },
+          { description: 'Guía de canal de denuncia y derivación' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Solicitar cortesía',
+          href: '#contacto',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'gratis',
+      },
+      {
+        title: 'Kit de aula contra el acoso',
+        subtitle: 'Material para difusión en salones',
+        items: [
+          { description: 'Pósters de respeto/convivencia imprimibles' },
+          { description: 'Tarjetas STOP/Bystander y netiqueta' },
+          { description: 'Mini protocolo de intervención en aula' },
+          { description: 'Plantilla de registro de incidentes' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Descargar/solicitar',
+          href: '#contacto',
+        },
+      },
+      {
+        title: 'Sesión express para docentes o familias',
+        subtitle: 'Sesión virtual de sensibilización (30–45 min)',
+        items: [
+          { description: 'Señales de alerta y primeros pasos' },
+          { description: 'Cómo intervenir sin revictimizar' },
+          { description: 'Ruta de actuación y marco legal básico' },
+          { description: 'Recursos de apoyo y seguimiento' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Agendar sesión',
+          href: '#contacto',
+        },
+      },
+    ]}
   />
 
   <CallToAction
@@ -30,7 +88,9 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Agendar conferencia',
-        href: '#',
+        href: getPermalink('https://wa.me/525549262639'),
+        target: '_blank',
+        icon: 'tabler:shield-lock'
       },
     ]}
   />

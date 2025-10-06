@@ -1,7 +1,10 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Conferencia de concientización sobre el phishing',
@@ -14,13 +17,68 @@ const metadata = {
     title="Conferencia de concientización sobre el phishing"
     subtitle="Aprende a detectar correos, enlaces y sitios web falsos antes de caer en fraudes digitales. Descubre cómo proteger tus datos personales y financieros mediante prácticas simples y efectivas."
     actions={[
-      { variant: 'primary', text: 'Solicitar conferencia', href: '#', icon: 'tabler:shield-lock' },
-      { text: 'Ver temario', href: '#' },
+      { variant: 'primary', text: 'Solicitar conferencia', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:shield-lock' },
+      { text: 'Ver temario', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
       alt: 'Seguridad digital y prevención de phishing',
     }}
+  />
+
+  <!-- Cortesía: Phishing ******************* -->
+  <Prices
+    title="Cortesías — Phishing"
+    subtitle="Solicita una evaluación gratuita y recibe recomendaciones prácticas para tu equipo."
+    prices={[
+      {
+        title: 'Diagnóstico de Phishing',
+        subtitle: 'Cortesía para equipos de hasta 20 personas',
+        items: [
+          { description: 'Simulación de phishing (1 campaña corta)' },
+          { description: 'Medición de tasa de clics y reportes' },
+          { description: 'Reporte ejecutivo con hallazgos clave' },
+          { description: 'Recomendaciones de mitigación inmediatas' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Solicitar cortesía',
+          href: '#contacto',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'gratis',
+      },
+      {
+        title: 'Kit de Concientización',
+        subtitle: 'Material básico para difusión interna',
+        items: [
+          { description: '3 pósters digitales anti-phishing' },
+          { description: '5 plantillas de correo de alerta y buenas prácticas' },
+          { description: 'Checklist rápido para empleados' },
+          { description: 'Guía del “no hagas clic” (PDF breve)' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Descargar/solicitar',
+          href: '#contacto',
+        },
+      },
+      {
+        title: 'Revisión de Correo y Dominio',
+        subtitle: 'Verificación técnica inicial',
+        items: [
+          { description: 'Revisión de SPF, DKIM y DMARC (lectura de registros)' },
+          { description: 'Sugerencias de endurecimiento (best practices)' },
+          { description: 'Observaciones de seguridad en correo/dominio' },
+          { description: 'Guía de siguientes pasos' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Quiero esta revisión',
+          href: '#contacto',
+        },
+      },
+    ]}
   />
 
   <CallToAction
@@ -30,7 +88,8 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Agendar ahora',
-        href: '#',
+        href: getPermalink('https://wa.me/525549262639'),
+        target: '_blank',
         icon: 'tabler:calendar-event',
       },
     ]}

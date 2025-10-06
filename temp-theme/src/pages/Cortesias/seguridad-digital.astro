@@ -1,7 +1,10 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Conferencia sobre Seguridad Digital',
@@ -14,13 +17,68 @@ const metadata = {
     title="Conferencia sobre Seguridad Digital"
     subtitle="Conoce las mejores prácticas para resguardar tu información personal y profesional. Aprende sobre contraseñas seguras, autenticación multifactor y ciberhigiene."
     actions={[
-      { variant: 'primary', text: 'Solicitar conferencia', href: '#', icon: 'tabler:lock' },
-      { text: 'Ver contenido', href: '#' },
+      { variant: 'primary', text: 'Solicitar conferencia', href: getPermalink('https://wa.me/525549262639'), icon: 'tabler:shield-lock' },
+      { text: 'Ver contenido', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
       alt: 'Seguridad digital y datos personales',
     }}
+  />
+
+  <!-- Cortesías — Seguridad Digital *********************************** -->
+  <Prices
+    title="Cortesías — Seguridad Digital"
+    subtitle="Recursos gratuitos para iniciar la protección en tu organización."
+    prices={[
+      {
+        title: 'Chequeo de seguridad de cuentas',
+        subtitle: 'Cortesía para 1–2 cuentas (persona o equipo)',
+        items: [
+          { description: 'Validación de contraseñas y uso de gestor' },
+          { description: 'Activación/verificación de MFA' },
+          { description: 'Revisión de sesiones activas y apps conectadas' },
+          { description: 'Recomendaciones de endurecimiento inmediato' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Solicitar cortesía',
+          href: '#contacto',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'gratis',
+      },
+      {
+        title: 'Kit de Ciberhigiene',
+        subtitle: 'Material básico para difusión interna',
+        items: [
+          { description: 'Checklist de buenas prácticas (contraseñas, actualizaciones, backups)' },
+          { description: 'Plantillas de política BYOD y política de contraseñas' },
+          { description: 'Guía rápida anti-phishing/smishing' },
+          { description: 'Pósters y recordatorios descargables' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Descargar/solicitar',
+          href: '#contacto',
+        },
+      },
+      {
+        title: 'Revisión técnica inicial',
+        subtitle: 'Verificación de configuración y exposición',
+        items: [
+          { description: 'Comprobación de HTTPS y cifrado de dispositivos' },
+          { description: 'Validación de estrategia de copias (3-2-1) y restauración' },
+          { description: 'Observación de puertos/servicios expuestos (vista externa)' },
+          { description: 'Plan de siguientes pasos priorizados' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Quiero esta revisión',
+          href: '#contacto',
+        },
+      },
+    ]}
   />
 
   <CallToAction
@@ -30,7 +88,8 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Contactar',
-        href: '#',
+        href: getPermalink('https://wa.me/525549262639'),
+        target: '_blank',
         icon: 'tabler:mail',
       },
     ]}

@@ -1,7 +1,10 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Conferencia sobre los riesgos en redes sociales',
@@ -14,13 +17,68 @@ const metadata = {
     title="Conferencia sobre los riesgos en redes sociales"
     subtitle="Explora los peligros del mal uso de redes sociales y aprende estrategias para proteger tu privacidad, identidad y bienestar digital. Ideal para jóvenes, padres y docentes."
     actions={[
-      { variant: 'primary', text: 'Invitar conferencia', href: '#', icon: 'tabler:brand-facebook' },
-      { text: 'Saber más', href: '#' },
+      { variant: 'primary', text: 'Invitar conferencia', href: getPermalink('https://wa.me/525549262639'), icon: 'tabler:shield-lock' },
+      { text: 'Saber más', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
       alt: 'Riesgos en redes sociales',
     }}
+  />
+
+  <!-- Cortesía: Redes Sociales ******************* -->
+  <Prices
+    title="Cortesías — Redes Sociales"
+    subtitle="Asesoría gratuita para fortalecer perfiles personales y cuentas institucionales."
+    prices={[
+      {
+        title: 'Diagnóstico de Redes Sociales',
+        subtitle: 'Cortesía para 1-2 cuentas (persona o marca)',
+        items: [
+          { description: 'Revisión de privacidad y visibilidad por plataforma (FB/IG/TikTok/X)' },
+          { description: 'Mapa de exposición: datos públicos y publicaciones sensibles' },
+          { description: 'Checklist de endurecimiento y recuperación de cuenta' },
+          { description: 'Reporte ejecutivo con hallazgos y prioridades' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Solicitar cortesía',
+          href: '#contacto',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'gratis',
+      },
+      {
+        title: 'Kit de Concientización en Redes',
+        subtitle: 'Material básico para difusión interna',
+        items: [
+          { description: 'Guía rápida para evitar doxing y phishing en DMs' },
+          { description: 'Plantillas de política interna de uso de redes' },
+          { description: 'Pautas de contenido seguro para colaboradores/estudiantes' },
+          { description: '10 recomendaciones de configuración por plataforma' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Descargar/solicitar',
+          href: '#contacto',
+        },
+      },
+      {
+        title: 'Revisión de Seguridad de Cuentas',
+        subtitle: 'Verificación técnica inicial',
+        items: [
+          { description: 'Activación/validación de MFA y gestión de contraseñas' },
+          { description: 'Revisión de sesiones abiertas y apps conectadas' },
+          { description: 'Comprobación de correos/teléfonos de recuperación' },
+          { description: 'Sugerencias de roles y permisos para cuentas de equipo' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Quiero esta revisión',
+          href: '#contacto',
+        },
+      },
+    ]}
   />
 
   <CallToAction
@@ -30,9 +88,11 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Agendar sesión',
-        href: '#',
+        href: getPermalink('https://wa.me/525549262639'),
+        target: '_blank',
         icon: 'tabler:message-circle',
       },
     ]}
   />
+
 </Layout>

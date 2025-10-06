@@ -1,7 +1,10 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Conferencia Fundamentos de la Inteligencia Artificial',
@@ -14,13 +17,68 @@ const metadata = {
     title="Conferencia Fundamentos de la Inteligencia Artificial"
     subtitle="Descubre qué es la inteligencia artificial, cómo funciona y de qué manera está transformando el mundo laboral, educativo y social. Ideal para público general y estudiantes."
     actions={[
-      { variant: 'primary', text: 'Registrarme', href: '#', icon: 'tabler:cpu' },
-      { text: 'Más información', href: '#' },
+      { variant: 'primary', text: 'Registrarme', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:shield-lock' },
+      { text: 'Más información', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
       alt: 'Conferencia de inteligencia artificial',
     }}
+  />
+
+  <!-- Cortesías — Fundamentos de IA *********************************** -->
+  <Prices
+    title="Cortesías — Fundamentos de IA"
+    subtitle="Recursos gratuitos para empezar con inteligencia artificial de forma segura y responsable."
+    prices={[
+      {
+        title: 'Diagnóstico de Madurez en IA',
+        subtitle: 'Cortesía para 1 área o equipo',
+        items: [
+          { description: 'Breve evaluación de uso actual de IA' },
+          { description: 'Identificación de casos de uso inmediatos' },
+          { description: 'Mapa inicial de riesgos (sesgos, privacidad, seguridad)' },
+          { description: '3 recomendaciones de adopción responsable' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Solicitar cortesía',
+          href: '#contacto',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'gratis',
+      },
+      {
+        title: 'Kit de Prompts Responsables',
+        subtitle: 'Plantillas y guía rápida',
+        items: [
+          { description: '10 prompts base para productividad y aprendizaje' },
+          { description: 'Buenas prácticas de ingeniería de prompts' },
+          { description: 'Lineamientos de privacidad y datos sensibles' },
+          { description: 'Checklist de validación y trazabilidad' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Descargar/solicitar',
+          href: '#contacto',
+        },
+      },
+      {
+        title: 'Sesión Express: IA Segura y Ética',
+        subtitle: 'Charla virtual de 30–45 min',
+        items: [
+          { description: 'Qué es IA/ML y límites actuales' },
+          { description: 'Riesgos: alucinaciones, sesgos y filtración de datos' },
+          { description: 'Buenas prácticas de uso en aula/empresa' },
+          { description: 'Recursos de aprendizaje y siguientes pasos' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Agendar sesión',
+          href: '#contacto',
+        },
+      },
+    ]}
   />
 
   <CallToAction
@@ -30,7 +88,8 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Agendar conferencia',
-        href: '#',
+        href: getPermalink('https://wa.me/525549262639'),
+        target: '_blank',
         icon: 'tabler:robot',
       },
     ]}

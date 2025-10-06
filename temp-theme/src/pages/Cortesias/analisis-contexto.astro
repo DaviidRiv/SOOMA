@@ -1,7 +1,10 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Análisis de contexto para empresas y fraccionamientos residenciales',
@@ -14,13 +17,68 @@ const metadata = {
     title="Análisis de contexto para empresas y fraccionamientos residenciales"
     subtitle="Evaluación integral del entorno físico, social y de seguridad para apoyar la toma de decisiones en organizaciones y desarrollos habitacionales. Incluye diagnóstico de riesgos y recomendaciones."
     actions={[
-      { variant: 'primary', text: 'Solicitar análisis', href: '#', icon: 'tabler:map-search' },
-      { text: 'Ver metodología', href: '#' },
+      { variant: 'primary', text: 'Solicitar análisis', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:map-search' },
+      { text: 'Ver metodología', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
       alt: 'Análisis de contexto empresarial y residencial',
     }}
+  />
+
+  <!-- Cortesías — Análisis de Contexto ******************************** -->
+  <Prices
+    title="Cortesías — Análisis de Contexto"
+    subtitle="Recursos gratuitos para iniciar la evaluación de tu entorno."
+    prices={[
+      {
+        title: 'Diagnóstico inicial del entorno',
+        subtitle: 'Cortesía para 1 sitio (empresa o fraccionamiento)',
+        items: [
+          { description: 'Checklist rápido de condiciones físicas y sociales' },
+          { description: 'Mapa preliminar de riesgos y “zonas calientes”' },
+          { description: 'Revisión de accesos, iluminación y visibilidad' },
+          { description: 'Reporte ejecutivo con Top 5 acciones inmediatas' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Solicitar cortesía',
+          href: '#contacto',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'gratis',
+      },
+      {
+        title: 'Kit de prevención para la comunidad',
+        subtitle: 'Material básico para difusión interna',
+        items: [
+          { description: 'Infografías de rutas seguras y conducta preventiva' },
+          { description: 'Protocolo de visitante/contratista (plantilla)' },
+          { description: 'Guía de denuncia y contactos clave locales' },
+          { description: 'Checklist de seguridad personal y vecinal' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Descargar/solicitar',
+          href: '#contacto',
+        },
+      },
+      {
+        title: 'Revisión técnica básica del perímetro',
+        subtitle: 'Verificación inicial de CCTV, alarmas y accesos',
+        items: [
+          { description: 'Ángulos de cámara y puntos ciegos' },
+          { description: 'Estado de luminarias y barreras perimetrales' },
+          { description: 'Entradas/salidas y señalética operativa' },
+          { description: 'Recomendaciones de control de acceso' },
+        ],
+        callToAction: {
+          target: '_self',
+          text: 'Quiero esta revisión',
+          href: '#contacto',
+        },
+      },
+    ]}
   />
 
   <CallToAction
@@ -30,7 +88,8 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Solicitar servicio',
-        href: '#',
+        href: getPermalink('https://wa.me/525549262639'),
+        target: '_blank',
         icon: 'tabler:clipboard-text',
       },
     ]}
