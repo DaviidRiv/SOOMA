@@ -1,24 +1,23 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Análisis de contexto para empresas y fraccionamientos residenciales',
+  title: 'Análisis de contexto para la seguridad perimetral y control de acceso',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <Hero2
     tagline="Seguridad y planeación estratégica"
-    title="Análisis de contexto para empresas y fraccionamientos residenciales"
-    subtitle="Evaluación integral del entorno físico, social y de seguridad para apoyar la toma de decisiones en organizaciones y desarrollos habitacionales. Incluye diagnóstico de riesgos y recomendaciones."
+    title="Análisis de contexto para la seguridad perimetral y control de acceso"
+    subtitle="Metodología ágil para evaluar entorno, amenazas y vulnerabilidades del sitio. Resulta en recomendaciones de perímetros, credenciales, flujos de entrada/salida y procedimientos operativos mínimos."
     actions={[
       { variant: 'primary', text: 'Solicitar análisis', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:map-search' },
-      { text: 'Ver metodología', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',

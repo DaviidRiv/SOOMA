@@ -1,24 +1,23 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Conferencia de concientización sobre el phishing',
+  title: 'Prevención del Phishing',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <Hero2
     tagline="Ciberseguridad y prevención"
-    title="Conferencia de concientización sobre el phishing"
-    subtitle="Aprende a detectar correos, enlaces y sitios web falsos antes de caer en fraudes digitales. Descubre cómo proteger tus datos personales y financieros mediante prácticas simples y efectivas."
+    title="Prevención del Phishing"
+    subtitle="Aprende a identificar correos, mensajes y sitios falsos con ejemplos reales y técnicas actuales de engaño. Incluye un checklist práctico y medidas inmediatas para proteger cuentas, datos y dinero."
     actions={[
       { variant: 'primary', text: 'Solicitar conferencia', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:shield-lock' },
-      { text: 'Ver temario', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',

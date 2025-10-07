@@ -1,24 +1,23 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Conferencia sobre la prevención de la violencia y acoso escolar',
+  title: 'Prevención de la violencia y acoso escolar',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <Hero2
     tagline="Respeto y convivencia"
-    title="Conferencia sobre la prevención de la violencia y acoso escolar"
-    subtitle="Fomenta entornos escolares seguros y empáticos. Aprende a identificar señales de acoso, promover el respeto y aplicar estrategias de intervención positiva."
+    title="Prevención de la violencia y acoso escolar"
+    subtitle="Marco básico para detectar señales, actuar con protocolos y fortalecer la convivencia. Se revisan rutas de atención, ciberacoso y herramientas de participación para escuela y familias."
     actions={[
       { variant: 'primary', text: 'Solicitar conferencia', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:shield-lock' },
-      { text: 'Ver programa', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',

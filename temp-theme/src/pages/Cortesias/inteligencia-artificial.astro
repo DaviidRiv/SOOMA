@@ -1,24 +1,23 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Conferencia Fundamentos de la Inteligencia Artificial',
+  title: 'Fundamentos de inteligencia artificial',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <Hero2
     tagline="Tecnología e innovación"
-    title="Conferencia Fundamentos de la Inteligencia Artificial"
-    subtitle="Descubre qué es la inteligencia artificial, cómo funciona y de qué manera está transformando el mundo laboral, educativo y social. Ideal para público general y estudiantes."
+    title="Fundamentos de inteligencia artificial"
+    subtitle="Qué es la IA, cómo funciona y dónde aporta valor en el día a día y en los negocios. Demostraciones responsables de uso con buenas prácticas, riesgos y principios éticos básicos."
     actions={[
       { variant: 'primary', text: 'Registrarme', href: getPermalink('https://wa.me/525549262639'), target: '_blank', icon: 'tabler:shield-lock' },
-      { text: 'Más información', href: getPermalink('https://wa.me/525549262639'), target: '_blank' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?auto=format&fit=crop&w=1674&q=80',
