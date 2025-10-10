@@ -165,47 +165,44 @@ const waHuman = '+52 444 142 5726';
               Déjanos tu nombre, correo y tu mensaje. Te respondemos a la brevedad.
             </p>
           </div>
+<form
+  action="https://formsubmit.co/ventas@soomaconsultores.com.mx"
+  method="POST"
+  class="grid gap-4"
+>
+  <!-- Campos (ahora con name=...) -->
+  <div class="grid gap-4 md:grid-cols-2">
+    <div>
+      <label class="mb-1 block text-sm font-medium">Nombre</label>
+      <input name="nombre" class="w-full rounded-lg border px-3 py-2" placeholder="Nombre" required />
+    </div>
+    <div>
+      <label class="mb-1 block text-sm font-medium">Correo electrónico</label>
+      <input name="email" type="email" class="w-full rounded-lg border px-3 py-2" placeholder="Correo electrónico" required />
+    </div>
+  </div>
 
-          <form
-            class="grid gap-4"
-            onsubmit="event.preventDefault(); alert('¡Gracias! Pronto te contactamos. (Conecta Formspree o tu API)');"
-          >
-            <div class="grid gap-4 md:grid-cols-2">
-              <div>
-                <label class="mb-1 block text-sm font-medium">Nombre</label>
-                <div class="relative">
-                  <input class="w-full rounded-lg border px-3 py-2 pl-10" placeholder="Nombre" required aria-label="Nombre" />
-                  <svg class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 0115 0" />
-                  </svg>
-                </div>
-              </div>
+  <div>
+    <label class="mb-1 block text-sm font-medium">Mensaje</label>
+    <textarea name="mensaje" rows="6" class="w-full rounded-lg border px-3 py-2" placeholder="Escribe tu mensaje..." required></textarea>
+  </div>
 
-              <div>
-                <label class="mb-1 block text-sm font-medium">Correo electrónico</label>
-                <div class="relative">
-                  <input type="email" class="w-full rounded-lg border px-3 py-2 pl-10" placeholder="Correo electrónico" required aria-label="Correo electrónico" />
-                  <svg class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 7.5l-9.75 6-9.75-6m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75h15a2.25 2.25 0 002.25-2.25v-9z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
+  <label class="flex items-start gap-2 text-sm text-slate-600">
+    <input id="consent" type="checkbox" required />
+    Acepto ser contactado con fines informativos y comerciales.
+  </label>
 
-            <div>
-              <label class="mb-1 block text-sm font-medium">Mensaje</label>
-              <textarea rows="6" class="w-full rounded-lg border px-3 py-2" placeholder="Escribe tu mensaje aquí..." required aria-label="Mensaje"></textarea>
-            </div>
+  <!-- Extras útiles -->
+  <input type="hidden" name="_subject" value="Nuevo contacto — SOOMA" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_next" value="https://TU-DOMINIO/thanks.html" />
 
-            <div class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
-              <input id="consent" type="checkbox" required class="mt-1" />
-              <label for="consent">Acepto ser contactado con fines informativos y comerciales.</label>
-            </div>
+  <!-- Honeypot (anti-bots) -->
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
-            <button class="mt-2 w-full rounded-lg bg-accent px-4 py-2 font-semibold text-white hover:opacity-90">
-              Enviar
-            </button>
-          </form>
+  <button class="mt-2 w-full rounded-lg bg-accent px-4 py-2 font-semibold text-white">Enviar</button>
+</form>
         </div>
       </div>
     </div>
