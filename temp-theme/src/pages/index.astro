@@ -1,11 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import ToTopButton from '~/components/common/ToTopButton.astro';
-import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import HeroBgCarouselReact from '~/components/widgets/HeroBgCarouselRact.tsx';
 import MvvCards from '~/components/widgets/MvvCards.astro';
+import TeamShowcase from '~/components/widgets/TeamShowcase.tsx';
 
 import equipoImg from '~/assets/images/nosotros.jpg';
 
@@ -76,8 +76,6 @@ const waHuman = '+52 444 142 5726';
     ]}
   />
 
-
-
   <!-- Misión · Visión · Valores **************** -->
   <MvvCards
     id="mvv"
@@ -127,7 +125,6 @@ const waHuman = '+52 444 142 5726';
     image={
       { src: equipoImg, alt: 'Equipo multidisciplinario SOOMA'}
     }
-
   >
     <Fragment slot="content">
       <p>
@@ -138,6 +135,37 @@ const waHuman = '+52 444 142 5726';
       <div class="absolute inset-0 bg-blue-50/60 dark:bg-transparent"></div>
     </Fragment>
   </Content>
+  <!-- NUEVA SECCIÓN: Equipo -->
+  <TeamShowcase
+    client:only="react"
+    id="equipo"
+    tagline="Liderazgo"
+    title="Nuestro equipo directivo"
+    subtitle="Profesionales con experiencia en gobierno, academia y sector privado."
+    members={[
+      {
+        name: "Emma Saldaña Guerrero",
+        role: "Mtra. en Administración | Seguridad y exlegisladora",
+        img: { src: "/images/equipo/emma (1).webp", alt: "Emma Saldaña Guerrero" },
+        bio:
+          "Licenciada en Derecho y máster en Administración. Experta en seguridad y exlegisladora. Ha impulsado el empoderamiento de la mujer y consolidado su actividad profesional tejiendo alianzas con el sector empresarial."
+      },
+      {
+        name: "Salvador M. Vázquez",
+        role: "Abogado postulante, docente y escritor",
+        img: { src: "/images/equipo/salvador (1).webp", alt: "Salvador M. Vázquez" },
+        bio:
+          "Experiencia en alta dirección. Lidera estrategias para la gestión de proyectos y la depuración de procesos en el sector público y privado."
+      },
+      {
+        name: "J. Carlos Gómez Sustaita",
+        role: "Exdirector de Policía Cibernética de SLP",
+        img: { src: "/images/equipo/carlos (1).webp", alt: "J. Carlos Gómez Sustaita" },
+        bio:
+          "Desarrolló el protocolo de atención a incidentes cibernéticos para NNA. Autor de 'Claves y Metodologías para el analista de inteligencia'."
+      }
+    ]}
+  />
 
   <!-- Contacto ******************************** -->
   <section id="contacto" class="py-16">
@@ -243,7 +271,7 @@ const waHuman = '+52 444 142 5726';
           <h3 class="text-lg font-bold text-slate-900">SOOMA Consultores</h3>
           <p class="mt-1 text-sm text-slate-700">
             {address} <br />
-            Atención: Lun–Vie 9:00–18:00
+            Atención: Lun-Vie 9:00-18:00
           </p>
 
           <div class="mt-4 grid grid-cols-2 gap-2">
