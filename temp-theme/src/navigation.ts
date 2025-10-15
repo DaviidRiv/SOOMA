@@ -127,7 +127,8 @@ export const footerData = {
       links: [
         { text: 'Configuración de cookies', href: '/cookies' },
         { text: 'Términos y condiciones', href: '/terms' },
-        { text: 'Preferencias de privacidad', href: '/privacy' },
+        { text: 'Políticas de privacidad', href: '/privacy' },
+        { text: 'Privacidad integral', href: '/integral' }
       ],
     },
   ],
