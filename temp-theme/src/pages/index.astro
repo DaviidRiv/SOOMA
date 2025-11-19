@@ -10,7 +10,7 @@ import TeamShowcase from '~/components/widgets/TeamShowcase.tsx';
 import equipoImg from '~/assets/images/nosotros.jpg';
 
 const metadata = {
-  title: 'SOOMA Consultores — Inicio',
+  title: 'SOOMA Consultores',
   description:
     'Consultoría y capacitación en seguridad y desarrollo humano para instituciones educativas, empresas y sector público.',
 };
@@ -21,7 +21,7 @@ const mapsQuery = encodeURIComponent(address);
 const mapsEmbed = `https://www.google.com/maps?q=${mapsQuery}&output=embed`;
 const mapsLink = `https://maps.google.com/?q=${mapsQuery}`;
 
-const emailTo = 'emmaidaliasaldana@gmail.com';
+const emailTo = 'ventas@soomaconsultores.com.mx';
 const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailTo)}&su=${encodeURIComponent('Consulta — SOOMA')}&body=${encodeURIComponent('Hola, me interesa un diagnóstico para mi institución.')}`;
 
 const waE164 = '524441425726'; // sin símbolos, para wa.me
@@ -68,7 +68,6 @@ const waHuman = '+52 444 142 5726';
     desktopImages={[
       { src: '/images/sooma-hero/1.gif', alt: 'Consultoría IT', position: 'center' },
       { src: '/images/sooma-hero/2.gif', alt: 'Consultoría Legal', position: 'center' },
-      { src: '/images/sooma-hero/3.gif', alt: 'Ciberseguridad', position: 'center' },
       { src: '/images/sooma-hero/4.gif', alt: 'Sistema de Gestión de Seguridad', position: 'center' },
       { src: '/images/sooma-hero/5.gif', alt: 'AI para empresas', position: 'center' },
       { src: '/images/sooma-hero/6.gif', alt: 'Prevención de la Violencia', position: 'center' },
@@ -193,50 +192,48 @@ const waHuman = '+52 444 142 5726';
               Déjanos tu nombre, correo y tu mensaje. Te respondemos a la brevedad.
             </p>
           </div>
-<form
-  action="https://formsubmit.co/ventas@soomaconsultores.com.mx"
-  method="POST"
-  class="grid gap-4"
->
-  <!-- Campos (ahora con name=...) -->
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="mb-1 block text-sm font-medium">Nombre</label>
-      <input name="nombre" class="w-full rounded-lg border px-3 py-2" placeholder="Nombre" required />
-    </div>
-    <div>
-      <label class="mb-1 block text-sm font-medium">Correo electrónico</label>
-      <input name="email" type="email" class="w-full rounded-lg border px-3 py-2" placeholder="Correo electrónico" required />
-    </div>
-  </div>
+          <form
+            action="https://formsubmit.co/ventas@soomaconsultores.com.mx"
+            method="POST"
+            class="grid gap-4"
+          >
+            <!-- Campos (ahora con name=...) -->
+            <div class="grid gap-4 md:grid-cols-2">
+              <div>
+                <label class="mb-1 block text-sm font-medium">Nombre</label>
+                <input name="nombre" class="w-full rounded-lg border px-3 py-2" placeholder="Nombre" required />
+              </div>
+              <div>
+                <label class="mb-1 block text-sm font-medium">Correo electrónico</label>
+                <input name="email" type="email" class="w-full rounded-lg border px-3 py-2" placeholder="Correo electrónico" required />
+              </div>
+            </div>
 
-  <div>
-    <label class="mb-1 block text-sm font-medium">Mensaje</label>
-    <textarea name="mensaje" rows="6" class="w-full rounded-lg border px-3 py-2" placeholder="Escribe tu mensaje..." required></textarea>
-  </div>
+            <div>
+              <label class="mb-1 block text-sm font-medium">Mensaje</label>
+              <textarea name="mensaje" rows="6" class="w-full rounded-lg border px-3 py-2" placeholder="Escribe tu mensaje..." required></textarea>
+            </div>
 
-  <label class="flex items-start gap-2 text-sm text-slate-600">
-    <input id="consent" type="checkbox" required />
-    Acepto ser contactado con fines informativos y comerciales.
-  </label>
+            <label class="flex items-start gap-2 text-sm text-slate-600">
+              <input id="consent" type="checkbox" required />
+              Acepto ser contactado con fines informativos y comerciales.
+            </label>
 
-  <!-- Extras útiles -->
-  <input type="hidden" name="_subject" value="Nuevo contacto — SOOMA" />
-  <input type="hidden" name="_template" value="table" />
-  <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_next" value="https://TU-DOMINIO/thanks.html" />
+            <!-- Extras útiles -->
+            <input type="hidden" name="_subject" value="Nuevo contacto — SOOMA" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
 
-  <!-- Honeypot (anti-bots) -->
-  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <!-- Honeypot (anti-bots) -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
-  <button class="mt-2 w-full rounded-lg bg-accent px-4 py-2 font-semibold text-white">Enviar</button>
-</form>
+            <button class="mt-2 w-full rounded-lg bg-accent px-4 py-2 font-semibold text-white">Enviar</button>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Mapa ************************************ -->
   <!-- Mapa ************************************ -->
   <section id="mapa" class="py-16">
     <div class="mx-auto max-w-7xl px-6">
